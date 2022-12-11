@@ -1,0 +1,26 @@
+//
+//  GameModel.swift
+//  GameBook
+//
+//  Created by Hasan Uysal on 11.12.2022.
+//
+
+import Foundation
+
+struct GameModel: Decodable {
+    let id: Int
+    let name: String
+    let released: String
+    let image: String
+    let rating: Double
+    let genres: [GameGenresModel]
+    
+    enum CodingKeys: String, CodingKey{
+        case id
+        case name
+        case released
+        case image = "background_image"
+        case rating
+        case genres
+    }
+}

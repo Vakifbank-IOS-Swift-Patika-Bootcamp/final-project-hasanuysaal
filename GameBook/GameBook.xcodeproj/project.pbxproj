@@ -16,6 +16,11 @@
 		40B9242E2946027500DE3C5F /* GameBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9242D2946027500DE3C5F /* GameBookTests.swift */; };
 		40B924382946027500DE3C5F /* GameBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924372946027500DE3C5F /* GameBookUITests.swift */; };
 		40B9243A2946027500DE3C5F /* GameBookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924392946027500DE3C5F /* GameBookUITestsLaunchTests.swift */; };
+		40B9247429460B9B00DE3C5F /* GameDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9247329460B9B00DE3C5F /* GameDBClient.swift */; };
+		40B9247629460BB700DE3C5F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9247529460BB700DE3C5F /* Constant.swift */; };
+		40B9247829460C0600DE3C5F /* GameGenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9247729460C0600DE3C5F /* GameGenresModel.swift */; };
+		40B9247C29460C1D00DE3C5F /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9247B29460C1D00DE3C5F /* GameModel.swift */; };
+		40B9247E29460C3A00DE3C5F /* GameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9247D29460C3A00DE3C5F /* GameResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		40B924332946027500DE3C5F /* GameBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B924372946027500DE3C5F /* GameBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBookUITests.swift; sourceTree = "<group>"; };
 		40B924392946027500DE3C5F /* GameBookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBookUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		40B9247329460B9B00DE3C5F /* GameDBClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDBClient.swift; sourceTree = "<group>"; };
+		40B9247529460BB700DE3C5F /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		40B9247729460C0600DE3C5F /* GameGenresModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameGenresModel.swift; sourceTree = "<group>"; };
+		40B9247B29460C1D00DE3C5F /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		40B9247D29460C3A00DE3C5F /* GameResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +162,8 @@
 		40B924492946031B00DE3C5F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				40B9247329460B9B00DE3C5F /* GameDBClient.swift */,
+				40B9247529460BB700DE3C5F /* Constant.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -184,6 +196,9 @@
 		40B92459294606EA00DE3C5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				40B9247B29460C1D00DE3C5F /* GameModel.swift */,
+				40B9247D29460C3A00DE3C5F /* GameResponseModel.swift */,
+				40B9247729460C0600DE3C5F /* GameGenresModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -483,7 +498,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B924142946027300DE3C5F /* AppDelegate.swift in Sources */,
+				40B9247E29460C3A00DE3C5F /* GameResponseModel.swift in Sources */,
+				40B9247829460C0600DE3C5F /* GameGenresModel.swift in Sources */,
+				40B9247429460B9B00DE3C5F /* GameDBClient.swift in Sources */,
+				40B9247629460BB700DE3C5F /* Constant.swift in Sources */,
 				40B9241E2946027300DE3C5F /* GameBook.xcdatamodeld in Sources */,
+				40B9247C29460C1D00DE3C5F /* GameModel.swift in Sources */,
 				40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
