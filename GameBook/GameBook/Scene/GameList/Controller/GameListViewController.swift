@@ -16,7 +16,7 @@ class GameListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.fetchGames()
+        viewModel.fetchGames(pageNum: 1)
         collectionViewSetup()
     }
 
@@ -34,8 +34,6 @@ extension GameListViewController: GameListViewModelDelegate {
     func gamesFailed() {
         print("failed")
     }
-    
-    
 }
 
 extension GameListViewController: UICollectionViewDataSource {
@@ -50,6 +48,4 @@ extension GameListViewController: UICollectionViewDataSource {
         cell.configure(model: gameModel)
         return cell
     }
-    
-    
 }

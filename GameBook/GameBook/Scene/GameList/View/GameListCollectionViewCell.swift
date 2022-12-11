@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class GameListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -15,16 +16,16 @@ class GameListCollectionViewCell: UICollectionViewCell {
     
     var starImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.frame = CGRect(x: 120, y: 15, width: 55, height: 30)
+        imageView.frame = CGRect(x: 127, y: 15, width: 35, height: 35)
         imageView.image = UIImage(named: "star")
         return imageView
     }()
     
     var ratingLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 138, y: 20, width: 50, height: 20)
+        label.frame = CGRect(x: 140, y: 28, width: 50, height: 20)
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         return label
     }()
     
@@ -36,8 +37,17 @@ class GameListCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderWidth = 1.5
+        layer.borderColor = UIColor.systemRed.cgColor
+        layer.cornerRadius = 20.0
+        imageView.layer.cornerRadius = 25.0
+        
+    }
+    
     func configure(model: GameModel){
-        imageView.image = UIImage(named: "gta")
+        imageView.sd_setImage(with: URL(string: model.image), placeholderImage: UIImage(named: "gta"))
         nameLabel.text = model.name
         releaseDateLabel.text = model.released
         genresArr = model.genres.map { $0.name }

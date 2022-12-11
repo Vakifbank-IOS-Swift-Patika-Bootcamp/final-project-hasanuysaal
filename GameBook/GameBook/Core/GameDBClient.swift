@@ -12,12 +12,12 @@ class GameDBClient {
     enum Endpoints {
         static let base = "https://api.rawg.io/api"
         
-        case games
+        case games(Int)
         
         var stringValue: String {
             switch self {
-            case .games:
-                return Endpoints.base + "/games" + Constant.API_KEY
+            case .games(let pageNum):
+                return Endpoints.base + "/games" + Constant.API_KEY + "&page=\(pageNum)"
             }
         }
         
@@ -49,8 +49,8 @@ class GameDBClient {
         return task
     }
     
-    static func getGamesResponse(completion: @escaping (GamesResponseModel?, Error?) -> Void) {
-        taskForGETRequest(url: Endpoints.games.url, responseType: GamesResponseModel.self) { response, error in
+    static func getGamesResponse(pageNum: Int, completion: @escaping (GamesResponseModel?, Error?) -> Void) {
+        taskForGETRequest(url: Endpoints.games(pageNum).url, responseType: GamesResponseModel.self) { response, error in
             if let response = response {
                 completion(response, nil)
             } else {

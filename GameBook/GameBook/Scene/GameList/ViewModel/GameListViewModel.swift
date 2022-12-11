@@ -8,8 +8,9 @@
 import Foundation
 
 protocol GameListViewModelProtocol{
+    var pageCounter: Int { get set }
     var delegate: GameListViewModelDelegate? { get set }
-    func fetchGames()
+    func fetchGames(pageNum: Int)
     func getGame(at index: Int) -> GameModel?
     func getGameId(at index: Int) -> Int
     func getGamesCount() -> Int
@@ -26,9 +27,10 @@ class GameListViewModel: GameListViewModelProtocol{
     weak var delegate: GameListViewModelDelegate?
     
     var games: [GameModel]?
-
-    func fetchGames() {
-        GameDBClient.getGamesResponse { gameResponse, error in
+    var pageCounter = 2
+    
+    func fetchGames(pageNum: Int) {
+        GameDBClient.getGamesResponse(pageNum: pageNum) { gameResponse, error in
             self.games = gameResponse?.results
             self.delegate?.gamesLoaded()
         }
