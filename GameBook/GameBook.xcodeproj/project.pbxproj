@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		400AD200294631B100559662 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AD1FF294631B100559662 /* Double+Extension.swift */; };
+		400AD2032946532000559662 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 400AD2022946532000559662 /* SDWebImage */; };
 		40B924142946027300DE3C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924132946027300DE3C5F /* AppDelegate.swift */; };
 		40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924152946027300DE3C5F /* SceneDelegate.swift */; };
 		40B9241B2946027300DE3C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B924192946027300DE3C5F /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				400AD2032946532000559662 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +404,9 @@
 			dependencies = (
 			);
 			name = GameBook;
+			packageProductDependencies = (
+				400AD2022946532000559662 /* SDWebImage */,
+			);
 			productName = GameBook;
 			productReference = 40B924102946027300DE3C5F /* GameBook.app */;
 			productType = "com.apple.product-type.application";
@@ -474,6 +479,9 @@
 				Base,
 			);
 			mainGroup = 40B924072946027300DE3C5F;
+			packageReferences = (
+				400AD2012946532000559662 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 40B924112946027300DE3C5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -870,6 +878,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		400AD2012946532000559662 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		400AD2022946532000559662 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 400AD2012946532000559662 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		40B9241C2946027300DE3C5F /* GameBook.xcdatamodeld */ = {
