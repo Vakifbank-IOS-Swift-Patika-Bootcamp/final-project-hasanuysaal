@@ -20,7 +20,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4CA-n6-Meo"/>
                     <connections>
-                        <segue destination="6wZ-bw-fTJ" kind="show" id="3g1-fj-oJd"/>
+                        <segue destination="6wZ-bw-fTJ" kind="show" identifier="toNoteDetail" id="3g1-fj-oJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAv-HK-4aG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -71,7 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GUu-ph-flD"/>
                     <connections>
-                        <segue destination="fv3-Nj-eR5" kind="show" id="UAQ-vy-gv3"/>
+                        <segue destination="fv3-Nj-eR5" kind="show" identifier="toGameDetail" id="UAQ-vy-gv3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,6 +100,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="90w-XZ-7s1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9oa-Xm-Kow">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -113,11 +114,11 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
         </scene>
-        <!--Item-->
+        <!--Games-->
         <scene sceneID="Lka-1x-PvH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tqn-pt-nBT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ACr-Mz-CDw"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="gamecontroller" catalog="system" id="ACr-Mz-CDw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A3E-cV-ITB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -153,6 +154,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
