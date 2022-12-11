@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400AD200294631B100559662 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AD1FF294631B100559662 /* Double+Extension.swift */; };
 		40B924142946027300DE3C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924132946027300DE3C5F /* AppDelegate.swift */; };
 		40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924152946027300DE3C5F /* SceneDelegate.swift */; };
 		40B9241B2946027300DE3C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B924192946027300DE3C5F /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		400AD1FF294631B100559662 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		40B924102946027300DE3C5F /* GameBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B924132946027300DE3C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40B924152946027300DE3C5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400AD1FE2946319600559662 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				400AD1FF294631B100559662 /* Double+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		40B924072946027300DE3C5F = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		40B924122946027300DE3C5F /* GameBook */ = {
 			isa = PBXGroup;
 			children = (
+				400AD1FE2946319600559662 /* Extension */,
 				40B924492946031B00DE3C5F /* Core */,
 				40B924482946031100DE3C5F /* Scene */,
 				40B92446294602EE00DE3C5F /* App */,
@@ -514,6 +525,7 @@
 				40B9247429460B9B00DE3C5F /* GameDBClient.swift in Sources */,
 				40B9248229460EE800DE3C5F /* GameListViewController.swift in Sources */,
 				40B9247629460BB700DE3C5F /* Constant.swift in Sources */,
+				400AD200294631B100559662 /* Double+Extension.swift in Sources */,
 				40B9241E2946027300DE3C5F /* GameBook.xcdatamodeld in Sources */,
 				40B9247C29460C1D00DE3C5F /* GameModel.swift in Sources */,
 				40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */,
