@@ -68,8 +68,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOT-uP-ITR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuy-BD-5bl">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Filter">
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AN2-Ee-gag"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-YL-qYa">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sort">
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sortButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SHy-PO-vRR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uGH-pe-sQs"/>
+                                </constraints>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zEa-wQ-7Hb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="30" width="414" height="695"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="16" minimumInteritemSpacing="16" id="IVu-Da-CxL">
                                     <size key="itemSize" width="140" height="200"/>
@@ -207,12 +235,15 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zEa-wQ-7Hb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9G7-EP-p3x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cOT-uP-ITR" secondAttribute="trailing" id="9ks-ks-yXp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zEa-wQ-7Hb" secondAttribute="bottom" id="InQ-1h-US5"/>
-                            <constraint firstItem="zEa-wQ-7Hb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ykn-ig-6gO"/>
+                            <constraint firstItem="cOT-uP-ITR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PFf-rv-tuK"/>
+                            <constraint firstItem="zEa-wQ-7Hb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Ykn-ig-6gO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zEa-wQ-7Hb" secondAttribute="trailing" id="wq4-Bd-jkt"/>
+                            <constraint firstItem="cOT-uP-ITR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wuL-9q-bQ7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Games" id="GUu-ph-flD"/>

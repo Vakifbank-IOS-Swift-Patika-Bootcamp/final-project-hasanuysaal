@@ -18,6 +18,13 @@ class GameListViewController: UIViewController {
         viewModel.delegate = self
         viewModel.fetchGames(pageNum: viewModel.pageCounter)
         collectionViewSetup()
+        searchBarSetup()
+    }
+    
+    func searchBarSetup(){
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        navigationItem.searchController = search
     }
 
     func collectionViewSetup(){
@@ -29,10 +36,26 @@ class GameListViewController: UIViewController {
         gameListCollectionView.setContentOffset(topOffest, animated: true)
     }
     
+    @IBAction func filterButtonPressed(_ sender: Any) {
+        let filterView = GameListFilterView(frame: CGRect(origin: CGPoint(x: 16, y: 30), size: CGSize(width: view.center.x, height: 100)))
+        filterView.delegate = self
+        filterView.alpha = 0
+        UIView.animate(withDuration: 1.0) {
+            filterView.alpha = 1
+        }
+        view.addSubview(filterView)
+    }
+    
+    @IBAction func sortButtonPressed(_ sender: Any) {
+        viewModel.sortGames()
+        gameListCollectionView.reloadData()
+    }
+    
 }
 
 extension GameListViewController: GameListViewModelDelegate {
     func gamesLoaded() {
+        viewModel.searchedGames = viewModel.games
         gameListCollectionView.reloadData()
     }
     
@@ -74,13 +97,50 @@ extension GameListViewController: UICollectionViewDataSource {
 extension GameListViewController: GameCellFooterViewDelegate {
     func nextButton() {
         scrollToTopOfCollectionView()
-        viewModel.pageCounter += 1
-        viewModel.fetchGames(pageNum: viewModel.pageCounter)
-        
+        if viewModel.isSortButton {
+            viewModel.pageCounter += 1
+            viewModel.getGamesRatingSorted(pageNum: viewModel.pageCounter)
+        } else {
+            viewModel.pageCounter += 1
+            viewModel.fetchGames(pageNum: viewModel.pageCounter)
+        }
     }
+    
     func previousButton() {
         scrollToTopOfCollectionView()
-        viewModel.pageCounter -= 1
-        viewModel.fetchGames(pageNum: viewModel.pageCounter)
+        if viewModel.isSortButton {
+            viewModel.pageCounter -= 1
+            viewModel.getGamesRatingSorted(pageNum: viewModel.pageCounter)
+        } else {
+            viewModel.pageCounter -= 1
+            viewModel.fetchGames(pageNum: viewModel.pageCounter)
+        }
     }
+}
+
+extension GameListViewController: GameListFilterViewDelegate {
+    func getPopularGames() {
+        scrollToTopOfCollectionView()
+        viewModel.getPopularGames()
+    }
+    
+    func getUpcomingGames() {
+        scrollToTopOfCollectionView()
+        viewModel.getUpcomeGames()
+    }
+}
+
+extension GameListViewController: UISearchResultsUpdating{
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        viewModel.games = viewModel.searchedGames?.filter( { $0.name.lowercased().contains(text.lowercased()) })
+        if text == "" {
+            viewModel.games = viewModel.searchedGames
+        }
+        gameListCollectionView.reloadData()
+    }
+    
 }
