@@ -13,13 +13,20 @@ class GameListViewController: UIViewController {
     
     var viewModel: GameListViewModelProtocol = GameListViewModel()
     let search = UISearchController(searchResultsController: nil)
+    var filterView = GameListFilterView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchGames(pageNum: viewModel.pageCounter)
+        filterViewSetup()
         collectionViewSetup()
         searchBarSetup()
+    }
+    
+    func filterViewSetup(){
+        filterView = GameListFilterView(frame: CGRect(origin: CGPoint(x: 16, y: 30), size: CGSize(width: view.center.x - 16, height: 100)))
+        filterView.delegate = self
     }
     
     func searchBarSetup(){
@@ -38,18 +45,22 @@ class GameListViewController: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: Any) {
-        let filterView = GameListFilterView(frame: CGRect(origin: CGPoint(x: 16, y: 30), size: CGSize(width: view.center.x, height: 100)))
-        filterView.delegate = self
-        filterView.alpha = 0
-        UIView.animate(withDuration: 1.0) {
-            filterView.alpha = 1
+        if !viewModel.isFilterShow {
+            filterView.alpha = 0
+            UIView.animate(withDuration: 1.0) {
+                self.filterView.alpha = 1
+            }
+            view.addSubview(filterView)
+        } else {
+            filterView.removeFromSuperview()
         }
-        view.addSubview(filterView)
+        viewModel.isFilterShow.toggle()
     }
     
     @IBAction func sortButtonPressed(_ sender: Any) {
         viewModel.sortGames()
         gameListCollectionView.reloadData()
+        filterView.removeFromSuperview()
     }
     
 }
@@ -135,6 +146,7 @@ extension GameListViewController: GameListFilterViewDelegate {
 extension GameListViewController: UISearchResultsUpdating{
     
     func updateSearchResults(for searchController: UISearchController) {
+        filterView.removeFromSuperview()
         guard let text = searchController.searchBar.text else {
             return
         }

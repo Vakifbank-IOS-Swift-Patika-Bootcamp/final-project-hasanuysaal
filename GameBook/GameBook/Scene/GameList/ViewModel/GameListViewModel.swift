@@ -10,6 +10,7 @@ import Foundation
 protocol GameListViewModelProtocol{
     var pageCounter: Int { get set }
     var isSortButton: Bool { get set }
+    var isFilterShow: Bool { get set }
     var games: [GameModel]? { get set }
     var searchedGames: [GameModel]? { get set }
     var delegate: GameListViewModelDelegate? { get set }
@@ -36,6 +37,7 @@ class GameListViewModel: GameListViewModelProtocol{
     var searchedGames: [GameModel]?
     var pageCounter = 1
     var isSortButton: Bool = false
+    var isFilterShow: Bool = false
     
     func fetchGames(pageNum: Int) {
         GameDBClient.getGamesResponse(pageNum: pageNum) { [weak self] gameResponse, error in
