@@ -12,6 +12,7 @@ class GameListViewController: UIViewController {
     @IBOutlet weak var gameListCollectionView: UICollectionView!
     
     var viewModel: GameListViewModelProtocol = GameListViewModel()
+    let search = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,6 @@ class GameListViewController: UIViewController {
     }
     
     func searchBarSetup(){
-        let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         navigationItem.searchController = search
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([.foregroundColor : UIColor.systemRed], for: .normal)
@@ -57,6 +57,7 @@ class GameListViewController: UIViewController {
 extension GameListViewController: GameListViewModelDelegate {
     func gamesLoaded() {
         viewModel.searchedGames = viewModel.games
+        search.searchBar.text = ""
         gameListCollectionView.reloadData()
     }
     
