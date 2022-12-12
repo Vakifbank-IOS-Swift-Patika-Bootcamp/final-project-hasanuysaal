@@ -74,7 +74,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="16" minimumInteritemSpacing="16" id="IVu-Da-CxL">
                                     <size key="itemSize" width="140" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -163,6 +163,47 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="GameCellFooter" id="jrq-Cr-NdZ" customClass="GameCellFooterView" customModule="GameBook" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="262" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="als-y2-U8m">
+                                            <rect key="frame" x="16" y="0.0" width="382" height="50"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdF-Xy-4uQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="50"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="&lt; Previous">
+                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="previousButtonPressed:" destination="jrq-Cr-NdZ" eventType="touchUpInside" id="kMW-NC-pqW"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyg-dP-aQ8">
+                                                    <rect key="frame" x="191" y="0.0" width="191" height="50"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Next &gt;">
+                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="nextButtonPressed:" destination="jrq-Cr-NdZ" eventType="touchUpInside" id="os7-fa-4N3"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="als-y2-U8m" firstAttribute="top" secondItem="jrq-Cr-NdZ" secondAttribute="top" id="AiA-eh-hl1"/>
+                                        <constraint firstAttribute="trailing" secondItem="als-y2-U8m" secondAttribute="trailing" constant="16" id="gee-jK-MeO"/>
+                                        <constraint firstItem="als-y2-U8m" firstAttribute="leading" secondItem="jrq-Cr-NdZ" secondAttribute="leading" constant="16" id="hxw-Wy-6UB"/>
+                                        <constraint firstAttribute="bottom" secondItem="als-y2-U8m" secondAttribute="bottom" id="mkC-hk-xr3"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="nextButton" destination="Dyg-dP-aQ8" id="6WD-uq-akX"/>
+                                        <outlet property="previousButton" destination="xdF-Xy-4uQ" id="X7E-8S-pIq"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -282,6 +323,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

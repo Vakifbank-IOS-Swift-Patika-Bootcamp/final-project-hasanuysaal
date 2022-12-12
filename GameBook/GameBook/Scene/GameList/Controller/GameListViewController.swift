@@ -16,12 +16,17 @@ class GameListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.fetchGames(pageNum: 1)
+        viewModel.fetchGames(pageNum: viewModel.pageCounter)
         collectionViewSetup()
     }
 
     func collectionViewSetup(){
         gameListCollectionView.dataSource = self
+    }
+    
+    func scrollToTopOfCollectionView(){
+        let topOffest = CGPoint(x: 0, y: -(gameListCollectionView.contentInset.top))
+        gameListCollectionView.setContentOffset(topOffest, animated: true)
     }
     
 }
@@ -47,5 +52,35 @@ extension GameListViewController: UICollectionViewDataSource {
         }
         cell.configure(model: gameModel)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == "UICollectionElementKindSectionFooter"{
+            guard let footer = gameListCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "GameCellFooter", for: indexPath) as? GameCellFooterView else {
+                return UICollectionReusableView()
+            }
+            if viewModel.pageCounter == 1 {
+                footer.previousButton.isHidden = true
+            } else {
+                footer.previousButton.isHidden = false
+            }
+            footer.delegate = self
+            return footer
+        }
+        return UICollectionReusableView()
+    }
+}
+
+extension GameListViewController: GameCellFooterViewDelegate {
+    func nextButton() {
+        scrollToTopOfCollectionView()
+        viewModel.pageCounter += 1
+        viewModel.fetchGames(pageNum: viewModel.pageCounter)
+        
+    }
+    func previousButton() {
+        scrollToTopOfCollectionView()
+        viewModel.pageCounter -= 1
+        viewModel.fetchGames(pageNum: viewModel.pageCounter)
     }
 }

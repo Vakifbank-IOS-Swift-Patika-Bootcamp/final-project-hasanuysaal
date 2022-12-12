@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4008FD7C294725E90014264B /* GameCellFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008FD7B294725E90014264B /* GameCellFooterView.swift */; };
 		400AD200294631B100559662 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AD1FF294631B100559662 /* Double+Extension.swift */; };
 		400AD2032946532000559662 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 400AD2022946532000559662 /* SDWebImage */; };
 		40B924142946027300DE3C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924132946027300DE3C5F /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4008FD7B294725E90014264B /* GameCellFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCellFooterView.swift; sourceTree = "<group>"; };
 		400AD1FF294631B100559662 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		40B924102946027300DE3C5F /* GameBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B924132946027300DE3C5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				40B9248729461E0B00DE3C5F /* GameListCollectionViewCell.swift */,
+				4008FD7B294725E90014264B /* GameCellFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				40B9247829460C0600DE3C5F /* GameGenresModel.swift in Sources */,
 				40B9248829461E0B00DE3C5F /* GameListCollectionViewCell.swift in Sources */,
 				40B9247429460B9B00DE3C5F /* GameDBClient.swift in Sources */,
+				4008FD7C294725E90014264B /* GameCellFooterView.swift in Sources */,
 				40B9248229460EE800DE3C5F /* GameListViewController.swift in Sources */,
 				40B9247629460BB700DE3C5F /* Constant.swift in Sources */,
 				400AD200294631B100559662 /* Double+Extension.swift in Sources */,
