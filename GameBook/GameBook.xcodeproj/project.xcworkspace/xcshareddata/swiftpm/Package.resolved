@@ -17,6 +17,15 @@
         "branch" : "master",
         "revision" : "430ef4d73ca268d8efcefad08d3ac020af91c750"
       }
+    },
+    {
+      "identity" : "swiftalertview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dinhquan/SwiftAlertView",
+      "state" : {
+        "revision" : "601c049861691ea3578e3812d1e9cd548cf46f48",
+        "version" : "2.2.1"
+      }
     }
   ],
   "version" : 2

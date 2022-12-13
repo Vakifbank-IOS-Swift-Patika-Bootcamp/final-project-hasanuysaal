@@ -20,6 +20,7 @@
 		408A601029486A97001A1A71 /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600F29486A97001A1A71 /* GameDetailViewModel.swift */; };
 		4098BB7C2948E96B0089EA27 /* MaterialActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 4098BB7B2948E96B0089EA27 /* MaterialActivityIndicator */; };
 		4098BB7F2948EC2C0089EA27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4098BB7E2948EC2C0089EA27 /* BaseViewController.swift */; };
+		4098BB822948EEDB0089EA27 /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 4098BB812948EEDB0089EA27 /* SwiftAlertView */; };
 		40B523832948BB3700B0443D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B523822948BB3700B0443D /* String+Extension.swift */; };
 		40B924142946027300DE3C5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924132946027300DE3C5F /* AppDelegate.swift */; };
 		40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B924152946027300DE3C5F /* SceneDelegate.swift */; };
@@ -98,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4098BB822948EEDB0089EA27 /* SwiftAlertView in Frameworks */,
 				4098BB7C2948E96B0089EA27 /* MaterialActivityIndicator in Frameworks */,
 				400AD2032946532000559662 /* SDWebImage in Frameworks */,
 			);
@@ -458,6 +460,7 @@
 			packageProductDependencies = (
 				400AD2022946532000559662 /* SDWebImage */,
 				4098BB7B2948E96B0089EA27 /* MaterialActivityIndicator */,
+				4098BB812948EEDB0089EA27 /* SwiftAlertView */,
 			);
 			productName = GameBook;
 			productReference = 40B924102946027300DE3C5F /* GameBook.app */;
@@ -534,6 +537,7 @@
 			packageReferences = (
 				400AD2012946532000559662 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4098BB7A2948E96B0089EA27 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
+				4098BB802948EEDB0089EA27 /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
 			);
 			productRefGroup = 40B924112946027300DE3C5F /* Products */;
 			projectDirPath = "";
@@ -960,6 +964,14 @@
 				kind = branch;
 			};
 		};
+		4098BB802948EEDB0089EA27 /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -972,6 +984,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4098BB7A2948E96B0089EA27 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
 			productName = MaterialActivityIndicator;
+		};
+		4098BB812948EEDB0089EA27 /* SwiftAlertView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4098BB802948EEDB0089EA27 /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
+			productName = SwiftAlertView;
 		};
 /* End XCSwiftPackageProductDependency section */
 

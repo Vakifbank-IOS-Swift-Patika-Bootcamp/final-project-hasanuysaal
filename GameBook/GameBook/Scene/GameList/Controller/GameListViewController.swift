@@ -121,7 +121,7 @@ extension GameListViewController: UICollectionViewDelegate {
                 return
             }
             let destinationVC = segue.destination as! GameDetailViewController
-            destinationVC.viewModel.getGameDetail(id: viewModel.games?[indexPath.row].id ?? 3498)
+            destinationVC.viewModel.getGameDetail(id: viewModel.getGameId(at: indexPath.row))
         }
     }
 }
