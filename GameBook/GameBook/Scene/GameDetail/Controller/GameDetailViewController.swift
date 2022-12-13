@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import MaterialActivityIndicator
 
-class GameDetailViewController: UIViewController {
+class GameDetailViewController: BaseViewController {
 
     @IBOutlet weak var playtimeLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
@@ -30,11 +31,12 @@ class GameDetailViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         navigationBarSetup()
+        indicator.startAnimating()
     }
     
     func navigationBarSetup(){
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(fovoriteTapped))
-        navigationItem.title = "Game Detail"
+        setNavBarTitle(view: self, title: "GameDetail")
     }
     
     @objc func fovoriteTapped(){
@@ -64,6 +66,7 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
     func gameLoaded() {
         labelTextSetup()
         gameDetailCollectionView.reloadData()
+        indicator.stopAnimating()
     }
     
     func gameFailed() {

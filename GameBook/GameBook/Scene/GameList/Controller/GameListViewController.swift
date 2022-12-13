@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameListViewController: UIViewController {
+class GameListViewController: BaseViewController {
 
     @IBOutlet weak var gameListCollectionView: UICollectionView!
     
@@ -22,6 +22,7 @@ class GameListViewController: UIViewController {
         filterViewSetup()
         collectionViewSetup()
         searchBarSetup()
+        indicator.startAnimating()
     }
     
     func filterViewSetup(){
@@ -70,6 +71,7 @@ extension GameListViewController: GameListViewModelDelegate {
     func gamesLoaded() {
         viewModel.searchedGames = viewModel.games
         search.searchBar.text = ""
+        indicator.stopAnimating()
         gameListCollectionView.reloadData()
     }
     

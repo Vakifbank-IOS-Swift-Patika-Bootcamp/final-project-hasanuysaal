@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "materialactivityindicator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nspavlo/MaterialActivityIndicator",
+      "state" : {
+        "branch" : "master",
+        "revision" : "097d31631b16cf9cc80b74b43026ccfda5db52d3"
+      }
+    },
+    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",
