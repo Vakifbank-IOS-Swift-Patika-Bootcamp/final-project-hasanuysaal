@@ -37,6 +37,7 @@ class GameListViewController: UIViewController {
 
     func collectionViewSetup(){
         gameListCollectionView.dataSource = self
+        gameListCollectionView.delegate = self
     }
     
     func scrollToTopOfCollectionView(){
@@ -104,6 +105,22 @@ extension GameListViewController: UICollectionViewDataSource {
             return footer
         }
         return UICollectionReusableView()
+    }
+}
+
+extension GameListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toGameDetailVC", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toGameDetailVC" {
+            guard let indexPath = sender as? IndexPath else {
+                return
+            }
+            let destinationVC = segue.destination as! GameDetailViewController
+            destinationVC.viewModel.getGameDetail(id: viewModel.games?[indexPath.row].id ?? 3498)
+        }
     }
 }
 

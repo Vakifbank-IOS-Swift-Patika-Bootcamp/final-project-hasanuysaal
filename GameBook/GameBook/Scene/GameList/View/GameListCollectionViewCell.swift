@@ -23,7 +23,7 @@ class GameListCollectionViewCell: UICollectionViewCell {
     
     var ratingLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 140, y: 28, width: 50, height: 20)
+        label.frame = CGRect(x: 135, y: 15, width: 35, height: 35)
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         return label
@@ -57,7 +57,7 @@ class GameListCollectionViewCell: UICollectionViewCell {
     }
     
     func subviewsSetup(){
-        self.addSubview(ratingLabel)
         imageView.addSubview(starImageView)
+        imageView.addSubview(ratingLabel)
     }
 }
