@@ -76,6 +76,8 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         descriptionLabel.text = viewModel.game?.description.trimHTMLTags()
         playtimeLabel.text = "AVERAGE PLAYTIME : " + String(viewModel.game?.playtime ?? 0)
         releaseLabel.text = viewModel.game?.released
+        genresLabel.text = viewModel.getGameGenres()
+        metascoreLabel.text = String(viewModel.game?.metacritic ?? 0)
     }
 }
 

@@ -15,7 +15,7 @@ protocol GameDetailViewModelProtocol{
     func getGameDetail(id: Int)
     func getGameImageCount() -> Int?
     func getPlatformNames() -> String?
-    
+    func getGameGenres() -> String?
 }
 
 protocol GameDetailViewModelDelegate: AnyObject{
@@ -44,11 +44,17 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     }
     
     func getPlatformNames() -> String? {
-        self.platforms?.joined(separator: ", ")
+        platforms?.joined(separator: ", ")
     }
     
     func getGameImageCount() -> Int? {
         gameImagesUrl.count
+    }
+    
+    func getGameGenres() -> String? {
+        let genresArr = game?.genres.map { $0.name }
+        let genres = genresArr?.joined(separator: ", ")
+        return genres
     }
     
 }
