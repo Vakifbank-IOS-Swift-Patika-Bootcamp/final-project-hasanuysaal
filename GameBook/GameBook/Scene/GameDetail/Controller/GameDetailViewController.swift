@@ -69,8 +69,10 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         indicator.stopAnimating()
     }
     
-    func gameFailed() {
-        //
+    func gameFailed(error: Error) {
+        showAlert(message: error.localizedDescription) {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     func labelTextSetup(){

@@ -75,8 +75,8 @@ extension GameListViewController: GameListViewModelDelegate {
         gameListCollectionView.reloadData()
     }
     
-    func gamesFailed() {
-        print("failed")
+    func gamesFailed(error: Error) {
+        showAlert(message: error.localizedDescription) { }
     }
 }
 

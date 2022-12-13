@@ -59,7 +59,16 @@ class GameDBClient {
                     completion(responseObject, nil)
                 }
             } catch {
-                
+                do {
+                    let errorResponse = try decoder.decode(GamesResponseModel.self, from: data) as! Error
+                    DispatchQueue.main.async {
+                        completion(nil, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
+                }
             }
         }
         task.resume()

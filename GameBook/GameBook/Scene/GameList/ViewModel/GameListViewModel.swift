@@ -26,7 +26,7 @@ protocol GameListViewModelProtocol{
 
 protocol GameListViewModelDelegate: AnyObject{
     func gamesLoaded()
-    func gamesFailed()
+    func gamesFailed(error: Error)
 }
 
 class GameListViewModel: GameListViewModelProtocol{
@@ -42,6 +42,10 @@ class GameListViewModel: GameListViewModelProtocol{
     func fetchGames(pageNum: Int) {
         GameDBClient.getGamesResponse(pageNum: pageNum) { [weak self] gameResponse, error in
             guard let self = self else {
+                return
+            }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
                 return
             }
             self.games = gameResponse?.results

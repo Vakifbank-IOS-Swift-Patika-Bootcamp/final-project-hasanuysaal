@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol GameDetailViewModelProtocol{
     var delegate: GameDetailViewModelDelegate? { get set }
@@ -20,7 +21,7 @@ protocol GameDetailViewModelProtocol{
 
 protocol GameDetailViewModelDelegate: AnyObject{
     func gameLoaded()
-    func gameFailed()
+    func gameFailed(error: Error)
 }
 
 class GameDetailViewModel: GameDetailViewModelProtocol {
@@ -33,6 +34,10 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     func getGameDetail(id: Int) {
         GameDBClient.getGameDetail(id: id) { [weak self] gameDetail, error in
             guard let self = self else {
+                return
+            }
+            if let error = error {
+                self.delegate?.gameFailed(error: error)
                 return
             }
             self.game = gameDetail
