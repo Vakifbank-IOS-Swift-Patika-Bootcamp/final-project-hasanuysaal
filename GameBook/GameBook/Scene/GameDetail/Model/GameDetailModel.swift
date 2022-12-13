@@ -16,6 +16,8 @@ struct GameDetailModel: Decodable {
     let rating: Double
     let playtime: Int
     let parentPlatforms: [ParentPlatformModel]
+    let genres: [GameGenresModel]
+    let metacritic: Int
     
     enum CodingKeys: String, CodingKey{
         case name
@@ -26,5 +28,7 @@ struct GameDetailModel: Decodable {
         case rating
         case playtime
         case parentPlatforms = "parent_platforms"
+        case genres
+        case metacritic
     }
 }
