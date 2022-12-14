@@ -15,6 +15,8 @@
 		404F72E32949A9C1005B08FC /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */; };
 		404F72E52949AB7F005B08FC /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */; };
 		404F72E72949BCD5005B08FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E62949BCD5005B08FC /* CoreDataManager.swift */; };
+		404F72ED2949FD57005B08FC /* FavoriteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72EB2949FD57005B08FC /* FavoriteListTableViewCell.swift */; };
+		404F72EE2949FD57005B08FC /* FavoriteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */; };
 		408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600529485F20001A1A71 /* GameDetailModel.swift */; };
 		408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600729486062001A1A71 /* ParentPlatformModel.swift */; };
 		408A600A294860C3001A1A71 /* PlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A6009294860C3001A1A71 /* PlatformModel.swift */; };
@@ -69,6 +71,8 @@
 		404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
 		404F72E62949BCD5005B08FC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		404F72EB2949FD57005B08FC /* FavoriteListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListTableViewCell.swift; sourceTree = "<group>"; };
+		404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteListTableViewCell.xib; sourceTree = "<group>"; };
 		408A600529485F20001A1A71 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		408A600729486062001A1A71 /* ParentPlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPlatformModel.swift; sourceTree = "<group>"; };
 		408A6009294860C3001A1A71 /* PlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModel.swift; sourceTree = "<group>"; };
@@ -144,6 +148,15 @@
 				40B523822948BB3700B0443D /* String+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		404F72EA2949FD26005B08FC /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				404F72EB2949FD57005B08FC /* FavoriteListTableViewCell.swift */,
+				404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		4098BB7D2948EC150089EA27 /* Base */ = {
@@ -446,6 +459,7 @@
 		40B9246E294607ED00DE3C5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				404F72EA2949FD26005B08FC /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +580,7 @@
 			files = (
 				40B924232946027500DE3C5F /* LaunchScreen.storyboard in Resources */,
 				40B924202946027500DE3C5F /* Assets.xcassets in Resources */,
+				404F72EE2949FD57005B08FC /* FavoriteListTableViewCell.xib in Resources */,
 				4008FD8129476EC50014264B /* GameListFilterView.xib in Resources */,
 				40B9241B2946027300DE3C5F /* Main.storyboard in Resources */,
 			);
@@ -617,6 +632,7 @@
 				40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */,
 				408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */,
 				404F72E32949A9C1005B08FC /* FavoriteListViewController.swift in Sources */,
+				404F72ED2949FD57005B08FC /* FavoriteListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,7 @@ class GameDetailViewController: BaseViewController {
     }
     
     func rightBarButtonItemSetup(name: String){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: name), style: .plain, target: self, action: #selector(fovoriteTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: name), style: .plain, target: self, action: #selector(favoriteTapped))
     }
     
     func navigationBarSetup(){
@@ -47,7 +47,7 @@ class GameDetailViewController: BaseViewController {
         setNavBarTitle(view: self, title: "GameDetail")
     }
     
-    @objc func fovoriteTapped(){
+    @objc func favoriteTapped(){
         if favorite != nil {
             CoreDataManager.shared.deleteFavoriteId(favorite: favorite!)
             rightBarButtonItemSetup(name: FavoriteButtonStyle.notFavorite.rawValue)
@@ -55,6 +55,7 @@ class GameDetailViewController: BaseViewController {
             favorite = CoreDataManager.shared.saveFavoriteId(id: self.id ?? 0)
             rightBarButtonItemSetup(name: FavoriteButtonStyle.favorite.rawValue)
         }
+        NotificationCenter.default.post(name: NSNotification.Name("favButtonNotification"), object: favorite)
     }
 
 }

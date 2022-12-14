@@ -15,6 +15,7 @@ protocol FavoriteListViewModelProtocol{
     func getFavoriteGames()
     func getFavoriteGameCount() -> Int?
     func deleteFavoriteGameFromDB() -> Bool
+    func getFavoriteGame(index: Int) -> GameDetailModel? 
 }
 
 protocol FavoriteListViewModelDelegate: AnyObject{
@@ -32,6 +33,7 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
     
     func getFavoriteGames(){
         self.gameIds = getIdsFromDB()
+        favoriteGames = []
         for id in gameIds {
             self.gruop.enter()
             GameDBClient.getGameDetail(id: id) { [weak self] gameResponse, error in
@@ -59,9 +61,22 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
         CoreDataManager.shared.getFavoritesId()
     }
     
-    func getFavoriteGameCount() -> Int? {
-        0
+    func getFavoriteGame(index: Int) -> GameDetailModel? {
+        if favoriteGames != nil {
+            return favoriteGames![index]
+        } else {
+            return nil
+        }
     }
+    
+    func getFavoriteGameCount() -> Int? {
+        if favoriteGames != nil {
+            return favoriteGames!.count
+        } else {
+            return nil
+        }
+    }
+
     
     func deleteFavoriteGameFromDB() -> Bool {
         true
