@@ -33,21 +33,17 @@ class FavoriteListViewController: BaseViewController {
 extension FavoriteListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
-                guard let favoriteGame = CoreDataManager.shared.getFavoriteGame(id: self.viewModel.favoriteGames![indexPath.row].id) else {
-                    return
-                }
-                CoreDataManager.shared.deleteFavoriteId(favorite: favoriteGame)
-                self.viewModel.getFavoriteGames()
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            guard let favoriteGame = CoreDataManager.shared.getFavoriteGame(id: self.viewModel.favoriteGames![indexPath.row].id) else {
+                return
+            }
+            CoreDataManager.shared.deleteFavoriteId(favorite: favoriteGame)
+            self.viewModel.getFavoriteGames()
             completionHandler(true)
         }
-        let updateAction = UIContextualAction(style: .normal, title: "Update") { (action, sourceView, completionHandler) in
-            print("upadate clicked")
-                //segue to update view
-            completionHandler(true)
-        }
-            return UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
-        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
     
 }
 
@@ -77,6 +73,9 @@ extension FavoriteListViewController: FavoriteListViewModelDelegate {
     }
     
     func gameFailed(error: Error) {
-        //
+        showAlert(message: FavoriteGameListError.gameNotFound.localizedDescription) {
+            print("no game")
+            // go back gamelistview
+        }
     }
 }

@@ -7,6 +7,28 @@
 
 import Foundation
 
+enum FavoriteGameListError: Error {
+    case gameNotFound
+    case unexpected(code: Int)
+}
+
+extension FavoriteGameListError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .gameNotFound:
+            return NSLocalizedString(
+                "Game not found on your favorite list",
+                comment: "Invalid Password"
+            )
+        case .unexpected(_):
+            return NSLocalizedString(
+                "An unexpected error occurred.",
+                comment: "Unexpected Error"
+            )
+        }
+    }
+}
+
 protocol FavoriteListViewModelProtocol{
     var delegate: FavoriteListViewModelDelegate? { get set }
     var gameIds: [Int] { get }
@@ -70,9 +92,10 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
     }
     
     func getFavoriteGameCount() -> Int? {
-        if favoriteGames != nil {
+        if favoriteGames?.count != 0 {
             return favoriteGames!.count
         } else {
+            delegate?.gameFailed(error: FavoriteGameListError.gameNotFound)
             return nil
         }
     }
