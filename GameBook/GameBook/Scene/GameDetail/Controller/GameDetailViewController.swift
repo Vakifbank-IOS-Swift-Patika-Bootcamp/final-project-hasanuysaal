@@ -26,21 +26,35 @@ class GameDetailViewController: BaseViewController {
     }
     
     var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
+    var id: Int?
+    var favorite: Favorite?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        viewModel.getGameDetail(id: id ?? 0)
         navigationBarSetup()
         indicator.startAnimating()
+        favorite = viewModel.isGameFavorite(id: id ?? 0)
+    }
+    
+    func rightBarButtonItemSetup(name: String){
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: name), style: .plain, target: self, action: #selector(fovoriteTapped))
     }
     
     func navigationBarSetup(){
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(fovoriteTapped))
+        rightBarButtonItemSetup(name: "heart")
         setNavBarTitle(view: self, title: "GameDetail")
     }
     
     @objc func fovoriteTapped(){
-        print("fovoriteTapped")
+        if favorite != nil {
+            CoreDataManager.shared.deleteFavoriteId(favorite: favorite!)
+            rightBarButtonItemSetup(name: FavoriteButtonStyle.notFavorite.rawValue)
+        } else {
+            favorite = CoreDataManager.shared.saveFavoriteId(id: self.id ?? 0)
+            rightBarButtonItemSetup(name: FavoriteButtonStyle.favorite.rawValue)
+        }
     }
 
 }
@@ -66,6 +80,7 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
     func gameLoaded() {
         labelTextSetup()
         gameDetailCollectionView.reloadData()
+        rightBarButtonItemSetup(name: viewModel.favoriteButtonImageName(id: self.id ?? 0))
         indicator.stopAnimating()
     }
     

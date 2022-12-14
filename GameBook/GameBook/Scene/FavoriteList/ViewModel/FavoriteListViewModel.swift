@@ -45,7 +45,6 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
                 }
                 if let response = gameResponse {
                     self.favoriteGames?.append(response)
-                    print(response)
                 }
                 self.gruop.leave()
                 
@@ -57,7 +56,7 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
     }
     
     func getIdsFromDB() -> [Int] {
-        [3498,10,15] // test data
+        CoreDataManager.shared.getFavoritesId()
     }
     
     func getFavoriteGameCount() -> Int? {

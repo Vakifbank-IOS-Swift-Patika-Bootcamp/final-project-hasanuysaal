@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 
+enum FavoriteButtonStyle: String {
+    case favorite = "heart.fill"
+    case notFavorite = "heart"
+}
+
 protocol GameDetailViewModelProtocol{
     var delegate: GameDetailViewModelDelegate? { get set }
     var game: GameDetailModel? { get }
@@ -17,6 +22,8 @@ protocol GameDetailViewModelProtocol{
     func getGameImageCount() -> Int?
     func getPlatformNames() -> String?
     func getGameGenres() -> String?
+    func isGameFavorite(id: Int) -> Favorite?
+    func favoriteButtonImageName(id: Int) -> String
 }
 
 protocol GameDetailViewModelDelegate: AnyObject{
@@ -60,6 +67,23 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
         let genresArr = game?.genres.map { $0.name }
         let genres = genresArr?.joined(separator: ", ")
         return genres
+    }
+    
+    func isGameFavorite(id: Int) -> Favorite? {
+        let game = CoreDataManager.shared.getFavoriteGame(id: id)
+        if game != nil {
+            return game
+        } else {
+            return nil
+        }
+    }
+    
+    func favoriteButtonImageName(id: Int) -> String {
+        if isGameFavorite(id: id) != nil {
+            return FavoriteButtonStyle.favorite.rawValue
+        } else {
+            return FavoriteButtonStyle.notFavorite.rawValue
+        }
     }
     
 }

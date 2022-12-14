@@ -24,7 +24,7 @@ class FavoriteListViewController: BaseViewController {
 
 extension FavoriteListViewController: FavoriteListViewModelDelegate {
     func gameLoaded() {
-        print(viewModel.favoriteGames)
+        //
     }
     
     func gameFailed(error: Error) {
