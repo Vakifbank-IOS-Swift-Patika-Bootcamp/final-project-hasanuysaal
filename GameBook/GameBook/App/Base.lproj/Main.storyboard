@@ -9,18 +9,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Favorite List View Controller-->
         <scene sceneID="9Ok-0c-okp">
             <objects>
-                <viewController id="B1a-9W-M27" sceneMemberID="viewController">
+                <viewController id="B1a-9W-M27" customClass="FavoriteListViewController" customModule="GameBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Es1-Ds-5ME">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Aq6-ns-9uB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xKz-hG-bYI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Aq6-ns-9uB" firstAttribute="leading" secondItem="xKz-hG-bYI" secondAttribute="leading" id="3cG-5S-i3c"/>
+                            <constraint firstItem="xKz-hG-bYI" firstAttribute="bottom" secondItem="Aq6-ns-9uB" secondAttribute="bottom" id="Bzo-FL-n1Q"/>
+                            <constraint firstItem="xKz-hG-bYI" firstAttribute="trailing" secondItem="Aq6-ns-9uB" secondAttribute="trailing" id="Qhp-fu-uOR"/>
+                            <constraint firstItem="Aq6-ns-9uB" firstAttribute="top" secondItem="xKz-hG-bYI" secondAttribute="top" id="Zdd-a6-ssA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4CA-n6-Meo"/>
                     <connections>
+                        <outlet property="favoriteListTableView" destination="Aq6-ns-9uB" id="zoM-va-NNf"/>
                         <segue destination="6wZ-bw-fTJ" kind="show" identifier="toNoteDetail" id="3g1-fj-oJd"/>
                     </connections>
                 </viewController>
@@ -462,8 +475,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="tqn-pt-nBT" kind="relationship" relationship="viewControllers" id="O1o-ob-2RK"/>
-                        <segue destination="NHC-ti-7I9" kind="relationship" relationship="viewControllers" id="NuF-Ob-B2x"/>
                         <segue destination="ll6-iy-7ja" kind="relationship" relationship="viewControllers" id="kws-cd-S4K"/>
+                        <segue destination="NHC-ti-7I9" kind="relationship" relationship="viewControllers" id="NuF-Ob-B2x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWQ-oE-UCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -503,11 +516,14 @@
         <scene sceneID="SAV-uM-PWU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ll6-iy-7ja" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="v3y-LZ-B2E"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="heart" catalog="system" id="v3y-LZ-B2E"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hsb-ku-0RT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -521,6 +537,7 @@
     </scenes>
     <resources>
         <image name="gamecontroller" catalog="system" width="128" height="80"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
