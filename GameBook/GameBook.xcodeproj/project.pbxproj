@@ -21,6 +21,7 @@
 		4056E1B4294B42AF006D2E1C /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */; };
 		4056E1BA294B4E6A006D2E1C /* NoteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B8294B4E6A006D2E1C /* NoteListTableViewCell.swift */; };
 		4056E1BB294B4E6A006D2E1C /* NoteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */; };
+		4056E1BE294B8D02006D2E1C /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1BD294B8D02006D2E1C /* FloatingButton.swift */; };
 		408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600529485F20001A1A71 /* GameDetailModel.swift */; };
 		408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600729486062001A1A71 /* ParentPlatformModel.swift */; };
 		408A600A294860C3001A1A71 /* PlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A6009294860C3001A1A71 /* PlatformModel.swift */; };
@@ -81,6 +82,7 @@
 		4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
 		4056E1B8294B4E6A006D2E1C /* NoteListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListTableViewCell.swift; sourceTree = "<group>"; };
 		4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteListTableViewCell.xib; sourceTree = "<group>"; };
+		4056E1BD294B8D02006D2E1C /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		408A600529485F20001A1A71 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		408A600729486062001A1A71 /* ParentPlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPlatformModel.swift; sourceTree = "<group>"; };
 		408A6009294860C3001A1A71 /* PlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModel.swift; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 				4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		4056E1BC294B8CE2006D2E1C /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				4056E1BD294B8D02006D2E1C /* FloatingButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		4098BB7D2948EC150089EA27 /* Base */ = {
@@ -398,6 +408,7 @@
 		40B92464294607E400DE3C5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1BC294B8CE2006D2E1C /* Button */,
 				4056E1B7294B4E13006D2E1C /* TableViewCell */,
 			);
 			path = View;
@@ -645,6 +656,7 @@
 				4008FD7C294725E90014264B /* GameCellFooterView.swift in Sources */,
 				408A600E29486795001A1A71 /* GameDetailCollectionViewCell.swift in Sources */,
 				4098BB7F2948EC2C0089EA27 /* BaseViewController.swift in Sources */,
+				4056E1BE294B8D02006D2E1C /* FloatingButton.swift in Sources */,
 				40B9248229460EE800DE3C5F /* GameListViewController.swift in Sources */,
 				40B9247629460BB700DE3C5F /* Constant.swift in Sources */,
 				400AD200294631B100559662 /* Double+Extension.swift in Sources */,

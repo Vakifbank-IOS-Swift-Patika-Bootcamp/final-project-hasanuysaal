@@ -12,6 +12,8 @@ class NoteListViewController: BaseViewController {
     @IBOutlet weak var noteListTableView: UITableView!
     
     var viewModel: NoteListViewModelProtocol = NoteListViewModel()
+    var floatingButton = FloatingButton()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,24 @@ class NoteListViewController: BaseViewController {
         tableViewSetup()
         viewModel.delegate = self
         viewModel.getNotes()
+        addTargetToButton()
+        addSubviews()
+    }
+    
+    func addTargetToButton() {
+        floatingButton.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
+    }
+    
+    func addSubviews(){
+        view.addSubview(floatingButton)
+    }
+    
+    @objc func floatingButtonTapped(){
+        print("floatingButtonTapped")
+    }
+    
+    func tableViewCellRegister() {
+        noteListTableView.register(UINib(nibName: "NoteListTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteListCell")
     }
     
     func tableViewSetup() {
@@ -26,10 +46,7 @@ class NoteListViewController: BaseViewController {
         noteListTableView.dataSource = self
         tableViewCellRegister()
     }
-    
-    func tableViewCellRegister() {
-        noteListTableView.register(UINib(nibName: "NoteListTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteListCell")
-    }
+
 }
 
 extension NoteListViewController: UITableViewDelegate { }
