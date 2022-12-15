@@ -19,6 +19,8 @@
 		404F72EE2949FD57005B08FC /* FavoriteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */; };
 		4056E1B2294B11C5006D2E1C /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B1294B11C5006D2E1C /* NoteListViewController.swift */; };
 		4056E1B4294B42AF006D2E1C /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */; };
+		4056E1BA294B4E6A006D2E1C /* NoteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B8294B4E6A006D2E1C /* NoteListTableViewCell.swift */; };
+		4056E1BB294B4E6A006D2E1C /* NoteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */; };
 		408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600529485F20001A1A71 /* GameDetailModel.swift */; };
 		408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600729486062001A1A71 /* ParentPlatformModel.swift */; };
 		408A600A294860C3001A1A71 /* PlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A6009294860C3001A1A71 /* PlatformModel.swift */; };
@@ -77,6 +79,8 @@
 		404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteListTableViewCell.xib; sourceTree = "<group>"; };
 		4056E1B1294B11C5006D2E1C /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
+		4056E1B8294B4E6A006D2E1C /* NoteListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListTableViewCell.swift; sourceTree = "<group>"; };
+		4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteListTableViewCell.xib; sourceTree = "<group>"; };
 		408A600529485F20001A1A71 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		408A600729486062001A1A71 /* ParentPlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPlatformModel.swift; sourceTree = "<group>"; };
 		408A6009294860C3001A1A71 /* PlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModel.swift; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 			children = (
 				404F72EB2949FD57005B08FC /* FavoriteListTableViewCell.swift */,
 				404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		4056E1B7294B4E13006D2E1C /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4056E1B8294B4E6A006D2E1C /* NoteListTableViewCell.swift */,
+				4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -385,6 +398,7 @@
 		40B92464294607E400DE3C5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1B7294B4E13006D2E1C /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -585,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B924232946027500DE3C5F /* LaunchScreen.storyboard in Resources */,
+				4056E1BB294B4E6A006D2E1C /* NoteListTableViewCell.xib in Resources */,
 				40B924202946027500DE3C5F /* Assets.xcassets in Resources */,
 				404F72EE2949FD57005B08FC /* FavoriteListTableViewCell.xib in Resources */,
 				4008FD8129476EC50014264B /* GameListFilterView.xib in Resources */,
@@ -620,6 +635,7 @@
 				4008FD8329476EED0014264B /* GameListFilterView.swift in Sources */,
 				40B9247E29460C3A00DE3C5F /* GameResponseModel.swift in Sources */,
 				408A601029486A97001A1A71 /* GameDetailViewModel.swift in Sources */,
+				4056E1BA294B4E6A006D2E1C /* NoteListTableViewCell.swift in Sources */,
 				408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */,
 				4056E1B2294B11C5006D2E1C /* NoteListViewController.swift in Sources */,
 				40B9247829460C0600DE3C5F /* GameGenresModel.swift in Sources */,

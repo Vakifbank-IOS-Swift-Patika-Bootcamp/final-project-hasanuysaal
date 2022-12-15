@@ -24,6 +24,11 @@ class NoteListViewController: BaseViewController {
     func tableViewSetup() {
         noteListTableView.delegate = self
         noteListTableView.dataSource = self
+        tableViewCellRegister()
+    }
+    
+    func tableViewCellRegister() {
+        noteListTableView.register(UINib(nibName: "NoteListTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteListCell")
     }
 }
 
@@ -34,7 +39,11 @@ extension NoteListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = noteListTableView.dequeueReusableCell(withIdentifier: "NoteListCell", for: indexPath) as? NoteListTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.configure()
+        return cell
     }
 }
 
