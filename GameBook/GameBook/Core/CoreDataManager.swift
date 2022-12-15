@@ -73,4 +73,60 @@ final class CoreDataManager {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    @discardableResult
+        func updateNote(image: Data, gameName: String, noteText: String, note: Note) -> Note? {
+            note.setValue(image, forKeyPath: "image")
+            note.setValue(gameName, forKeyPath: "gameName")
+            note.setValue(noteText, forKeyPath: "noteText")
+            
+            do {
+                try managedContext.save()
+                return note
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            
+            return nil
+        }
+        
+        @discardableResult
+        func saveNote(image: Data, gameName: String, noteText: String) -> Note? {
+            let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)!
+            let note = NSManagedObject(entity: entity, insertInto: managedContext)
+            note.setValue(image, forKeyPath: "image")
+            note.setValue(gameName, forKeyPath: "gameName")
+            note.setValue(noteText, forKeyPath: "noteText")
+            
+            do {
+                try managedContext.save()
+                return note as? Note
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            
+            return nil
+        }
+        
+        func getNotes() -> [Note] {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Note")
+            do {
+                let notes = try managedContext.fetch(fetchRequest)
+                return notes as! [Note]
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+            return []
+        }
+        
+        func deleteNote(note: Note) {
+            
+            managedContext.delete(note)
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
 }
