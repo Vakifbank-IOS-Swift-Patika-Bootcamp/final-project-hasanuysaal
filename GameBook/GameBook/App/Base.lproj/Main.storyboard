@@ -59,21 +59,34 @@
             </objects>
             <point key="canvasLocation" x="1790" y="777"/>
         </scene>
-        <!--Item-->
+        <!--Note List View Controller-->
         <scene sceneID="lF2-XX-8Rb">
             <objects>
-                <viewController id="NHC-ti-7I9" sceneMemberID="viewController">
+                <viewController id="NHC-ti-7I9" customClass="NoteListViewController" customModule="GameBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ma2-f1-Bsr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8AX-uz-tFi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6yn-Ho-gcm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6yn-Ho-gcm" firstAttribute="bottom" secondItem="8AX-uz-tFi" secondAttribute="bottom" id="PNd-2R-tvd"/>
+                            <constraint firstItem="8AX-uz-tFi" firstAttribute="top" secondItem="6yn-Ho-gcm" secondAttribute="top" id="Zjl-kn-pcd"/>
+                            <constraint firstItem="8AX-uz-tFi" firstAttribute="leading" secondItem="6yn-Ho-gcm" secondAttribute="leading" id="ii2-tW-i0q"/>
+                            <constraint firstItem="6yn-Ho-gcm" firstAttribute="trailing" secondItem="8AX-uz-tFi" secondAttribute="trailing" id="jOs-DP-GSh"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="BxN-66-7aQ"/>
+                    <navigationItem key="navigationItem" id="jVm-Rr-jJx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cae-dQ-TXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="84"/>
+            <point key="canvasLocation" x="1797.1014492753625" y="83.705357142857139"/>
         </scene>
         <!--Games-->
         <scene sceneID="tne-QT-ifu">
@@ -478,7 +491,7 @@
                     <connections>
                         <segue destination="tqn-pt-nBT" kind="relationship" relationship="viewControllers" id="O1o-ob-2RK"/>
                         <segue destination="ll6-iy-7ja" kind="relationship" relationship="viewControllers" id="kws-cd-S4K"/>
-                        <segue destination="NHC-ti-7I9" kind="relationship" relationship="viewControllers" id="NuF-Ob-B2x"/>
+                        <segue destination="2iq-4E-x1O" kind="relationship" relationship="viewControllers" id="NuF-Ob-B2x"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWQ-oE-UCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -538,12 +551,41 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="777.45535714285711"/>
         </scene>
+        <!--Notes-->
+        <scene sceneID="wUD-vK-BtU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2iq-4E-x1O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notes" image="pencil.circle" catalog="system" selectedImage="pencil.circle.fill" id="BxN-66-7aQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="5gH-4l-fD4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NHC-ti-7I9" kind="relationship" relationship="rootViewController" id="o9k-UQ-Jcu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jsD-Vk-qoR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="83.705357142857139"/>
+        </scene>
     </scenes>
     <resources>
         <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
