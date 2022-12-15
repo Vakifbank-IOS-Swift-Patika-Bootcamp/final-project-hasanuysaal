@@ -26,6 +26,7 @@ class FavoriteListTableViewCell: UITableViewCell {
     
     func configure(game: GameDetailModel){
         gameImageView.sd_setImage(with: URL(string: game.imageUrl), placeholderImage: UIImage(named: "gta"))
+        gameImageView.layer.cornerRadius = 25
         nameLabel.text = game.name
         releaseLabel.text = game.released
         genresArr = game.genres.map { $0.name }
