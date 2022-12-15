@@ -488,7 +488,7 @@
         <scene sceneID="Lka-1x-PvH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tqn-pt-nBT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Games" image="gamecontroller" catalog="system" id="ACr-Mz-CDw"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="gamecontroller" catalog="system" selectedImage="gamecontroller.fill" id="ACr-Mz-CDw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="A3E-cV-ITB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -517,7 +517,7 @@
         <scene sceneID="SAV-uM-PWU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ll6-iy-7ja" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="heart" catalog="system" id="v3y-LZ-B2E"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="heart" catalog="system" selectedImage="heart.fill" id="v3y-LZ-B2E"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hsb-ku-0RT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -540,7 +540,9 @@
     </scenes>
     <resources>
         <image name="gamecontroller" catalog="system" width="128" height="80"/>
+        <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
