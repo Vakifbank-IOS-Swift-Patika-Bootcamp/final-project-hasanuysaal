@@ -17,6 +17,8 @@ class NoteListViewController: BaseViewController {
         super.viewDidLoad()
         setNavBarTitle(view: self, title: "Notes")
         tableViewSetup()
+        viewModel.delegate = self
+        viewModel.getNotes()
     }
     
     func tableViewSetup() {
@@ -34,4 +36,16 @@ extension NoteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+}
+
+extension NoteListViewController: NoteListViewModelDelegate {
+    func notesLoaded() {
+        noteListTableView.reloadData()
+    }
+    
+    func notesFailed(error: Error) {
+        //
+    }
+    
+    
 }

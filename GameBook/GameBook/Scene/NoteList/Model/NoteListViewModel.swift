@@ -9,10 +9,10 @@ import Foundation
 
 protocol NoteListViewModelProtocol{
     var delegate: NoteListViewModelDelegate? { get set }
-    var notes: [NoteModel]? { get set }
+    var notes: [Note]? { get set }
     func getNotes()
     func getNotesCount() -> Int
-    func deleteNote(note: NoteModel)
+    func deleteNote(note: Note)
     
 }
 
@@ -24,16 +24,22 @@ protocol NoteListViewModelDelegate: AnyObject {
 class NoteListViewModel: NoteListViewModelProtocol {
     var delegate: NoteListViewModelDelegate?
     
-    var notes: [NoteModel]?
+    var notes: [Note]?
     
     func getNotes() {
-        
+        notes = CoreDataManager.shared.getNotes()
+        delegate?.notesLoaded()
     }
     func getNotesCount() -> Int {
-        1
+        if notes != nil {
+            return notes!.count
+        } else {
+            return 0
+        }
     }
-    func deleteNote(note: NoteModel) {
-        
+    
+    func deleteNote(note: Note) {
+        CoreDataManager.shared.deleteNote(note: note)
     }
     
 }
