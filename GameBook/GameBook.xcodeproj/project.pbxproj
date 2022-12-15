@@ -22,6 +22,10 @@
 		4056E1BA294B4E6A006D2E1C /* NoteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B8294B4E6A006D2E1C /* NoteListTableViewCell.swift */; };
 		4056E1BB294B4E6A006D2E1C /* NoteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */; };
 		4056E1BE294B8D02006D2E1C /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1BD294B8D02006D2E1C /* FloatingButton.swift */; };
+		4056E1C0294B9701006D2E1C /* NoteCreateUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1BF294B9701006D2E1C /* NoteCreateUpdateViewController.swift */; };
+		4056E1C2294B973A006D2E1C /* NoteCreateUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1C1294B973A006D2E1C /* NoteCreateUpdateViewModel.swift */; };
+		4056E1C5294B9BF8006D2E1C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1C4294B9BF8006D2E1C /* CustomTextField.swift */; };
+		4056E1C7294BA0A1006D2E1C /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1C6294BA0A1006D2E1C /* CustomTextView.swift */; };
 		408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600529485F20001A1A71 /* GameDetailModel.swift */; };
 		408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600729486062001A1A71 /* ParentPlatformModel.swift */; };
 		408A600A294860C3001A1A71 /* PlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A6009294860C3001A1A71 /* PlatformModel.swift */; };
@@ -83,6 +87,10 @@
 		4056E1B8294B4E6A006D2E1C /* NoteListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListTableViewCell.swift; sourceTree = "<group>"; };
 		4056E1B9294B4E6A006D2E1C /* NoteListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteListTableViewCell.xib; sourceTree = "<group>"; };
 		4056E1BD294B8D02006D2E1C /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		4056E1BF294B9701006D2E1C /* NoteCreateUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreateUpdateViewController.swift; sourceTree = "<group>"; };
+		4056E1C1294B973A006D2E1C /* NoteCreateUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreateUpdateViewModel.swift; sourceTree = "<group>"; };
+		4056E1C4294B9BF8006D2E1C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4056E1C6294BA0A1006D2E1C /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		408A600529485F20001A1A71 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		408A600729486062001A1A71 /* ParentPlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPlatformModel.swift; sourceTree = "<group>"; };
 		408A6009294860C3001A1A71 /* PlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModel.swift; sourceTree = "<group>"; };
@@ -184,6 +192,22 @@
 				4056E1BD294B8D02006D2E1C /* FloatingButton.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		4056E1C3294B9BD5006D2E1C /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				4056E1C4294B9BF8006D2E1C /* CustomTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		4056E1C8294BA0A5006D2E1C /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				4056E1C6294BA0A1006D2E1C /* CustomTextView.swift */,
+			);
+			path = TextView;
 			sourceTree = "<group>";
 		};
 		4098BB7D2948EC150089EA27 /* Base */ = {
@@ -435,6 +459,7 @@
 		40B92467294607E800DE3C5F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1BF294B9701006D2E1C /* NoteCreateUpdateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -442,6 +467,7 @@
 		40B92468294607E800DE3C5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1C1294B973A006D2E1C /* NoteCreateUpdateViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,6 +475,8 @@
 		40B92469294607E800DE3C5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1C8294BA0A5006D2E1C /* TextView */,
+				4056E1C3294B9BD5006D2E1C /* TextField */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -642,6 +670,7 @@
 				408A600A294860C3001A1A71 /* PlatformModel.swift in Sources */,
 				40B523832948BB3700B0443D /* String+Extension.swift in Sources */,
 				40B924862946109C00DE3C5F /* GameListViewModel.swift in Sources */,
+				4056E1C0294B9701006D2E1C /* NoteCreateUpdateViewController.swift in Sources */,
 				40B924142946027300DE3C5F /* AppDelegate.swift in Sources */,
 				4008FD8329476EED0014264B /* GameListFilterView.swift in Sources */,
 				40B9247E29460C3A00DE3C5F /* GameResponseModel.swift in Sources */,
@@ -657,11 +686,14 @@
 				408A600E29486795001A1A71 /* GameDetailCollectionViewCell.swift in Sources */,
 				4098BB7F2948EC2C0089EA27 /* BaseViewController.swift in Sources */,
 				4056E1BE294B8D02006D2E1C /* FloatingButton.swift in Sources */,
+				4056E1C2294B973A006D2E1C /* NoteCreateUpdateViewModel.swift in Sources */,
 				40B9248229460EE800DE3C5F /* GameListViewController.swift in Sources */,
 				40B9247629460BB700DE3C5F /* Constant.swift in Sources */,
 				400AD200294631B100559662 /* Double+Extension.swift in Sources */,
+				4056E1C5294B9BF8006D2E1C /* CustomTextField.swift in Sources */,
 				408A600C29486478001A1A71 /* GameDetailViewController.swift in Sources */,
 				404F72E72949BCD5005B08FC /* CoreDataManager.swift in Sources */,
+				4056E1C7294BA0A1006D2E1C /* CustomTextView.swift in Sources */,
 				40B9241E2946027300DE3C5F /* GameBook.xcdatamodeld in Sources */,
 				40B9247C29460C1D00DE3C5F /* GameModel.swift in Sources */,
 				404F72E52949AB7F005B08FC /* FavoriteListViewModel.swift in Sources */,
