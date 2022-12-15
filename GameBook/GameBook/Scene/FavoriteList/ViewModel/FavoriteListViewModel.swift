@@ -17,7 +17,7 @@ extension FavoriteGameListError: LocalizedError {
         switch self {
         case .gameNotFound:
             return NSLocalizedString(
-                "Game not found on your favorite list",
+                "There is no game on favorite list. You will be redirected to the home page.",
                 comment: "Invalid Password"
             )
         case .unexpected(_):
@@ -95,7 +95,6 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
         if favoriteGames?.count != 0 {
             return favoriteGames!.count
         } else {
-            delegate?.gameFailed(error: FavoriteGameListError.gameNotFound)
             return nil
         }
     }

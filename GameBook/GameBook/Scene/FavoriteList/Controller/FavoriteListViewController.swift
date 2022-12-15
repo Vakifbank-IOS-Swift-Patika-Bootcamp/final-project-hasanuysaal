@@ -24,6 +24,21 @@ class FavoriteListViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(favChanged), name: NSNotification.Name("favButtonNotification"), object: nil)
     }
     
+    func gameNotFoundAlertShow(){
+        DispatchQueue.main.async {
+            if self.viewModel.getIdsFromDB().isEmpty {
+                self.showAlert(message: FavoriteGameListError.gameNotFound.localizedDescription) {
+                    self.tabBarController?.selectedIndex = 0
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        gameNotFoundAlertShow()
+    }
+    
     @objc func favChanged() {
         viewModel.getFavoriteGames()
     }
@@ -40,6 +55,7 @@ extension FavoriteListViewController: UITableViewDelegate {
             CoreDataManager.shared.deleteFavoriteId(favorite: favoriteGame)
             self.viewModel.getFavoriteGames()
             completionHandler(true)
+            self.gameNotFoundAlertShow()
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -62,8 +78,6 @@ extension FavoriteListViewController: UITableViewDataSource {
         }
         cell.configure(game: gameModel)
         return cell
-        
-        
     }
 }
 
@@ -73,9 +87,8 @@ extension FavoriteListViewController: FavoriteListViewModelDelegate {
     }
     
     func gameFailed(error: Error) {
-        showAlert(message: FavoriteGameListError.gameNotFound.localizedDescription) {
-            print("no game")
-            // go back gamelistview
+        showAlert(message: error.localizedDescription) {
+            self.tabBarController?.selectedIndex = 0
         }
     }
 }
