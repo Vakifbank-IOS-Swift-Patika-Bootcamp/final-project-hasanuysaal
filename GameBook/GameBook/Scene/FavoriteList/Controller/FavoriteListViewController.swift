@@ -18,6 +18,7 @@ class FavoriteListViewController: BaseViewController {
         setNavBarTitle(view: self, title: "Favorites")
         viewModel.delegate = self
         viewModel.getFavoriteGames()
+        tableViewSetup()
         NotificationCenter.default.addObserver(self, selector: #selector(favChanged), name: NSNotification.Name("favButtonNotification"), object: nil)
     }
     
