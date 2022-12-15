@@ -49,7 +49,19 @@ class NoteListViewController: BaseViewController {
 
 }
 
-extension NoteListViewController: UITableViewDelegate { }
+extension NoteListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            self.viewModel.deleteNote(index: indexPath.row)
+            self.viewModel.getNotes()
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+}
 extension NoteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getNotesCount()

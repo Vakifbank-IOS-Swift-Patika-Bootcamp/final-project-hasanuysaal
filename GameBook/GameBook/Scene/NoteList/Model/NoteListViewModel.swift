@@ -13,7 +13,7 @@ protocol NoteListViewModelProtocol{
     func getNotes()
     func getNote(index: Int) -> Note?
     func getNotesCount() -> Int
-    func deleteNote(note: Note)
+    func deleteNote(index: Int)
     
 }
 
@@ -44,7 +44,10 @@ class NoteListViewModel: NoteListViewModelProtocol {
         }
     }
     
-    func deleteNote(note: Note) {
+    func deleteNote(index: Int) {
+        guard let note = notes?[index] else {
+            return
+        }
         CoreDataManager.shared.deleteNote(note: note)
     }
     
