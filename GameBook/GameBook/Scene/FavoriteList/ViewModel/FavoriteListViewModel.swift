@@ -99,7 +99,6 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
         }
     }
 
-    @discardableResult
     func deleteFavoriteGameFromDB(index: Int) {
         guard let favoriteGame = CoreDataManager.shared.getFavoriteGame(id: favoriteGames![index].id) else {
             return
