@@ -49,13 +49,11 @@ extension FavoriteListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
-            guard let favoriteGame = CoreDataManager.shared.getFavoriteGame(id: self.viewModel.favoriteGames![indexPath.row].id) else {
-                return
-            }
-            CoreDataManager.shared.deleteFavoriteId(favorite: favoriteGame)
+            self.viewModel.deleteFavoriteGameFromDB(index: indexPath.row)
             self.viewModel.getFavoriteGames()
             completionHandler(true)
             self.gameNotFoundAlertShow()
+            
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction])

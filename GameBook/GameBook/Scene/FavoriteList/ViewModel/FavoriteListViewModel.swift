@@ -36,7 +36,7 @@ protocol FavoriteListViewModelProtocol{
     func getIdsFromDB()-> [Int]
     func getFavoriteGames()
     func getFavoriteGameCount() -> Int?
-    func deleteFavoriteGameFromDB() -> Bool
+    func deleteFavoriteGameFromDB(index: Int)
     func getFavoriteGame(index: Int) -> GameDetailModel? 
 }
 
@@ -99,9 +99,12 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
         }
     }
 
-    
-    func deleteFavoriteGameFromDB() -> Bool {
-        true
+    @discardableResult
+    func deleteFavoriteGameFromDB(index: Int) {
+        guard let favoriteGame = CoreDataManager.shared.getFavoriteGame(id: favoriteGames![index].id) else {
+            return
+        }
+        CoreDataManager.shared.deleteFavoriteId(favorite: favoriteGame)
     }
     
     
