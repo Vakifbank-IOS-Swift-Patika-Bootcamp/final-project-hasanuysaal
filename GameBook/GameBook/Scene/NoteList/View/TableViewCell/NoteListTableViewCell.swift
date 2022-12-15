@@ -14,9 +14,9 @@ class NoteListTableViewCell: UITableViewCell {
     @IBOutlet weak var noteText: UILabel!
     
     
-    func configure(){
+    func configure(noteModel: Note){
         noteImage.image = UIImage(named: "star")
-        gameName.text = "GTA5"
-        noteText.text = "gta5gta5gta5gta5gta5gta5gta5gta5gta5gta5gta5gta5gta5gta5gta5"
+        gameName.text = noteModel.gameName
+        noteText.text = noteModel.noteText
     }
 }

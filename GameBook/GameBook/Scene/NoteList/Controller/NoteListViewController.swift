@@ -39,10 +39,10 @@ extension NoteListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = noteListTableView.dequeueReusableCell(withIdentifier: "NoteListCell", for: indexPath) as? NoteListTableViewCell else {
+        guard let cell = noteListTableView.dequeueReusableCell(withIdentifier: "NoteListCell", for: indexPath) as? NoteListTableViewCell, let noteModel = viewModel.getNote(index: indexPath.row) else {
             return UITableViewCell()
         }
-        cell.configure()
+        cell.configure(noteModel: noteModel)
         return cell
     }
 }

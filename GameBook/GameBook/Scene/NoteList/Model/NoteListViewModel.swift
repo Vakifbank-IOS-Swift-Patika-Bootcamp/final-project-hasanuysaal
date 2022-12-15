@@ -11,6 +11,7 @@ protocol NoteListViewModelProtocol{
     var delegate: NoteListViewModelDelegate? { get set }
     var notes: [Note]? { get set }
     func getNotes()
+    func getNote(index: Int) -> Note?
     func getNotesCount() -> Int
     func deleteNote(note: Note)
     
@@ -30,6 +31,11 @@ class NoteListViewModel: NoteListViewModelProtocol {
         notes = CoreDataManager.shared.getNotes()
         delegate?.notesLoaded()
     }
+    
+    func getNote(index: Int) -> Note? {
+        notes?[index]
+    }
+    
     func getNotesCount() -> Int {
         if notes != nil {
             return notes!.count
