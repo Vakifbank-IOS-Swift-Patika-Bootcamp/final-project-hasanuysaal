@@ -34,7 +34,9 @@ class NoteListViewController: BaseViewController {
     }
     
     @objc func floatingButtonTapped(){
-        performSegue(withIdentifier: "toNoteCreateUpdateView", sender: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as! NoteCreateUpdateViewController
+        vc.viewModel.delegate = self
+        self.present(vc, animated: true)
     }
     
     func tableViewCellRegister() {
@@ -83,6 +85,19 @@ extension NoteListViewController: NoteListViewModelDelegate {
     
     func notesFailed(error: Error) {
         //
+    }
+    
+    
+}
+
+extension NoteListViewController: NoteCreateUpdateViewModelDelegate {
+    func noteSuccess() {
+        viewModel.getNotes()
+        noteListTableView.reloadData()
+    }
+    
+    func noteFailed() {
+        
     }
     
     

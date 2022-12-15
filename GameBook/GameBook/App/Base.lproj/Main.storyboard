@@ -95,7 +95,7 @@
         <!--Note Create Update View Controller-->
         <scene sceneID="dTu-cq-hwg">
             <objects>
-                <viewController id="Wgr-cv-oOs" customClass="NoteCreateUpdateViewController" customModule="GameBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toNoteCreateUpdateView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wgr-cv-oOs" customClass="NoteCreateUpdateViewController" customModule="GameBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rio-1u-Sid">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

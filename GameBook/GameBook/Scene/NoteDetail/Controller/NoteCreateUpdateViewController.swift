@@ -19,7 +19,6 @@ class NoteCreateUpdateViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
         imageViewSetup()
     }
     
@@ -40,15 +39,10 @@ class NoteCreateUpdateViewController: BaseViewController {
     }
     
     @IBAction func noteButtonPressed(_ sender: Any) {
-    }
-}
-
-extension NoteCreateUpdateViewController: NoteCreateUpdateViewModelDelegate {
-    func noteSuccess() {
-        
-    }
-    
-    func noteFailed() {
-        
+        guard let gameName = gameNameTextField.text, let noteText = noteTextView.text else {
+            return
+        }
+        viewModel.createNote(image: nil, gameName: gameName, noteText: noteText)
+        dismiss(animated: true)
     }
 }
