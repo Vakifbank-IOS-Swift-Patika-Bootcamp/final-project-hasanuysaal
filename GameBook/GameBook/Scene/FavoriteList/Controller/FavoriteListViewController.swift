@@ -18,10 +18,17 @@ class FavoriteListViewController: BaseViewController {
         setNavBarTitle(view: self, title: "Favorites")
         viewModel.delegate = self
         viewModel.getFavoriteGames()
+        NotificationCenter.default.addObserver(self, selector: #selector(favChanged), name: NSNotification.Name("favButtonNotification"), object: nil)
+    }
+    
+    func tableViewSetup(){
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
+        tableViewRegister()
+    }
+    
+    func tableViewRegister(){
         favoriteListTableView.register(UINib(nibName: "FavoriteListTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoriteListCell")
-        NotificationCenter.default.addObserver(self, selector: #selector(favChanged), name: NSNotification.Name("favButtonNotification"), object: nil)
     }
     
     func gameNotFoundAlertShow(){
