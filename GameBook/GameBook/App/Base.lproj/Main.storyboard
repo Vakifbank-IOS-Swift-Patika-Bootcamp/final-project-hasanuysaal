@@ -83,6 +83,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jVm-Rr-jJx"/>
+                    <connections>
+                        <outlet property="noteListTableView" destination="8AX-uz-tFi" id="qVZ-2W-YVV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cae-dQ-TXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -18,6 +18,8 @@
 		404F72ED2949FD57005B08FC /* FavoriteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72EB2949FD57005B08FC /* FavoriteListTableViewCell.swift */; };
 		404F72EE2949FD57005B08FC /* FavoriteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */; };
 		4056E1B2294B11C5006D2E1C /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B1294B11C5006D2E1C /* NoteListViewController.swift */; };
+		4056E1B4294B42AF006D2E1C /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */; };
+		4056E1B6294B4315006D2E1C /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056E1B5294B4315006D2E1C /* NoteModel.swift */; };
 		408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600529485F20001A1A71 /* GameDetailModel.swift */; };
 		408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A600729486062001A1A71 /* ParentPlatformModel.swift */; };
 		408A600A294860C3001A1A71 /* PlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A6009294860C3001A1A71 /* PlatformModel.swift */; };
@@ -75,6 +77,8 @@
 		404F72EB2949FD57005B08FC /* FavoriteListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListTableViewCell.swift; sourceTree = "<group>"; };
 		404F72EC2949FD57005B08FC /* FavoriteListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteListTableViewCell.xib; sourceTree = "<group>"; };
 		4056E1B1294B11C5006D2E1C /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
+		4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
+		4056E1B5294B4315006D2E1C /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		408A600529485F20001A1A71 /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
 		408A600729486062001A1A71 /* ParentPlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentPlatformModel.swift; sourceTree = "<group>"; };
 		408A6009294860C3001A1A71 /* PlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModel.swift; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 		40B92463294607E400DE3C5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */,
+				4056E1B5294B4315006D2E1C /* NoteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -622,6 +628,7 @@
 				40B9247829460C0600DE3C5F /* GameGenresModel.swift in Sources */,
 				40B9248829461E0B00DE3C5F /* GameListCollectionViewCell.swift in Sources */,
 				40B9247429460B9B00DE3C5F /* GameDBClient.swift in Sources */,
+				4056E1B4294B42AF006D2E1C /* NoteListViewModel.swift in Sources */,
 				4008FD7C294725E90014264B /* GameCellFooterView.swift in Sources */,
 				408A600E29486795001A1A71 /* GameDetailCollectionViewCell.swift in Sources */,
 				4098BB7F2948EC2C0089EA27 /* BaseViewController.swift in Sources */,
@@ -634,6 +641,7 @@
 				40B9247C29460C1D00DE3C5F /* GameModel.swift in Sources */,
 				404F72E52949AB7F005B08FC /* FavoriteListViewModel.swift in Sources */,
 				40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */,
+				4056E1B6294B4315006D2E1C /* NoteModel.swift in Sources */,
 				408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */,
 				404F72E32949A9C1005B08FC /* FavoriteListViewController.swift in Sources */,
 				404F72ED2949FD57005B08FC /* FavoriteListTableViewCell.swift in Sources */,

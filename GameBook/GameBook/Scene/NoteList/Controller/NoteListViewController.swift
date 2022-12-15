@@ -9,8 +9,29 @@ import UIKit
 
 class NoteListViewController: BaseViewController {
 
+    @IBOutlet weak var noteListTableView: UITableView!
+    
+    var viewModel: NoteListViewModelProtocol = NoteListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarTitle(view: self, title: "Notes")
+        tableViewSetup()
+    }
+    
+    func tableViewSetup() {
+        noteListTableView.delegate = self
+        noteListTableView.dataSource = self
+    }
+}
+
+extension NoteListViewController: UITableViewDelegate { }
+extension NoteListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.getNotesCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
