@@ -34,7 +34,7 @@ class NoteListViewController: BaseViewController {
     }
     
     @objc func floatingButtonTapped(){
-        print("floatingButtonTapped")
+        performSegue(withIdentifier: "toNoteCreateUpdateView", sender: nil)
     }
     
     func tableViewCellRegister() {
