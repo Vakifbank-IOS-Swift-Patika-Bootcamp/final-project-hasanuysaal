@@ -452,6 +452,7 @@
 		40B92466294607E800DE3C5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1C1294B973A006D2E1C /* NoteCreateUpdateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -467,7 +468,6 @@
 		40B92468294607E800DE3C5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4056E1C1294B973A006D2E1C /* NoteCreateUpdateViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

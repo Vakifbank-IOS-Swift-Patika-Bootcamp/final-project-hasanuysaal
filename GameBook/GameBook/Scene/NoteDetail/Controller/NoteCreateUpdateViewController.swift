@@ -19,11 +19,12 @@ class NoteCreateUpdateViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.validationdelegate = self
         imageViewSetup()
     }
     
     func imageViewSetup() {
-        noteImageView.image = UIImage(systemName: "plus.viewfinder")
+        //noteImageView.image = UIImage(systemName: "plus.viewfinder")
         noteImageView.tintColor = .systemRed
         noteImageView.isUserInteractionEnabled = true
         addGestureRecognizerToImage()
@@ -48,11 +49,8 @@ class NoteCreateUpdateViewController: BaseViewController {
     }
     
     @IBAction func noteButtonPressed(_ sender: Any) {
-        guard let imageData = noteImageView.image?.jpegData(compressionQuality: 0.5),let gameName = gameNameTextField.text, let noteText = noteTextView.text else {
-            return
-        }
-        viewModel.createNote(image: imageData, gameName: gameName, noteText: noteText)
-        dismiss(animated: true)
+        let imageData = noteImageView.image?.jpegData(compressionQuality: 0.5)
+        viewModel.validateNote(image: imageData, gameName: gameNameTextField.text, noteText: noteTextView.text)
     }
 }
 
@@ -65,3 +63,16 @@ extension NoteCreateUpdateViewController: UIImagePickerControllerDelegate, UINav
         dismiss(animated: true)
     }
 }
+
+extension NoteCreateUpdateViewController: NoteValidationDelegate {
+    func noteValid() {
+        dismiss(animated: true)
+    }
+    
+    func noteNotValid(error: String) {
+        showAlert(message: error) {}
+    }
+}
+ 
+
+

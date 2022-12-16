@@ -93,11 +93,9 @@ extension NoteListViewController: NoteListViewModelDelegate {
 extension NoteListViewController: NoteCreateUpdateViewModelDelegate {
     func noteSuccess() {
         viewModel.getNotes()
-        noteListTableView.reloadData()
     }
     
-    func noteFailed() {
-        
+    func noteFailed(error: String) {
     }
     
     
