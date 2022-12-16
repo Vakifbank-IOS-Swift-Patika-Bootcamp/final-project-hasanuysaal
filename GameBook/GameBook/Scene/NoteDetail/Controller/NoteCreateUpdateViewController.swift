@@ -19,6 +19,10 @@ class NoteCreateUpdateViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if viewModel.isUpdateNote(note: note) {
+            viewModel.setForms(note: note!, imageView: noteImageView, gameName: gameNameTextField, noteText: noteTextView)
+            noteButton.setTitle("Update", for: .normal)
+        }
         viewModel.validationdelegate = self
         imageViewSetup()
     }
@@ -50,7 +54,7 @@ class NoteCreateUpdateViewController: BaseViewController {
     
     @IBAction func noteButtonPressed(_ sender: Any) {
         let imageData = noteImageView.image?.jpegData(compressionQuality: 0.5)
-        viewModel.validateNote(image: imageData, gameName: gameNameTextField.text, noteText: noteTextView.text)
+        viewModel.validateNote(isUpdate: viewModel.isUpdateNote(note: note), image: imageData, gameName: gameNameTextField.text, noteText: noteTextView.text, note: note)
     }
 }
 

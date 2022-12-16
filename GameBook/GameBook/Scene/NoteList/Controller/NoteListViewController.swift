@@ -53,6 +53,13 @@ class NoteListViewController: BaseViewController {
 
 extension NoteListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as! NoteCreateUpdateViewController
+        vc.viewModel.delegate = self
+        vc.note = viewModel.getNote(index: indexPath.row)
+        self.present(vc, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
             self.viewModel.deleteNote(index: indexPath.row)
