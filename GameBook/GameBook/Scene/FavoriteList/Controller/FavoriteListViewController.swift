@@ -19,6 +19,7 @@ class FavoriteListViewController: BaseViewController {
         viewModel.delegate = self
         viewModel.getFavoriteGames()
         tableViewSetup()
+        indicator.startAnimating()
         NotificationCenter.default.addObserver(self, selector: #selector(favChanged), name: NSNotification.Name("favButtonNotification"), object: nil)
     }
     
@@ -99,6 +100,7 @@ extension FavoriteListViewController: UITableViewDataSource {
 extension FavoriteListViewController: FavoriteListViewModelDelegate {
     func gameLoaded() {
         favoriteListTableView.reloadData()
+        indicator.stopAnimating()
     }
     
     func gameFailed(error: Error) {
