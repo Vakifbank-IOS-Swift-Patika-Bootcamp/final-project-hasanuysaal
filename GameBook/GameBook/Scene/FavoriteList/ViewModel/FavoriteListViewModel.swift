@@ -18,12 +18,12 @@ extension FavoriteGameListError: LocalizedError {
         case .gameNotFound:
             return NSLocalizedString(
                 "There is no game on favorite list. You will be redirected to the home page.",
-                comment: "Invalid Password"
+                comment: ""
             )
         case .unexpected(_):
             return NSLocalizedString(
                 "An unexpected error occurred.",
-                comment: "Unexpected Error"
+                comment: ""
             )
         }
     }
@@ -56,13 +56,13 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
     func getFavoriteGames(){
         self.gameIds = getIdsFromDB()
         favoriteGames = []
+        
         for id in gameIds {
             self.gruop.enter()
             GameDBClient.getGameDetail(id: id) { [weak self] gameResponse, error in
                 guard let self = self else {
                     return
                 }
-                
                 if let error = error {
                     self.delegate?.gameFailed(error: error)
                     return
@@ -71,7 +71,6 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
                     self.favoriteGames?.append(response)
                 }
                 self.gruop.leave()
-                
             }
         }
         self.gruop.notify(queue: .main) {
@@ -98,13 +97,11 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
             return nil
         }
     }
-
+    
     func deleteFavoriteGameFromDB(index: Int) {
         guard let favoriteGame = CoreDataManager.shared.getFavoriteGame(id: favoriteGames![index].id) else {
             return
         }
         CoreDataManager.shared.deleteFavoriteId(favorite: favoriteGame)
     }
-    
-    
 }

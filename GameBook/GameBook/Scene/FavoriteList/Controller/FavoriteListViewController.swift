@@ -7,11 +7,11 @@
 
 import UIKit
 
-class FavoriteListViewController: BaseViewController {
-
-    @IBOutlet weak var favoriteListTableView: UITableView!
+final class FavoriteListViewController: BaseViewController {
     
-    var viewModel: FavoriteListViewModelProtocol = FavoriteListViewModel()
+    @IBOutlet private weak var favoriteListTableView: UITableView!
+    
+    private var viewModel: FavoriteListViewModelProtocol = FavoriteListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,10 @@ class FavoriteListViewController: BaseViewController {
         viewModel.getFavoriteGames()
         tableViewSetup()
         indicator.startAnimating()
+        notificationCenterSetup()
+    }
+    
+    func notificationCenterSetup(){
         NotificationCenter.default.addObserver(self, selector: #selector(favChanged), name: NSNotification.Name("favButtonNotification"), object: nil)
     }
     
@@ -51,7 +55,7 @@ class FavoriteListViewController: BaseViewController {
     @objc func favChanged() {
         viewModel.getFavoriteGames()
     }
-
+    
 }
 
 extension FavoriteListViewController: UITableViewDelegate {
@@ -71,12 +75,9 @@ extension FavoriteListViewController: UITableViewDelegate {
             self.viewModel.getFavoriteGames()
             completionHandler(true)
             self.gameNotFoundAlertShow()
-            
         }
-        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
 }
 
 extension FavoriteListViewController: UITableViewDataSource {

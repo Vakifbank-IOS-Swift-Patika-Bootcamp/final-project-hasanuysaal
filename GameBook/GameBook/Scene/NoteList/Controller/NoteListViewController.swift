@@ -7,13 +7,12 @@
 
 import UIKit
 
-class NoteListViewController: BaseViewController {
-
-    @IBOutlet weak var noteListTableView: UITableView!
+final class NoteListViewController: BaseViewController {
     
-    var viewModel: NoteListViewModelProtocol = NoteListViewModel()
-    var floatingButton = FloatingButton()
+    @IBOutlet private weak var noteListTableView: UITableView!
     
+    private var viewModel: NoteListViewModelProtocol = NoteListViewModel()
+    private var floatingButton = FloatingButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +47,9 @@ class NoteListViewController: BaseViewController {
         noteListTableView.dataSource = self
         tableViewCellRegister()
     }
-
 }
 
 extension NoteListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as! NoteCreateUpdateViewController
         vc.viewModel.delegate = self
@@ -69,8 +66,8 @@ extension NoteListViewController: UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
 }
+
 extension NoteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getNotesCount()
@@ -93,8 +90,6 @@ extension NoteListViewController: NoteListViewModelDelegate {
     func notesFailed(error: Error) {
         //
     }
-    
-    
 }
 
 extension NoteListViewController: NoteCreateUpdateViewModelDelegate {
@@ -104,6 +99,4 @@ extension NoteListViewController: NoteCreateUpdateViewModelDelegate {
     
     func noteFailed(error: String) {
     }
-    
-    
 }

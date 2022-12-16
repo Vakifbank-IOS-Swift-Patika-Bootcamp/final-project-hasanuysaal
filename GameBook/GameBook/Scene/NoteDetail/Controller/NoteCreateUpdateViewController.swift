@@ -7,30 +7,32 @@
 
 import UIKit
 
-class NoteCreateUpdateViewController: BaseViewController {
+final class NoteCreateUpdateViewController: BaseViewController {
     
-    @IBOutlet weak var noteImageView: UIImageView!
-    @IBOutlet weak var gameNameTextField: CustomTextField!
-    @IBOutlet weak var noteTextView: CustomTextView!
-    @IBOutlet weak var noteButton: UIButton!
+    @IBOutlet private weak var noteImageView: UIImageView!
+    @IBOutlet private weak var gameNameTextField: CustomTextField!
+    @IBOutlet private weak var noteTextView: CustomTextView!
+    @IBOutlet private weak var noteButton: UIButton!
     
     var viewModel: NoteCreateUpdateViewModelProtocol = NoteCreateUpdateViewModel()
     var note: Note?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if viewModel.isUpdateNote(note: note) {
             viewModel.setForms(note: note!, imageView: noteImageView, gameName: gameNameTextField, noteText: noteTextView)
             noteButton.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
         } else {
             noteButton.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
         }
+        
         viewModel.validationdelegate = self
         imageViewSetup()
     }
     
     func imageViewSetup() {
-        //noteImageView.image = UIImage(systemName: "plus.viewfinder")
+        noteImageView.image = UIImage(systemName: "plus.viewfinder")
         noteImageView.tintColor = .systemRed
         noteImageView.isUserInteractionEnabled = true
         addGestureRecognizerToImage()
@@ -79,6 +81,6 @@ extension NoteCreateUpdateViewController: NoteValidationDelegate {
         showAlert(message: error) {}
     }
 }
- 
+
 
 

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class GameListViewController: BaseViewController {
-
-    @IBOutlet weak var gameListCollectionView: UICollectionView!
+final class GameListViewController: BaseViewController {
     
-    var viewModel: GameListViewModelProtocol = GameListViewModel()
-    let search = UISearchController(searchResultsController: nil)
-    var filterView = GameListFilterView()
+    @IBOutlet private weak var gameListCollectionView: UICollectionView!
+    
+    private var viewModel: GameListViewModelProtocol = GameListViewModel()
+    private let search = UISearchController(searchResultsController: nil)
+    private var filterView = GameListFilterView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,31 +26,31 @@ class GameListViewController: BaseViewController {
         indicator.startAnimating()
     }
     
-    func rightBarButtonItemSetup(){
+    func rightBarButtonItemSetup() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "repeat"), style: .done, target: self, action: #selector(langChangeButton))
     }
     
-    @objc func langChangeButton(){
+    @objc func langChangeButton() {
         viewModel.changeLanguage()
     }
     
-    func filterViewSetup(){
+    func filterViewSetup() {
         filterView = GameListFilterView(frame: CGRect(origin: CGPoint(x: 16, y: 30), size: CGSize(width: view.center.x - 16, height: 100)))
         filterView.delegate = self
     }
     
-    func searchBarSetup(){
+    func searchBarSetup() {
         search.searchResultsUpdater = self
         navigationItem.searchController = search
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([.foregroundColor : UIColor.systemRed], for: .normal)
     }
-
-    func collectionViewSetup(){
+    
+    func collectionViewSetup() {
         gameListCollectionView.dataSource = self
         gameListCollectionView.delegate = self
     }
     
-    func scrollToTopOfCollectionView(){
+    func scrollToTopOfCollectionView() {
         let topOffest = CGPoint(x: 0, y: -(gameListCollectionView.contentInset.top))
         gameListCollectionView.setContentOffset(topOffest, animated: true)
     }
@@ -73,7 +73,6 @@ class GameListViewController: BaseViewController {
         gameListCollectionView.reloadData()
         filterView.removeFromSuperview()
     }
-    
 }
 
 extension GameListViewController: GameListViewModelDelegate {
@@ -171,8 +170,7 @@ extension GameListViewController: GameListFilterViewDelegate {
     }
 }
 
-extension GameListViewController: UISearchResultsUpdating{
-    
+extension GameListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterView.removeFromSuperview()
         guard let text = searchController.searchBar.text else {
@@ -184,5 +182,4 @@ extension GameListViewController: UISearchResultsUpdating{
         }
         gameListCollectionView.reloadData()
     }
-    
 }

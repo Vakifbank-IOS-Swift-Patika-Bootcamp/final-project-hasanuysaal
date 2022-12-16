@@ -7,8 +7,8 @@
 
 import UIKit
 
-class CustomTextView: UITextView {
-
+final class CustomTextView: UITextView {
+    
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         configure()
@@ -28,8 +28,7 @@ class CustomTextView: UITextView {
         self.tintColor = .systemRed
         self.viewWithTag(100)
         layer.masksToBounds = true
-        self.text = "Note Here..."
+        self.text = ""
     }
-
 }
 

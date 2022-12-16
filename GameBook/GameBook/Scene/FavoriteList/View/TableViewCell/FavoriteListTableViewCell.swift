@@ -8,17 +8,17 @@
 import UIKit
 import SDWebImage
 
-class FavoriteListTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var gameImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var releaseLabel: UILabel!
-    @IBOutlet weak var genresLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
+final class FavoriteListTableViewCell: UITableViewCell {
     
-    var genresArr: [String] = []
+    @IBOutlet private weak var gameImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var releaseLabel: UILabel!
+    @IBOutlet private weak var genresLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
     
-    var genres: String {
+    private var genresArr: [String] = []
+    
+    private var genres: String {
         get{
             return genresArr.joined(separator: " ,")
         }
@@ -33,5 +33,4 @@ class FavoriteListTableViewCell: UITableViewCell {
         genresLabel.text = genres
         ratingLabel.text = String(game.rating)
     }
-    
 }

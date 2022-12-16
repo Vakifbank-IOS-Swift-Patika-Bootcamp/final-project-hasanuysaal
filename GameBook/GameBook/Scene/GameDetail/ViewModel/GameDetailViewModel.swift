@@ -85,5 +85,4 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
             return FavoriteButtonStyle.notFavorite.rawValue
         }
     }
-    
 }

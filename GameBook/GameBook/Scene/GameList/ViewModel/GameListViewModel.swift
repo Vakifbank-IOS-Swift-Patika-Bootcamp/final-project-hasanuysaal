@@ -103,6 +103,7 @@ class GameListViewModel: GameListViewModelProtocol{
     
     func changeLanguage() {
         let languagePrefix = Locale.preferredLanguages[0].split(separator: "-").first
+        
         if languagePrefix == "tr" {
             UserDefaults.standard.set(["en"], forKey: "AppleLanguages")
             UserDefaults.standard.synchronize()
@@ -119,7 +120,4 @@ class GameListViewModel: GameListViewModelProtocol{
             exit(0)
         }
     }
-    
-    
-    
 }

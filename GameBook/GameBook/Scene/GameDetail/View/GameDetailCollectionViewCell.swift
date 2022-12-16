@@ -8,8 +8,8 @@
 import UIKit
 import SDWebImage
 
-class GameDetailCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+final class GameDetailCollectionViewCell: UICollectionViewCell {
+    @IBOutlet private weak var imageView: UIImageView!
     
     func configure(imageUrl: String) {
         imageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "gta"))

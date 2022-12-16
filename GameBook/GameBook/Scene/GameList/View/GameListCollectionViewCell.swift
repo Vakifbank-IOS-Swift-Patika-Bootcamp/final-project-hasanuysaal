@@ -8,20 +8,29 @@
 import UIKit
 import SDWebImage
 
-class GameListCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var genresLabel: UILabel!
+final class GameListCollectionViewCell: UICollectionViewCell {
     
-    var starImageView: UIImageView = {
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var releaseDateLabel: UILabel!
+    @IBOutlet private weak var genresLabel: UILabel!
+    
+    private var genresArr: [String] = []
+    
+    private var genres: String {
+        get{
+            return genresArr.joined(separator: " ,")
+        }
+    }
+    
+    private var starImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = CGRect(x: 127, y: 15, width: 35, height: 35)
         imageView.image = UIImage(named: "star")
         return imageView
     }()
     
-    var ratingLabel: UILabel = {
+    private var ratingLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 135, y: 15, width: 35, height: 35)
         label.textColor = .white
@@ -29,21 +38,12 @@ class GameListCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    var genresArr: [String] = []
-    
-    var genres: String {
-        get{
-            return genresArr.joined(separator: " ,")
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.borderWidth = 1.5
         layer.borderColor = UIColor.systemRed.cgColor
         layer.cornerRadius = 20.0
         imageView.layer.cornerRadius = 25.0
-        
     }
     
     func configure(model: GameModel){

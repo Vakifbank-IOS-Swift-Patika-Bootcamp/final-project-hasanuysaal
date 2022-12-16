@@ -16,12 +16,13 @@ protocol GameCellFooterViewProtocol: AnyObject{
     var delegate: GameCellFooterViewDelegate? { get set }
 }
 
-class GameCellFooterView: UICollectionReusableView, GameCellFooterViewProtocol {
+final class GameCellFooterView: UICollectionReusableView, GameCellFooterViewProtocol {
+    
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     
     weak var delegate: GameCellFooterViewDelegate?
-
+    
     @IBAction func previousButtonPressed(_ sender: Any) {
         delegate?.previousButton()
     }

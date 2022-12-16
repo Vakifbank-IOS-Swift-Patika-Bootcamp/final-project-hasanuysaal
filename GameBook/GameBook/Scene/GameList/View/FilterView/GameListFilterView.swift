@@ -13,10 +13,10 @@ protocol GameListFilterViewDelegate: AnyObject {
 }
 
 
-class GameListFilterView: UIView {
+final class GameListFilterView: UIView {
     
-    @IBOutlet weak var upcomingGamesLabel: UILabel!
-    @IBOutlet weak var popularGamesLabel: UILabel!
+    @IBOutlet private weak var upcomingGamesLabel: UILabel!
+    @IBOutlet private weak var popularGamesLabel: UILabel!
     
     weak var delegate: GameListFilterViewDelegate?
     
@@ -73,6 +73,4 @@ class GameListFilterView: UIView {
         self.delegate?.getPopularGames()
         self.removeFromSuperview()
     }
-    
-    
 }

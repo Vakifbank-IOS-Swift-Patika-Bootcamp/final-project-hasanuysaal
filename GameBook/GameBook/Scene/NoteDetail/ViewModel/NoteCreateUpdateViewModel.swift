@@ -85,5 +85,4 @@ class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
             return false
         }
     }
-    
 }

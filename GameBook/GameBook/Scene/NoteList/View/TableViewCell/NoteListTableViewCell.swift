@@ -7,11 +7,11 @@
 
 import UIKit
 
-class NoteListTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var noteImage: UIImageView!
-    @IBOutlet weak var gameName: UILabel!
-    @IBOutlet weak var noteText: UILabel!
+final class NoteListTableViewCell: UITableViewCell {
+    
+    @IBOutlet private weak var noteImage: UIImageView!
+    @IBOutlet private weak var gameName: UILabel!
+    @IBOutlet private weak var noteText: UILabel!
     
     func configure(noteModel: Note){
         gameName.text = noteModel.gameName

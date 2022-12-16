@@ -11,7 +11,7 @@ protocol LocalNotificationManagerProtocol {
     func create()
 }
 
-class LocalNotificationManager: LocalNotificationManagerProtocol {
+final class LocalNotificationManager: LocalNotificationManagerProtocol {
     
     private let userNotificationCenter = UNUserNotificationCenter.current()
     

@@ -14,7 +14,6 @@ protocol NoteListViewModelProtocol{
     func getNote(index: Int) -> Note?
     func getNotesCount() -> Int
     func deleteNote(index: Int)
-    
 }
 
 protocol NoteListViewModelDelegate: AnyObject {
@@ -22,9 +21,9 @@ protocol NoteListViewModelDelegate: AnyObject {
     func notesFailed(error: Error)
 }
 
-class NoteListViewModel: NoteListViewModelProtocol {
-    var delegate: NoteListViewModelDelegate?
+final class NoteListViewModel: NoteListViewModelProtocol {
     
+    var delegate: NoteListViewModelDelegate?
     var notes: [Note]?
     
     func getNotes() {
@@ -50,5 +49,4 @@ class NoteListViewModel: NoteListViewModelProtocol {
         }
         CoreDataManager.shared.deleteNote(note: note)
     }
-    
 }

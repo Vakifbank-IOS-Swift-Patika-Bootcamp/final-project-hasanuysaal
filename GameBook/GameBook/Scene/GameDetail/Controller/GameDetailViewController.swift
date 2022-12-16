@@ -8,24 +8,24 @@
 import UIKit
 import MaterialActivityIndicator
 
-class GameDetailViewController: BaseViewController {
-
-    @IBOutlet weak var playtimeLabel: UILabel!
-    @IBOutlet weak var platformLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var releaseLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var genresLabel: UILabel!
-    @IBOutlet weak var metascoreLabel: UILabel!
+final class GameDetailViewController: BaseViewController {
     
-    @IBOutlet weak var gameDetailCollectionView: UICollectionView! {
+    @IBOutlet private weak var playtimeLabel: UILabel!
+    @IBOutlet private weak var platformLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var releaseLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var genresLabel: UILabel!
+    @IBOutlet private weak var metascoreLabel: UILabel!
+    
+    @IBOutlet private weak var gameDetailCollectionView: UICollectionView! {
         didSet {
             gameDetailCollectionView.delegate = self
             gameDetailCollectionView.dataSource = self
         }
     }
     
-    var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
+    private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     var id: Int?
     var favorite: Favorite?
     
@@ -57,7 +57,6 @@ class GameDetailViewController: BaseViewController {
         }
         NotificationCenter.default.post(name: NSNotification.Name("favButtonNotification"), object: favorite)
     }
-
 }
 
 extension GameDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -101,4 +100,3 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         metascoreLabel.text = String(viewModel.game?.metacritic ?? 0)
     }
 }
-
