@@ -9,7 +9,7 @@ import Foundation
 
 protocol NoteCreateUpdateViewModelProtocol {
     var delegate: NoteCreateUpdateViewModelDelegate? { get set }
-    func createNote(image: Data?, gameName: String, noteText: String)
+    func createNote(image: Data, gameName: String, noteText: String)
 }
 
 protocol NoteCreateUpdateViewModelDelegate: AnyObject {
@@ -21,7 +21,7 @@ class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
     
     var delegate: NoteCreateUpdateViewModelDelegate?
     
-    func createNote(image: Data?, gameName: String, noteText: String) {
+    func createNote(image: Data, gameName: String, noteText: String) {
         CoreDataManager.shared.saveNote(image: image, gameName: gameName, noteText: noteText)
         delegate?.noteSuccess()
     }

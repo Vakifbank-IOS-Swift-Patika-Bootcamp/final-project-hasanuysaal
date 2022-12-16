@@ -409,6 +409,7 @@
 		40B92461294607E400DE3C5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -424,7 +425,6 @@
 		40B92463294607E400DE3C5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4056E1B3294B42AF006D2E1C /* NoteListViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -35,14 +35,33 @@ class NoteCreateUpdateViewController: BaseViewController {
     }
     
     @objc func imageViewTapped() {
-        print("imageViewTapped")
+        let pickerController = createImagePicker()
+        present(pickerController, animated: true, completion: nil)
+    }
+    
+    func createImagePicker() -> UIImagePickerController {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.sourceType = .photoLibrary
+        return pickerController
     }
     
     @IBAction func noteButtonPressed(_ sender: Any) {
-        guard let gameName = gameNameTextField.text, let noteText = noteTextView.text else {
+        guard let imageData = noteImageView.image?.jpegData(compressionQuality: 0.5),let gameName = gameNameTextField.text, let noteText = noteTextView.text else {
             return
         }
-        viewModel.createNote(image: nil, gameName: gameName, noteText: noteText)
+        viewModel.createNote(image: imageData, gameName: gameName, noteText: noteText)
+        dismiss(animated: true)
+    }
+}
+
+extension NoteCreateUpdateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        noteImageView.image = image
         dismiss(animated: true)
     }
 }

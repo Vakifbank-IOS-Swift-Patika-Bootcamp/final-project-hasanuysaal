@@ -91,7 +91,7 @@ final class CoreDataManager {
         }
         
         @discardableResult
-        func saveNote(image: Data?, gameName: String, noteText: String) -> Note? {
+        func saveNote(image: Data, gameName: String, noteText: String) -> Note? {
             let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)!
             let note = NSManagedObject(entity: entity, insertInto: managedContext)
             note.setValue(image, forKeyPath: "image")
