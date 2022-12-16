@@ -9,13 +9,15 @@ import UIKit
 import MaterialActivityIndicator
 import SwiftAlertView
 
-class BaseViewController: UIViewController {
+class BaseViewController: NotificationViewController {
     
     let indicator = MaterialActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActivityIndicatorView()
+        requestNotificationAuthorization()
+        sendNotification()
     }
     
     func setNavBarTitle(view: UIViewController, title: String){

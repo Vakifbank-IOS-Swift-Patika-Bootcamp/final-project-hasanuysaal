@@ -12,6 +12,7 @@
 		4008FD8329476EED0014264B /* GameListFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008FD8229476EED0014264B /* GameListFilterView.swift */; };
 		400AD200294631B100559662 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400AD1FF294631B100559662 /* Double+Extension.swift */; };
 		400AD2032946532000559662 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 400AD2022946532000559662 /* SDWebImage */; };
+		401CFDA1294C9F1200B249E1 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401CFDA0294C9F1200B249E1 /* NotificationViewController.swift */; };
 		404F72E32949A9C1005B08FC /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */; };
 		404F72E52949AB7F005B08FC /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */; };
 		404F72E72949BCD5005B08FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E62949BCD5005B08FC /* CoreDataManager.swift */; };
@@ -77,6 +78,7 @@
 		4008FD8029476EC50014264B /* GameListFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListFilterView.xib; sourceTree = "<group>"; };
 		4008FD8229476EED0014264B /* GameListFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListFilterView.swift; sourceTree = "<group>"; };
 		400AD1FF294631B100559662 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		401CFDA0294C9F1200B249E1 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
 		404F72E62949BCD5005B08FC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -166,6 +168,14 @@
 				40B523822948BB3700B0443D /* String+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		401CFD9F294C9EDC00B249E1 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				401CFDA0294C9F1200B249E1 /* NotificationViewController.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		404F72EA2949FD26005B08FC /* TableViewCell */ = {
@@ -283,6 +293,7 @@
 		40B924482946031100DE3C5F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				401CFD9F294C9EDC00B249E1 /* Notification */,
 				4098BB7D2948EC150089EA27 /* Base */,
 				40B9244E2946038400DE3C5F /* GameList */,
 				40B9245B294607D300DE3C5F /* GameDetail */,
@@ -677,6 +688,7 @@
 				408A601029486A97001A1A71 /* GameDetailViewModel.swift in Sources */,
 				4056E1BA294B4E6A006D2E1C /* NoteListTableViewCell.swift in Sources */,
 				408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */,
+				401CFDA1294C9F1200B249E1 /* NotificationViewController.swift in Sources */,
 				4056E1B2294B11C5006D2E1C /* NoteListViewController.swift in Sources */,
 				40B9247829460C0600DE3C5F /* GameGenresModel.swift in Sources */,
 				40B9248829461E0B00DE3C5F /* GameListCollectionViewCell.swift in Sources */,

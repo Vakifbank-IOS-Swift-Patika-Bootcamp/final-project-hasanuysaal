@@ -331,7 +331,7 @@
                                         <constraint firstAttribute="bottom" secondItem="als-y2-U8m" secondAttribute="bottom" id="mkC-hk-xr3"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="nextButton" destination="Dyg-dP-aQ8" id="6WD-uq-akX"/>
+                                        <outlet property="nextButton" destination="Dyg-dP-aQ8" id="ZMs-It-6pv"/>
                                         <outlet property="previousButton" destination="xdF-Xy-4uQ" id="X7E-8S-pIq"/>
                                     </connections>
                                 </collectionReusableView>
