@@ -15,14 +15,6 @@ final class GameListCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var releaseDateLabel: UILabel!
     @IBOutlet private weak var genresLabel: UILabel!
     
-    private var genresArr: [String] = []
-    
-    private var genres: String {
-        get{
-            return genresArr.joined(separator: " ,")
-        }
-    }
-    
     private var starImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = CGRect(x: 127, y: 15, width: 35, height: 35)
@@ -50,8 +42,7 @@ final class GameListCollectionViewCell: UICollectionViewCell {
         imageView.sd_setImage(with: URL(string: model.image), placeholderImage: UIImage(named: "gta"))
         nameLabel.text = model.name
         releaseDateLabel.text = model.released
-        genresArr = model.genres.map { $0.name }
-        genresLabel.text = genres
+        genresLabel.text = model.genres.genresToString
         ratingLabel.text = model.rating.clean
         subviewsSetup()
     }

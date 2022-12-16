@@ -36,28 +36,11 @@
                     <navigationItem key="navigationItem" id="4CA-n6-Meo"/>
                     <connections>
                         <outlet property="favoriteListTableView" destination="Aq6-ns-9uB" id="zoM-va-NNf"/>
-                        <segue destination="6wZ-bw-fTJ" kind="show" identifier="toNoteDetail" id="3g1-fj-oJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAv-HK-4aG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="777.45535714285711"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="OWH-mq-ADx">
-            <objects>
-                <viewController id="6wZ-bw-fTJ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kMv-QR-Odf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6h0-Nl-qoy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eAo-XR-7mB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6XT-aH-bBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1790" y="777"/>
         </scene>
         <!--Note List View Controller-->
         <scene sceneID="lF2-XX-8Rb">

@@ -64,9 +64,7 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
     }
     
     func getGameGenres() -> String? {
-        let genresArr = game?.genres.map { $0.name }
-        let genres = genresArr?.joined(separator: ", ")
-        return genres
+        return game?.genres.genresToString
     }
     
     func isGameFavorite(id: Int) -> Favorite? {
