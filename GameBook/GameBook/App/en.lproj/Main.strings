@@ -1,0 +1,87 @@
+
+/* Class = "UILabel"; text = "..."; ObjectID = "9wC-3Z-y55"; */
+"9wC-3Z-y55.text" = "...";
+
+/* Class = "UITabBarItem"; title = "Games"; ObjectID = "ACr-Mz-CDw"; */
+"ACr-Mz-CDw.title" = "Games";
+
+/* Class = "UITabBarItem"; title = "Notes"; ObjectID = "BxN-66-7aQ"; */
+"BxN-66-7aQ.title" = "Notes";
+
+/* Class = "UITextField"; placeholder = "Game Name"; ObjectID = "CGV-1S-NTD"; */
+"CGV-1S-NTD.placeholder" = "Game Name";
+
+/* Class = "UIButton"; configuration.title = "Next >"; ObjectID = "Dyg-dP-aQ8"; */
+"Dyg-dP-aQ8.configuration.title" = "Next >";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Dyg-dP-aQ8"; */
+"Dyg-dP-aQ8.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Sort"; ObjectID = "Edf-YL-qYa"; */
+"Edf-YL-qYa.configuration.title" = "Sort";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Edf-YL-qYa"; */
+"Edf-YL-qYa.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Games"; ObjectID = "GUu-ph-flD"; */
+"GUu-ph-flD.title" = "Games";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "LPm-e9-jU1"; */
+"LPm-e9-jU1.text" = "-";
+
+/* Class = "UILabel"; text = "Genres "; ObjectID = "Qdu-yq-Zu3"; */
+"Qdu-yq-Zu3.text" = "Genres ";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "T90-36-QTV"; */
+"T90-36-QTV.text" = "-";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "TkN-pm-dki"; */
+"TkN-pm-dki.text" = "...";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "VNf-gd-ZoG"; */
+"VNf-gd-ZoG.text" = "...";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "YlB-JQ-YD0"; */
+"YlB-JQ-YD0.text" = "-";
+
+/* Class = "UILabel"; text = "Release Date"; ObjectID = "cAg-3f-VS2"; */
+"cAg-3f-VS2.text" = "Release Date";
+
+/* Class = "UIButton"; configuration.title = "Create"; ObjectID = "etg-ri-uIs"; */
+"etg-ri-uIs.configuration.title" = "Create";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "etg-ri-uIs"; */
+"etg-ri-uIs.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "kNx-1u-AQa"; */
+"kNx-1u-AQa.text" = "...";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "kat-xp-ORg"; */
+"kat-xp-ORg.text" = "...";
+
+/* Class = "UIButton"; configuration.title = "Filter"; ObjectID = "nuy-BD-5bl"; */
+"nuy-BD-5bl.configuration.title" = "Filter";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nuy-BD-5bl"; */
+"nuy-BD-5bl.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Metascore "; ObjectID = "pzf-cj-iP5"; */
+"pzf-cj-iP5.text" = "Metascore ";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "ueS-2L-Pbc"; */
+"ueS-2L-Pbc.text" = "...";
+
+/* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "v3y-LZ-B2E"; */
+"v3y-LZ-B2E.title" = "Favorite";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "vLm-Ny-hfA"; */
+"vLm-Ny-hfA.text" = "...";
+
+/* Class = "UIButton"; configuration.title = "< Previous"; ObjectID = "xdF-Xy-4uQ"; */
+"xdF-Xy-4uQ.configuration.title" = "< Previous";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xdF-Xy-4uQ"; */
+"xdF-Xy-4uQ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "zcd-WZ-h5e"; */
+"zcd-WZ-h5e.text" = "Gender";

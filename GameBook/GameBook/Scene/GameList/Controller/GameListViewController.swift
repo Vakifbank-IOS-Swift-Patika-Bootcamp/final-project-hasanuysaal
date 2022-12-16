@@ -22,7 +22,16 @@ class GameListViewController: BaseViewController {
         filterViewSetup()
         collectionViewSetup()
         searchBarSetup()
+        rightBarButtonItemSetup()
         indicator.startAnimating()
+    }
+    
+    func rightBarButtonItemSetup(){
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "repeat"), style: .done, target: self, action: #selector(langChangeButton))
+    }
+    
+    @objc func langChangeButton(){
+        viewModel.changeLanguage()
     }
     
     func filterViewSetup(){

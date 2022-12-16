@@ -5,7 +5,7 @@
 //  Created by Hasan Uysal on 11.12.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol GameListViewModelProtocol{
     var pageCounter: Int { get set }
@@ -22,6 +22,7 @@ protocol GameListViewModelProtocol{
     func getPopularGames()
     func getUpcomeGames()
     func sortGames()
+    func changeLanguage()
 }
 
 protocol GameListViewModelDelegate: AnyObject{
@@ -97,6 +98,25 @@ class GameListViewModel: GameListViewModelProtocol{
             }
             self.games = gameResponse?.results
             self.delegate?.gamesLoaded()
+        }
+    }
+    
+    func changeLanguage() {
+        let languagePrefix = Locale.preferredLanguages[0].split(separator: "-").first
+        if languagePrefix == "tr" {
+            UserDefaults.standard.set(["en"], forKey: "AppleLanguages")
+            UserDefaults.standard.synchronize()
+            
+            Bundle.setLanguage("en")
+            
+            exit(0)
+        } else {
+            UserDefaults.standard.set(["tr"], forKey: "AppleLanguages")
+            UserDefaults.standard.synchronize()
+            
+            Bundle.setLanguage("tr")
+            
+            exit(0)
         }
     }
     

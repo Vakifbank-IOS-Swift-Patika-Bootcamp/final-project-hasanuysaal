@@ -9,19 +9,20 @@ import UIKit
 import MaterialActivityIndicator
 import SwiftAlertView
 
-class BaseViewController: NotificationViewController {
+class BaseViewController: UIViewController {
     
     let indicator = MaterialActivityIndicatorView()
+    
+    var localNotificationManager: LocalNotificationManagerProtocol = LocalNotificationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActivityIndicatorView()
-        requestNotificationAuthorization()
-        sendNotification()
+        localNotificationManager.create()
     }
     
     func setNavBarTitle(view: UIViewController, title: String){
-        view.title = title
+        view.title = NSLocalizedString(title, comment: "")
     }
     
     private func setupActivityIndicatorView(){

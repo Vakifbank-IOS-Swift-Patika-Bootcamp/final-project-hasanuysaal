@@ -44,7 +44,7 @@ class GameDetailViewController: BaseViewController {
     
     func navigationBarSetup(){
         rightBarButtonItemSetup(name: "heart")
-        setNavBarTitle(view: self, title: "GameDetail")
+        setNavBarTitle(view: self, title: "Game Detail")
     }
     
     @objc func favoriteTapped(){

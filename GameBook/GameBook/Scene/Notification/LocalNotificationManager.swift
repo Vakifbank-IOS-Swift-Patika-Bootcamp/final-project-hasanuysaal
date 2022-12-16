@@ -1,5 +1,5 @@
 //
-//  NotificationViewController.swift
+//  LocalNotificationManager.swift
 //  GameBook
 //
 //  Created by Hasan Uysal on 16.12.2022.
@@ -7,15 +7,20 @@
 
 import UIKit
 
-class NotificationViewController: UIViewController {
+protocol LocalNotificationManagerProtocol {
+    func create()
+}
+
+class LocalNotificationManager: LocalNotificationManagerProtocol {
     
     private let userNotificationCenter = UNUserNotificationCenter.current()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func create() {
+        requestNotificationAuthorization()
+        sendNotification()
     }
     
-    func requestNotificationAuthorization() {
+    private func requestNotificationAuthorization() {
         let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
         userNotificationCenter.requestAuthorization(options: authOptions) { _, error in
             if let error = error {
@@ -23,12 +28,12 @@ class NotificationViewController: UIViewController {
             }
         }
     }
-    func sendNotification(){
+    private func sendNotification(){
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "Games Book"
-        notificationContent.body = "Hey, you can show popular games now!"
+        notificationContent.body = NSLocalizedString("App language was changed. Tap to open app!" , comment: "")
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
         let request = UNNotificationRequest(identifier: "GameBookNotification", content: notificationContent, trigger: trigger)
         
@@ -38,5 +43,4 @@ class NotificationViewController: UIViewController {
             }
         }
     }
-    
 }

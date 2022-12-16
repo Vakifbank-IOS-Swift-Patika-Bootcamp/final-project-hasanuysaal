@@ -30,6 +30,11 @@ class GameListFilterView: UIView {
         customInit()
     }
     
+    func setLabelsText(){
+        upcomingGamesLabel.text = NSLocalizedString("Upcoming Games", comment: "")
+        popularGamesLabel.text = NSLocalizedString("Popular Games", comment: "")
+    }
+    
     func setTapGestureRecoginzers() {
         upcomingGamesLabel.isUserInteractionEnabled = true
         popularGamesLabel.isUserInteractionEnabled = true
@@ -49,6 +54,7 @@ class GameListFilterView: UIView {
             setBorder()
             setTapGestureRecoginzers()
         }
+        setLabelsText()
     }
     
     func setBorder(){

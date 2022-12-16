@@ -21,7 +21,9 @@ class NoteCreateUpdateViewController: BaseViewController {
         super.viewDidLoad()
         if viewModel.isUpdateNote(note: note) {
             viewModel.setForms(note: note!, imageView: noteImageView, gameName: gameNameTextField, noteText: noteTextView)
-            noteButton.setTitle("Update", for: .normal)
+            noteButton.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
+        } else {
+            noteButton.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
         }
         viewModel.validationdelegate = self
         imageViewSetup()
