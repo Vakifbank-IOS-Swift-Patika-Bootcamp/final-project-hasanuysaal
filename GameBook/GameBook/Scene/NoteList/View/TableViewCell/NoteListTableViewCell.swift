@@ -15,8 +15,19 @@ class NoteListTableViewCell: UITableViewCell {
     
     
     func configure(noteModel: Note){
-        noteImage.image = UIImage(named: "star")
         gameName.text = noteModel.gameName
         noteText.text = noteModel.noteText
+        imageViewSetup(image : noteModel.image!)
+        
+    }
+    
+    func imageViewSetup(image: Data){
+        noteImage.layer.cornerRadius = 25
+        guard let image = UIImage(data: image) else {
+            noteImage.image = UIImage(named: "star")
+            return
+        }
+        
+        noteImage.image = image
     }
 }
