@@ -55,6 +55,15 @@ class FavoriteListViewController: BaseViewController {
 
 extension FavoriteListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "gameDetailVC") as? GameDetailViewController else {
+            return
+        }
+        vc.id = viewModel.getFavoriteGame(index: indexPath.row)?.id
+        vc.view.backgroundColor = UIColor(cgColor: CGColor(red: 21/225, green: 21/225, blue: 21/225, alpha: 1))
+        present(vc, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
             self.viewModel.deleteFavoriteGameFromDB(index: indexPath.row)

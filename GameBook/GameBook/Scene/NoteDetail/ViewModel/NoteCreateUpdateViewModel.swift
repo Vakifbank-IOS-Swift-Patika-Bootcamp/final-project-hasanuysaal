@@ -43,7 +43,7 @@ class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
         delegate?.noteSuccess()
     }
     
-    func validateNote(isUpdate: Bool = false, image: Data?, gameName: String?, noteText: String?, note: Note?) {
+    func validateNote(isUpdate: Bool, image: Data?, gameName: String?, noteText: String?, note: Note?) {
         guard let validatedImage = image else {
             validationdelegate?.noteNotValid(error: "You should pick an image before saving note!")
             return
