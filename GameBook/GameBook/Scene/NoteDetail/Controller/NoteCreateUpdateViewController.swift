@@ -25,6 +25,7 @@ final class NoteCreateUpdateViewController: BaseViewController {
             noteButton.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
         } else {
             noteButton.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
+            setImageViewPlaceHolder()
         }
         
         viewModel.validationdelegate = self
@@ -32,10 +33,13 @@ final class NoteCreateUpdateViewController: BaseViewController {
     }
     
     func imageViewSetup() {
-        noteImageView.image = UIImage(systemName: "plus.viewfinder")
-        noteImageView.tintColor = .systemRed
         noteImageView.isUserInteractionEnabled = true
         addGestureRecognizerToImage()
+    }
+    
+    func setImageViewPlaceHolder(){
+        noteImageView.image = UIImage(systemName: "plus.viewfinder")
+        noteImageView.tintColor = .systemRed
     }
     
     func addGestureRecognizerToImage() {
