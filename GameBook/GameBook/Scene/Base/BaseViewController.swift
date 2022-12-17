@@ -13,12 +13,9 @@ class BaseViewController: UIViewController {
     
     let indicator = MaterialActivityIndicatorView()
     
-    var localNotificationManager: LocalNotificationManagerProtocol = LocalNotificationManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActivityIndicatorView()
-        localNotificationManager.create()
     }
     
     func setNavBarTitle(view: UIViewController, title: String){

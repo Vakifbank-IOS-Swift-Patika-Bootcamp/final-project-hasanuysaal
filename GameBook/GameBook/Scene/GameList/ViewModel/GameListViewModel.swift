@@ -14,6 +14,7 @@ protocol GameListViewModelProtocol{
     var games: [GameModel]? { get set }
     var searchedGames: [GameModel]? { get set }
     var delegate: GameListViewModelDelegate? { get set }
+    var localNotificationManager: LocalNotificationManagerProtocol { get set }
     func fetchGames(pageNum: Int)
     func getGame(at index: Int) -> GameModel?
     func getGameId(at index: Int) -> Int?
@@ -35,6 +36,7 @@ protocol GameListViewModelDelegate: AnyObject{
 final class GameListViewModel: GameListViewModelProtocol{
     
     weak var delegate: GameListViewModelDelegate?
+    var localNotificationManager: LocalNotificationManagerProtocol = LocalNotificationManager()
     
     var games: [GameModel]?
     var searchedGames: [GameModel]?

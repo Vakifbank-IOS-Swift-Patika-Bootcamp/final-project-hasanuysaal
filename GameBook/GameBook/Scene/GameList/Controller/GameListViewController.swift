@@ -18,6 +18,7 @@ final class GameListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.localNotificationManager.create()
         viewModel.delegate = self
         viewModel.fetchGames(pageNum: viewModel.pageCounter)
         filterViewSetup()
