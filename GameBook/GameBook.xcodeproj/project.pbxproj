@@ -14,6 +14,8 @@
 		400AD2032946532000559662 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 400AD2022946532000559662 /* SDWebImage */; };
 		401CFDA7294CAA7200B249E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 401CFDA9294CAA7200B249E1 /* Localizable.strings */; };
 		401CFDAC294CC1A400B249E1 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401CFDAB294CC1A400B249E1 /* Bundle+Extension.swift */; };
+		4033E1B7294DB1F200D6ED59 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033E1B6294DB1F200D6ED59 /* CustomError.swift */; };
+		4033E1BB294DBC5C00D6ED59 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033E1BA294DBC5C00D6ED59 /* UIColor+Extension.swift */; };
 		404F72E32949A9C1005B08FC /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */; };
 		404F72E52949AB7F005B08FC /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */; };
 		404F72E72949BCD5005B08FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E62949BCD5005B08FC /* CoreDataManager.swift */; };
@@ -86,6 +88,8 @@
 		401CFDA8294CAA7200B249E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		401CFDAA294CAA7500B249E1 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		401CFDAB294CC1A400B249E1 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		4033E1B6294DB1F200D6ED59 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		4033E1BA294DBC5C00D6ED59 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
 		404F72E62949BCD5005B08FC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -177,16 +181,35 @@
 				40B523822948BB3700B0443D /* String+Extension.swift */,
 				401CFDAB294CC1A400B249E1 /* Bundle+Extension.swift */,
 				407800E0294CED5A00BBBF92 /* Array+Extension.swift */,
+				4033E1BA294DBC5C00D6ED59 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		401CFD9F294C9EDC00B249E1 /* Notification */ = {
+		4033E1B5294DB0B500D6ED59 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4033E1B6294DB1F200D6ED59 /* CustomError.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4033E1B8294DB20000D6ED59 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				404F72E62949BCD5005B08FC /* CoreDataManager.swift */,
 				407800DE294CDC7300BBBF92 /* LocalNotificationManager.swift */,
 			);
-			path = Notification;
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4033E1B9294DBA8000D6ED59 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				4008FD7B294725E90014264B /* GameCellFooterView.swift */,
+				40B9248729461E0B00DE3C5F /* GameListCollectionViewCell.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		404F72EA2949FD26005B08FC /* TableViewCell */ = {
@@ -263,12 +286,14 @@
 		40B924122946027300DE3C5F /* GameBook */ = {
 			isa = PBXGroup;
 			children = (
+				40B924242946027500DE3C5F /* Info.plist */,
+				40B92446294602EE00DE3C5F /* App */,
+				4033E1B8294DB20000D6ED59 /* Managers */,
+				4033E1B5294DB0B500D6ED59 /* Helpers */,
 				400AD1FE2946319600559662 /* Extension */,
 				40B924492946031B00DE3C5F /* Core */,
 				40B924482946031100DE3C5F /* Scene */,
-				40B92446294602EE00DE3C5F /* App */,
 				40B9241C2946027300DE3C5F /* GameBook.xcdatamodeld */,
-				40B924242946027500DE3C5F /* Info.plist */,
 			);
 			path = GameBook;
 			sourceTree = "<group>";
@@ -305,7 +330,6 @@
 		40B924482946031100DE3C5F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				401CFD9F294C9EDC00B249E1 /* Notification */,
 				4098BB7D2948EC150089EA27 /* Base */,
 				40B9244E2946038400DE3C5F /* GameList */,
 				40B9245B294607D300DE3C5F /* GameDetail */,
@@ -321,7 +345,6 @@
 			children = (
 				40B9247329460B9B00DE3C5F /* GameDBClient.swift */,
 				40B9247529460BB700DE3C5F /* Constant.swift */,
-				404F72E62949BCD5005B08FC /* CoreDataManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -348,9 +371,8 @@
 		40B924502946039F00DE3C5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4033E1B9294DBA8000D6ED59 /* CollectionView */,
 				4008FD7F29476E210014264B /* FilterView */,
-				40B9248729461E0B00DE3C5F /* GameListCollectionViewCell.swift */,
-				4008FD7B294725E90014264B /* GameCellFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -699,6 +721,7 @@
 				40B924142946027300DE3C5F /* AppDelegate.swift in Sources */,
 				4008FD8329476EED0014264B /* GameListFilterView.swift in Sources */,
 				40B9247E29460C3A00DE3C5F /* GameResponseModel.swift in Sources */,
+				4033E1B7294DB1F200D6ED59 /* CustomError.swift in Sources */,
 				408A601029486A97001A1A71 /* GameDetailViewModel.swift in Sources */,
 				4056E1BA294B4E6A006D2E1C /* NoteListTableViewCell.swift in Sources */,
 				408A600829486062001A1A71 /* ParentPlatformModel.swift in Sources */,
@@ -727,6 +750,7 @@
 				404F72E52949AB7F005B08FC /* FavoriteListViewModel.swift in Sources */,
 				40B924162946027300DE3C5F /* SceneDelegate.swift in Sources */,
 				408A600629485F20001A1A71 /* GameDetailModel.swift in Sources */,
+				4033E1BB294DBC5C00D6ED59 /* UIColor+Extension.swift in Sources */,
 				404F72E32949A9C1005B08FC /* FavoriteListViewController.swift in Sources */,
 				404F72ED2949FD57005B08FC /* FavoriteListTableViewCell.swift in Sources */,
 			);

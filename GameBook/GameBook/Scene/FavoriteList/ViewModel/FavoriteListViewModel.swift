@@ -7,35 +7,13 @@
 
 import Foundation
 
-enum FavoriteGameListError: Error {
-    case gameNotFound
-    case unexpected(code: Int)
-}
-
-extension FavoriteGameListError: LocalizedError {
-    public var errorDescription: String? {
-        switch self {
-        case .gameNotFound:
-            return NSLocalizedString(
-                "There is no game on favorite list. You will be redirected to the home page.",
-                comment: ""
-            )
-        case .unexpected(_):
-            return NSLocalizedString(
-                "An unexpected error occurred.",
-                comment: ""
-            )
-        }
-    }
-}
-
 protocol FavoriteListViewModelProtocol{
     var delegate: FavoriteListViewModelDelegate? { get set }
     var gameIds: [Int] { get }
     var favoriteGames: [GameDetailModel]? { get set }
     func getIdsFromDB()-> [Int]
     func getFavoriteGames()
-    func getFavoriteGameCount() -> Int?
+    func getFavoriteGameCount() -> Int
     func deleteFavoriteGameFromDB(index: Int)
     func getFavoriteGame(index: Int) -> GameDetailModel? 
 }
@@ -45,13 +23,13 @@ protocol FavoriteListViewModelDelegate: AnyObject{
     func gameFailed(error: Error)
 }
 
-class FavoriteListViewModel: FavoriteListViewModelProtocol {
+final class FavoriteListViewModel: FavoriteListViewModelProtocol {
     
     var gameIds: [Int] = []
     var delegate: FavoriteListViewModelDelegate?
     var id: [Int]?
     var favoriteGames: [GameDetailModel]? = []
-    let gruop = DispatchGroup()
+    private let gruop = DispatchGroup()
     
     func getFavoriteGames(){
         self.gameIds = getIdsFromDB()
@@ -90,11 +68,11 @@ class FavoriteListViewModel: FavoriteListViewModelProtocol {
         }
     }
     
-    func getFavoriteGameCount() -> Int? {
-        if favoriteGames?.count != 0 {
+    func getFavoriteGameCount() -> Int {
+        if favoriteGames?.count != nil {
             return favoriteGames!.count
         } else {
-            return nil
+            return 0
         }
     }
     

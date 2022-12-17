@@ -36,12 +36,18 @@ final class GameListFilterView: UIView {
     }
     
     func setTapGestureRecoginzers() {
+        setUpcomingLabelGestureRecognizer()
+        setPopularLabelGestureRecognizer()
+    }
+    
+    func setUpcomingLabelGestureRecognizer(){
         upcomingGamesLabel.isUserInteractionEnabled = true
-        popularGamesLabel.isUserInteractionEnabled = true
-        
         let upComGameTapGr = UITapGestureRecognizer(target: self, action: #selector(upcomingGamesLabelTapped))
         upcomingGamesLabel.addGestureRecognizer(upComGameTapGr)
-        
+    }
+    
+    func setPopularLabelGestureRecognizer(){
+        popularGamesLabel.isUserInteractionEnabled = true
         let popGameTapGr = UITapGestureRecognizer(target: self, action: #selector(popularGamesLabelTapped))
         popularGamesLabel.addGestureRecognizer(popGameTapGr)
     }

@@ -10,7 +10,6 @@ import Foundation
 var bundleKey: UInt8 = 0
 
 class AnyLanguageBundle: Bundle {
-
 override func localizedString(forKey key: String,
                               value: String?,
                               table tableName: String?) -> String {
@@ -26,7 +25,6 @@ override func localizedString(forKey key: String,
 }
 
 extension Bundle {
-
 class func setLanguage(_ language: String) {
 
     defer {

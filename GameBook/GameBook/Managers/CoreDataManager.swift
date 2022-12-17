@@ -18,7 +18,7 @@ final class CoreDataManager {
     }
     
     @discardableResult
-    func saveFavoriteId(id: Int) -> Favorite? {
+    func saveFavoriteId(id: Int?) -> Favorite? {
         let entity = NSEntityDescription.entity(forEntityName: "Favorite", in: managedContext)!
         let favorite = NSManagedObject(entity: entity, insertInto: managedContext)
         favorite.setValue(id, forKeyPath: "id")
@@ -29,12 +29,12 @@ final class CoreDataManager {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
         return nil
     }
     
     func getFavoritesId() -> [Int] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorite")
+        
         do {
             let favorites = try managedContext.fetch(fetchRequest)
             let ids = favorites.map { $0.value(forKey: "id") }
@@ -45,18 +45,18 @@ final class CoreDataManager {
         return []
     }
     
-    func getFavoriteGame(id: Int) -> Favorite? {
+    func getFavoriteGame(id: Int?) -> Favorite? {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorite")
+        
         do {
             let favorites = try managedContext.fetch(fetchRequest)
-            let favoriteGame = favorites.filter { $0.value(forKey: "id") as! Int == id }
+            let favoriteGame = favorites.filter { $0.value(forKey: "id") as? Int == id }
             if favoriteGame.isEmpty {
                 return nil
             } else {
                 return favoriteGame.first as? Favorite
                 
             }
-            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -86,7 +86,6 @@ final class CoreDataManager {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
-            
             return nil
         }
         

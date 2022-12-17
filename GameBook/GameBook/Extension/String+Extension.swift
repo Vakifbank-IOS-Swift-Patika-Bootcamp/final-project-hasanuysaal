@@ -8,7 +8,6 @@
 import Foundation
 
 extension String {
-
     public func trimHTMLTags() -> String? {
         guard let htmlStringData = self.data(using: String.Encoding.utf8) else {
             return nil
@@ -22,5 +21,4 @@ extension String {
         let attributedString = try? NSAttributedString(data: htmlStringData, options: options, documentAttributes: nil)
         return attributedString?.string
     }
-    
 }

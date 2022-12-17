@@ -17,9 +17,9 @@ final class NoteListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarTitle(view: self, title: "Notes")
-        tableViewSetup()
         viewModel.delegate = self
         viewModel.getNotes()
+        tableViewSetup()
         addTargetToButton()
         addSubviews()
     }
@@ -33,7 +33,9 @@ final class NoteListViewController: BaseViewController {
     }
     
     @objc func floatingButtonTapped(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as! NoteCreateUpdateViewController
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as? NoteCreateUpdateViewController else {
+            return
+        }
         vc.viewModel.delegate = self
         self.present(vc, animated: true)
     }
@@ -51,7 +53,9 @@ final class NoteListViewController: BaseViewController {
 
 extension NoteListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as! NoteCreateUpdateViewController
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as? NoteCreateUpdateViewController else {
+            return
+        }
         vc.viewModel.delegate = self
         vc.note = viewModel.getNote(index: indexPath.row)
         self.present(vc, animated: true)
@@ -98,7 +102,7 @@ extension NoteListViewController: NoteCreateUpdateViewModelDelegate {
         viewModel.getNotes()
     }
     
-    func noteFailed(error: String) {
-        showAlert(message: error) { }
+    func noteFailed(error: Error) {
+        showAlert(message: error.localizedDescription) { }
     }
 }

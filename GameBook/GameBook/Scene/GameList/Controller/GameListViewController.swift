@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class GameListViewController: BaseViewController {
     
@@ -21,9 +22,15 @@ final class GameListViewController: BaseViewController {
         viewModel.fetchGames(pageNum: viewModel.pageCounter)
         filterViewSetup()
         collectionViewSetup()
-        searchBarSetup()
-        rightBarButtonItemSetup()
+        navBarSetup()
         indicator.startAnimating()
+        // Setting disk cache
+        SDImageCache.shared.config.maxMemoryCost = 1000000 * 20 // 20 MB
+    }
+    
+    func navBarSetup() {
+        rightBarButtonItemSetup()
+        searchBarSetup()
     }
     
     func rightBarButtonItemSetup() {
@@ -129,6 +136,7 @@ extension GameListViewController: UICollectionViewDelegate {
                 return
             }
             let destinationVC = segue.destination as! GameDetailViewController
+
             destinationVC.id = viewModel.getGameId(at: indexPath.row)
         }
     }
@@ -137,24 +145,12 @@ extension GameListViewController: UICollectionViewDelegate {
 extension GameListViewController: GameCellFooterViewDelegate {
     func nextButton() {
         scrollToTopOfCollectionView()
-        if viewModel.isSortButton {
-            viewModel.pageCounter += 1
-            viewModel.getGamesRatingSorted(pageNum: viewModel.pageCounter)
-        } else {
-            viewModel.pageCounter += 1
-            viewModel.fetchGames(pageNum: viewModel.pageCounter)
-        }
+        viewModel.getNextPageGame()
     }
     
     func previousButton() {
         scrollToTopOfCollectionView()
-        if viewModel.isSortButton {
-            viewModel.pageCounter -= 1
-            viewModel.getGamesRatingSorted(pageNum: viewModel.pageCounter)
-        } else {
-            viewModel.pageCounter -= 1
-            viewModel.fetchGames(pageNum: viewModel.pageCounter)
-        }
+        viewModel.getPreviousPageGame()
     }
 }
 

@@ -16,13 +16,15 @@ protocol GameListViewModelProtocol{
     var delegate: GameListViewModelDelegate? { get set }
     func fetchGames(pageNum: Int)
     func getGame(at index: Int) -> GameModel?
-    func getGameId(at index: Int) -> Int
+    func getGameId(at index: Int) -> Int?
     func getGamesCount() -> Int
     func getGamesRatingSorted(pageNum: Int)
     func getPopularGames()
     func getUpcomeGames()
     func sortGames()
     func changeLanguage()
+    func getNextPageGame()
+    func getPreviousPageGame()
 }
 
 protocol GameListViewModelDelegate: AnyObject{
@@ -30,7 +32,7 @@ protocol GameListViewModelDelegate: AnyObject{
     func gamesFailed(error: Error)
 }
 
-class GameListViewModel: GameListViewModelProtocol{
+final class GameListViewModel: GameListViewModelProtocol{
     
     weak var delegate: GameListViewModelDelegate?
     
@@ -63,8 +65,8 @@ class GameListViewModel: GameListViewModelProtocol{
         games?[index]
     }
     
-    func getGameId(at index: Int) -> Int {
-        games?[index].id ?? 0
+    func getGameId(at index: Int) -> Int? {
+        games?[index].id
     }
     
     func getGamesCount() -> Int {
@@ -118,6 +120,26 @@ class GameListViewModel: GameListViewModelProtocol{
             Bundle.setLanguage("tr")
             
             exit(0)
+        }
+    }
+    
+    func getNextPageGame() {
+        if isSortButton {
+            pageCounter += 1
+            getGamesRatingSorted(pageNum: pageCounter)
+        } else {
+            pageCounter += 1
+            fetchGames(pageNum: pageCounter)
+        }
+    }
+    
+    func getPreviousPageGame() {
+        if isSortButton {
+            pageCounter -= 1
+            getGamesRatingSorted(pageNum: pageCounter)
+        } else {
+            pageCounter -= 1
+            fetchGames(pageNum: pageCounter)
         }
     }
 }

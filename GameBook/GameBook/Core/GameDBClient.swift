@@ -11,11 +11,6 @@ class GameDBClient {
     
     enum Endpoints {
         static let base = "https://api.rawg.io/api"
-    //https://api.rawg.io/api/games?dates=2001-01-01%2C2001-12-31&key=fe45f91792b448b28ce40f115043ee93&ordering=-rating&page=2
-        //https://api.rawg.io/api/games?dates=2001-01-01,2001-12-31&ordering=-rating
-   // https://api.rawg.io/api/games?dates=2001-01-01,2001-12-31&ordering=-rating&key=fe45f91792b448b28ce40f115043ee93
-    //https://api.rawg.io/api/games?key=fe45f91792b448b28ce40f115043ee93&dates=2019-01-01,2019-12-31&ordering=-added
-        //https://api.rawg.io/api/games?key=fe45f91792b448b28ce40f115043ee93&dates=2023-01-01,2023-12-31&ordering=-added
         
         case games(Int)
         case ratingSortedGames(Int)
@@ -123,6 +118,4 @@ class GameDBClient {
             }
         }
     }
-    
-
 }

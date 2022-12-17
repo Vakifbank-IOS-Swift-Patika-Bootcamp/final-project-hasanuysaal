@@ -17,20 +17,13 @@ final class FavoriteListTableViewCell: UITableViewCell {
     @IBOutlet private weak var ratingLabel: UILabel!
     
     private var genresArr: [String] = []
-    
-    private var genres: String {
-        get{
-            return genresArr.joined(separator: " ,")
-        }
-    }
-    
+
     func configure(game: GameDetailModel){
         gameImageView.sd_setImage(with: URL(string: game.imageUrl), placeholderImage: UIImage(named: "gta"))
         gameImageView.layer.cornerRadius = 25
         nameLabel.text = game.name
         releaseLabel.text = game.released
-        genresArr = game.genres.map { $0.name }
-        genresLabel.text = genres
+        genresLabel.text = game.genres.genresToString
         ratingLabel.text = String(game.rating)
     }
 }

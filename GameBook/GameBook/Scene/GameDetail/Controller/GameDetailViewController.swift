@@ -32,10 +32,10 @@ final class GameDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.getGameDetail(id: id ?? 0)
+        viewModel.getGameDetail(id: id)
         navigationBarSetup()
         indicator.startAnimating()
-        favorite = viewModel.isGameFavorite(id: id ?? 0)
+        favorite = viewModel.getFavoriteModel(id: id)
     }
     
     func rightBarButtonItemSetup(name: String){
@@ -51,8 +51,9 @@ final class GameDetailViewController: BaseViewController {
         if favorite != nil {
             CoreDataManager.shared.deleteFavoriteId(favorite: favorite!)
             rightBarButtonItemSetup(name: FavoriteButtonStyle.notFavorite.rawValue)
+            favorite = nil
         } else {
-            favorite = CoreDataManager.shared.saveFavoriteId(id: self.id ?? 0)
+            favorite = CoreDataManager.shared.saveFavoriteId(id: self.id)
             rightBarButtonItemSetup(name: FavoriteButtonStyle.favorite.rawValue)
         }
         NotificationCenter.default.post(name: NSNotification.Name("favButtonNotification"), object: favorite)
@@ -61,10 +62,7 @@ final class GameDetailViewController: BaseViewController {
 
 extension GameDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let imageCount = viewModel.getGameImageCount() else {
-            return 0
-        }
-        return imageCount
+        viewModel.getGameImageCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -80,7 +78,7 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
     func gameLoaded() {
         labelTextSetup()
         gameDetailCollectionView.reloadData()
-        rightBarButtonItemSetup(name: viewModel.favoriteButtonImageName(id: self.id ?? 0))
+        rightBarButtonItemSetup(name: viewModel.favoriteButtonImageName(id: self.id))
         indicator.stopAnimating()
     }
     
@@ -94,9 +92,9 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         nameLabel.text = viewModel.game?.name
         platformLabel.text = viewModel.getPlatformNames()
         descriptionLabel.text = viewModel.game?.description.trimHTMLTags()
-        playtimeLabel.text = NSLocalizedString("AVERAGE PLAYTIME : ", comment: "") + String(viewModel.game?.playtime ?? 0)
+        playtimeLabel.text = NSLocalizedString("AVERAGE PLAYTIME : ", comment: "") + String(viewModel.getGamePlaytime())
         releaseLabel.text = viewModel.game?.released
-        genresLabel.text = viewModel.getGameGenres()
-        metascoreLabel.text = String(viewModel.game?.metacritic ?? 0)
+        genresLabel.text = viewModel.game?.genres.genresToString
+        metascoreLabel.text = String(viewModel.getGameMetacritic())
     }
 }

@@ -28,6 +28,7 @@ final class LocalNotificationManager: LocalNotificationManagerProtocol {
             }
         }
     }
+    
     private func sendNotification(){
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "Games Book"

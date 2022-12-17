@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 
 final class GameDetailCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet private weak var imageView: UIImageView!
     
     func configure(imageUrl: String) {

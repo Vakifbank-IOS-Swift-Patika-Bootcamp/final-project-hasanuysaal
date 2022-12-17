@@ -19,7 +19,7 @@ final class NoteListTableViewCell: UITableViewCell {
         imageViewSetup(image: noteModel.image!)
     }
     
-    func imageViewSetup(image: Data){
+    private func imageViewSetup(image: Data){
         noteImage.layer.cornerRadius = 25
         guard let image = UIImage(data: image) else {
             return

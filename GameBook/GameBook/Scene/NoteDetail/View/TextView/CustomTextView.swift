@@ -23,7 +23,7 @@ final class CustomTextView: UITextView {
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemRed.cgColor
         layer.cornerRadius = 10
-        self.backgroundColor = UIColor(red: 21/255, green: 21/255, blue: 21/255, alpha: 1)
+        self.backgroundColor = UIColor.appSecondBackgroundColor
         self.textColor = .white
         self.tintColor = .systemRed
         self.viewWithTag(100)

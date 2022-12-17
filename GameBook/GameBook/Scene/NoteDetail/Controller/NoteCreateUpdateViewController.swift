@@ -91,8 +91,8 @@ extension NoteCreateUpdateViewController: NoteValidationDelegate {
         dismiss(animated: true)
     }
     
-    func noteNotValid(error: String) {
-        showAlert(message: error) {}
+    func noteNotValid(error: Error) {
+        showAlert(message: error.localizedDescription) {}
     }
 }
 

@@ -18,12 +18,13 @@ protocol GameDetailViewModelProtocol{
     var game: GameDetailModel? { get }
     var gameImagesUrl: [String?] { get set }
     var platforms: [String]? { get set }
-    func getGameDetail(id: Int)
-    func getGameImageCount() -> Int?
+    func getGameDetail(id: Int?)
+    func getGameImageCount() -> Int
     func getPlatformNames() -> String?
-    func getGameGenres() -> String?
-    func isGameFavorite(id: Int) -> Favorite?
-    func favoriteButtonImageName(id: Int) -> String
+    func getFavoriteModel(id: Int?) -> Favorite?
+    func favoriteButtonImageName(id: Int?) -> String
+    func getGameMetacritic() -> Int
+    func getGamePlaytime() -> Int
 }
 
 protocol GameDetailViewModelDelegate: AnyObject{
@@ -31,14 +32,18 @@ protocol GameDetailViewModelDelegate: AnyObject{
     func gameFailed(error: Error)
 }
 
-class GameDetailViewModel: GameDetailViewModelProtocol {
+final class GameDetailViewModel: GameDetailViewModelProtocol {
     
     weak var delegate: GameDetailViewModelDelegate?
     var game: GameDetailModel?
     var gameImagesUrl: [String?] = []
     var platforms: [String]?
     
-    func getGameDetail(id: Int) {
+    func getGameDetail(id: Int?) {
+        guard let id = id else {
+            delegate?.gameFailed(error: CustomError.gameNotFound)
+            return
+        }
         GameDBClient.getGameDetail(id: id) { [weak self] gameDetail, error in
             guard let self = self else {
                 return
@@ -59,15 +64,15 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
         platforms?.joined(separator: ", ")
     }
     
-    func getGameImageCount() -> Int? {
-        gameImagesUrl.count
+    func getGameImageCount() -> Int {
+        if gameImagesUrl.count > 0 {
+            return gameImagesUrl.count
+        } else {
+            return 0
+        }
     }
     
-    func getGameGenres() -> String? {
-        return game?.genres.genresToString
-    }
-    
-    func isGameFavorite(id: Int) -> Favorite? {
+    func getFavoriteModel(id: Int?) -> Favorite? {
         let game = CoreDataManager.shared.getFavoriteGame(id: id)
         if game != nil {
             return game
@@ -76,11 +81,25 @@ class GameDetailViewModel: GameDetailViewModelProtocol {
         }
     }
     
-    func favoriteButtonImageName(id: Int) -> String {
-        if isGameFavorite(id: id) != nil {
+    func favoriteButtonImageName(id: Int?) -> String {
+        if getFavoriteModel(id: id) != nil {
             return FavoriteButtonStyle.favorite.rawValue
         } else {
             return FavoriteButtonStyle.notFavorite.rawValue
         }
+    }
+    
+    func getGameMetacritic() -> Int {
+        guard let metacritic = game?.metacritic else {
+            return 0
+        }
+        return metacritic
+    }
+    
+    func getGamePlaytime() -> Int {
+        guard let playtime = game?.playtime else {
+            return 0
+        }
+        return playtime
     }
 }

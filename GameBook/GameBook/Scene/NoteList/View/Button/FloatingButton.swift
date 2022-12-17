@@ -24,7 +24,7 @@ final class FloatingButton: UIButton {
         let image = UIImage(systemName: "plus")?.withTintColor(.white, renderingMode: .alwaysOriginal)
         self.setImage(image, for: .normal)
         self.backgroundColor = .systemRed
-        self.layer.masksToBounds = true
         self.layer.cornerRadius = 25
+        self.layer.masksToBounds = true
     }
 }

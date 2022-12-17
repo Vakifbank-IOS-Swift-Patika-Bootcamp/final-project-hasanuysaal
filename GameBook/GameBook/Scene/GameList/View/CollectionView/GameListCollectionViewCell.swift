@@ -32,10 +32,13 @@ final class GameListCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderWidth = 1.5
-        layer.borderColor = UIColor.systemRed.cgColor
-        layer.cornerRadius = 20.0
-        imageView.layer.cornerRadius = 25.0
+        layerSetup()
+        subviewsSetup()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
     }
     
     func configure(model: GameModel){
@@ -44,7 +47,13 @@ final class GameListCollectionViewCell: UICollectionViewCell {
         releaseDateLabel.text = model.released
         genresLabel.text = model.genres.genresToString
         ratingLabel.text = model.rating.clean
-        subviewsSetup()
+    }
+    
+    func layerSetup(){
+        layer.borderWidth = 1.5
+        layer.borderColor = UIColor.systemRed.cgColor
+        layer.cornerRadius = 20.0
+        imageView.layer.cornerRadius = 25.0
     }
     
     func subviewsSetup(){

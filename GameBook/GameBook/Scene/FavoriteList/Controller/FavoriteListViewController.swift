@@ -19,8 +19,8 @@ final class FavoriteListViewController: BaseViewController {
         viewModel.delegate = self
         viewModel.getFavoriteGames()
         tableViewSetup()
-        indicator.startAnimating()
         notificationCenterSetup()
+        indicator.startAnimating()
     }
     
     func notificationCenterSetup(){
@@ -40,7 +40,7 @@ final class FavoriteListViewController: BaseViewController {
     func gameNotFoundAlertShow(){
         DispatchQueue.main.async {
             if self.viewModel.getIdsFromDB().isEmpty {
-                self.showAlert(message: FavoriteGameListError.gameNotFound.localizedDescription) {
+                self.showAlert(message: CustomError.favoriteGameNotFound.localizedDescription) {
                     self.tabBarController?.selectedIndex = 0
                 }
             }
@@ -55,17 +55,15 @@ final class FavoriteListViewController: BaseViewController {
     @objc func favChanged() {
         viewModel.getFavoriteGames()
     }
-    
 }
 
 extension FavoriteListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "gameDetailVC") as? GameDetailViewController else {
             return
         }
         vc.id = viewModel.getFavoriteGame(index: indexPath.row)?.id
-        vc.view.backgroundColor = UIColor(cgColor: CGColor(red: 21/225, green: 21/225, blue: 21/225, alpha: 1))
+        vc.view.backgroundColor = UIColor.appSecondBackgroundColor
         present(vc, animated: true)
     }
     
@@ -82,10 +80,7 @@ extension FavoriteListViewController: UITableViewDelegate {
 
 extension FavoriteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let gameCount = viewModel.getFavoriteGameCount() else {
-            return 0
-        }
-        return gameCount
+        viewModel.getFavoriteGameCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

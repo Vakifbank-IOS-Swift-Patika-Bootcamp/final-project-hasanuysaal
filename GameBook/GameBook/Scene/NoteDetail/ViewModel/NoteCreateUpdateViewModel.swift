@@ -20,15 +20,15 @@ protocol NoteCreateUpdateViewModelProtocol {
 
 protocol NoteCreateUpdateViewModelDelegate: AnyObject {
     func noteSuccess()
-    func noteFailed(error: String)
+    func noteFailed(error: Error)
 }
 
 protocol NoteValidationDelegate: AnyObject {
     func noteValid()
-    func noteNotValid(error: String)
+    func noteNotValid(error: Error)
 }
 
-class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
+final class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
     
     var validationdelegate: NoteValidationDelegate?
     var delegate: NoteCreateUpdateViewModelDelegate?
@@ -37,7 +37,7 @@ class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
         if CoreDataManager.shared.saveNote(image: image, gameName: gameName, noteText: noteText) != nil {
             delegate?.noteSuccess()
         } else {
-            delegate?.noteFailed(error: NSLocalizedString("An error occurred while creating the note!", comment: ""))
+            delegate?.noteFailed(error: CustomError.noteNotCreate)
         }
     }
     
@@ -45,29 +45,29 @@ class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
         if CoreDataManager.shared.updateNote(image: image, gameName: gameName, noteText: noteText, note: note) != nil {
             delegate?.noteSuccess()
         } else {
-            delegate?.noteFailed(error: NSLocalizedString("An error occurred while updating the note!", comment: ""))
+            delegate?.noteFailed(error: CustomError.noteNotUpdate)
         }
     }
     
     func validateNote(isUpdate: Bool, image: Data?, gameName: String?, noteText: String?, note: Note?) {
         guard let validatedImage = image else {
-            validationdelegate?.noteNotValid(error: NSLocalizedString("You should pick an image before saving note!", comment: ""))
+            validationdelegate?.noteNotValid(error: CustomError.imageNotPick)
             return
         }
         guard let validatedGameName = gameName else {
-            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter game name before saving note!", comment: ""))
+            validationdelegate?.noteNotValid(error: CustomError.gameNameNotEnter)
             return
         }
         guard let validatedNoteText = noteText else {
-            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter note before saving note!", comment: ""))
+            validationdelegate?.noteNotValid(error: CustomError.gameNoteNotEnter)
             return
         }
         if validatedGameName == "" {
-            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter game name before saving note!", comment: ""))
+            validationdelegate?.noteNotValid(error: CustomError.gameNameNotEnter)
             return
         }
         if validatedNoteText == "" {
-            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter note before saving note!", comment: ""))
+            validationdelegate?.noteNotValid(error: CustomError.gameNoteNotEnter)
             return
         }
         if isUpdate {
