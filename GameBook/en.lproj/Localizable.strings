@@ -13,3 +13,6 @@
 "You should pick an image before saving note!" = "You should pick an image before saving note!";
 "You should enter game name before saving note!" = "You should enter game name before saving note!";
 "You should enter note before saving note!" = "You should enter note before saving note!";
+"AVERAGE PLAYTIME : " = "AVERAGE PLAYTIME : ";
+"An error occurred while creating the note!" = "An error occurred while creating the note!";
+"An error occurred while updating the note!" = "An error occurred while updating the note!";

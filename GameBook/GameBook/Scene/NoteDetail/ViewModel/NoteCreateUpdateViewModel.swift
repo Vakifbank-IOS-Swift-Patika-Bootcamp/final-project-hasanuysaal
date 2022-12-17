@@ -34,13 +34,19 @@ class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
     var delegate: NoteCreateUpdateViewModelDelegate?
     
     func createNote(image: Data, gameName: String, noteText: String) {
-        CoreDataManager.shared.saveNote(image: image, gameName: gameName, noteText: noteText)
-        delegate?.noteSuccess()
+        if CoreDataManager.shared.saveNote(image: image, gameName: gameName, noteText: noteText) != nil {
+            delegate?.noteSuccess()
+        } else {
+            delegate?.noteFailed(error: NSLocalizedString("An error occurred while creating the note!", comment: ""))
+        }
     }
     
     func updateNote(note: Note, image: Data, gameName: String, noteText: String) {
-        CoreDataManager.shared.updateNote(image: image, gameName: gameName, noteText: noteText, note: note)
-        delegate?.noteSuccess()
+        if CoreDataManager.shared.updateNote(image: image, gameName: gameName, noteText: noteText, note: note) != nil {
+            delegate?.noteSuccess()
+        } else {
+            delegate?.noteFailed(error: NSLocalizedString("An error occurred while updating the note!", comment: ""))
+        }
     }
     
     func validateNote(isUpdate: Bool, image: Data?, gameName: String?, noteText: String?, note: Note?) {

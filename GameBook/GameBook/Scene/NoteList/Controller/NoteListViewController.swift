@@ -63,7 +63,6 @@ extension NoteListViewController: UITableViewDelegate {
             self.viewModel.getNotes()
             completionHandler(true)
         }
-        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
@@ -88,7 +87,9 @@ extension NoteListViewController: NoteListViewModelDelegate {
     }
     
     func notesFailed(error: Error) {
-        //
+        showAlert(message: error.localizedDescription) {
+            self.tabBarController?.selectedIndex = 0
+        }
     }
 }
 
@@ -98,5 +99,6 @@ extension NoteListViewController: NoteCreateUpdateViewModelDelegate {
     }
     
     func noteFailed(error: String) {
+        showAlert(message: error) { }
     }
 }

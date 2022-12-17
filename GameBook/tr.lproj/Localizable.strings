@@ -13,3 +13,6 @@
 "You should pick an image before saving note!" = "Kaydetmeden önce fotoğraf seçmelisin!";
 "You should enter game name before saving note!" = "Kaydetmeden önce oyun adı girmelisin!";
 "You should enter note before saving note!" = "Kaydetmeden önce not girmelisin!";
+"AVERAGE PLAYTIME : " = "ORTALAMA OYUN SÜRESİ : ";
+"An error occurred while creating the note!" = "Not oluşturulurken bir hata oluştu!";
+"An error occurred while updating the note!" = "Not güncellenirken bir hata oluştu!";
