@@ -45,23 +45,23 @@ class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
     
     func validateNote(isUpdate: Bool, image: Data?, gameName: String?, noteText: String?, note: Note?) {
         guard let validatedImage = image else {
-            validationdelegate?.noteNotValid(error: "You should pick an image before saving note!")
+            validationdelegate?.noteNotValid(error: NSLocalizedString("You should pick an image before saving note!", comment: ""))
             return
         }
         guard let validatedGameName = gameName else {
-            validationdelegate?.noteNotValid(error: "You should enter game name before saving note!")
+            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter game name before saving note!", comment: ""))
             return
         }
         guard let validatedNoteText = noteText else {
-            validationdelegate?.noteNotValid(error: "You should enter note before saving note!")
+            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter note before saving note!", comment: ""))
             return
         }
         if validatedGameName == "" {
-            validationdelegate?.noteNotValid(error: "You should enter game name before saving note!")
+            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter game name before saving note!", comment: ""))
             return
         }
         if validatedNoteText == "" {
-            validationdelegate?.noteNotValid(error: "You should enter note before saving note!")
+            validationdelegate?.noteNotValid(error: NSLocalizedString("You should enter note before saving note!", comment: ""))
             return
         }
         if isUpdate {

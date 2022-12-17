@@ -37,7 +37,7 @@ class BaseViewController: UIViewController {
     }
     
     func showAlert(message: String, completion: @escaping () -> Void){
-        SwiftAlertView.show(title: "Alert", message: message, buttonTitles: ["OK"]).onButtonClicked { _, _ in
+        SwiftAlertView.show(title: NSLocalizedString("Alert", comment: ""), message: message, buttonTitles: [NSLocalizedString("OK", comment: "")]).onButtonClicked { _, _ in
             completion()
         }
     }

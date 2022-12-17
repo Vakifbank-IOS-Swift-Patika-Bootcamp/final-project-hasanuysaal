@@ -30,6 +30,16 @@ final class NoteCreateUpdateViewController: BaseViewController {
         
         viewModel.validationdelegate = self
         imageViewSetup()
+        addGestureRecognizerToView()
+    }
+
+    func addGestureRecognizerToView(){
+        let gR = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        view.addGestureRecognizer(gR)
+    }
+    
+    @objc func closeKeyboard(){
+        view.endEditing(true)
     }
     
     func imageViewSetup() {

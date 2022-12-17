@@ -8,3 +8,8 @@
 "App language was changed. Tap to open app!"  = "Uygulama dili değişti. Uygulamayı açmak için dokun!";
 "There is no game on favorite list. You will be redirected to the home page." = "There is no game on favorite list. You will be redirected to the home page.";
 "An unexpected error occurred." = "An unexpected error occurred.";
+"Alert" = "Alert";
+"OK" = "OK";
+"You should pick an image before saving note!" = "You should pick an image before saving note!";
+"You should enter game name before saving note!" = "You should enter game name before saving note!";
+"You should enter note before saving note!" = "You should enter note before saving note!";
