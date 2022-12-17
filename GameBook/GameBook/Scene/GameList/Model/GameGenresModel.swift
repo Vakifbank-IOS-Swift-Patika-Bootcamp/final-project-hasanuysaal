@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct GameGenresModel: Decodable {
+struct GameGenresModel: Decodable, Equatable {
     let name: String
 }
