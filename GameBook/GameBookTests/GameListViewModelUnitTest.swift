@@ -58,6 +58,23 @@ class GameListViewModelUnitTest: XCTestCase {
         XCTAssertEqual(viewModel.getGamesCount(), 20)
     }
     
+    func testGetRightBarButtonImage() throws {
+        //Given
+        let languagePrefix = Locale.preferredLanguages[0].split(separator: "-").first
+        
+        //When
+        viewModel.fetchGames(pageNum: 1)
+        waitForExpectations(timeout: 1, handler: nil)
+        
+        //Then
+        if languagePrefix == "tr" {
+            XCTAssertEqual(viewModel.getRightBarButtonImage(), "🇬🇧")
+        } else {
+            XCTAssertEqual(viewModel.getRightBarButtonImage(), "🇹🇷")
+        }
+       
+    }
+    
 }
 
 extension GameListViewModelUnitTest: GameListViewModelDelegate {

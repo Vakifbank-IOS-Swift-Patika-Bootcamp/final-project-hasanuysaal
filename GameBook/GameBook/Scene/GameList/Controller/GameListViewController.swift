@@ -35,7 +35,7 @@ final class GameListViewController: BaseViewController {
     }
     
     func rightBarButtonItemSetup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "repeat"), style: .done, target: self, action: #selector(langChangeButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.getRightBarButtonImage(), style: .done, target: self, action: #selector(langChangeButton))
     }
     
     @objc func langChangeButton() {

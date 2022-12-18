@@ -157,7 +157,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOT-uP-ITR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuy-BD-5bl">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuy-BD-5bl" customClass="FilterButton" customModule="GameBook" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Filter">
@@ -167,7 +167,7 @@
                                             <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AN2-Ee-gag"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-YL-qYa">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-YL-qYa" customClass="SortButton" customModule="GameBook" customModuleProvider="target">
                                         <rect key="frame" x="207" y="0.0" width="207" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sort">
@@ -282,7 +282,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="191" height="50"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="&lt; Previous">
-                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                        <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="previousButtonPressed:" destination="jrq-Cr-NdZ" eventType="touchUpInside" id="kMW-NC-pqW"/>
@@ -292,7 +292,7 @@
                                                     <rect key="frame" x="191" y="0.0" width="191" height="50"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Next &gt;">
-                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                        <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="nextButtonPressed:" destination="jrq-Cr-NdZ" eventType="touchUpInside" id="os7-fa-4N3"/>

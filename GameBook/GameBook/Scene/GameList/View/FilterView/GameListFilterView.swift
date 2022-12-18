@@ -57,15 +57,17 @@ final class GameListFilterView: UIView {
         if let view = nib.instantiate(withOwner: self).first as? UIView {
             addSubview(view)
             view.frame = self.bounds
+            view.backgroundColor = UIColor.appSecondBackgroundColor
             setBorder()
             setTapGestureRecoginzers()
+            setLabelsText()
         }
-        setLabelsText()
+        
     }
     
     func setBorder(){
         let border = CALayer()
-        border.backgroundColor = UIColor.red.cgColor
+        border.backgroundColor = UIColor.darkGray.cgColor
         border.frame = CGRect(x:0,y: 0, width:self.frame.size.width, height:1)
         self.layer.addSublayer(border)
     }

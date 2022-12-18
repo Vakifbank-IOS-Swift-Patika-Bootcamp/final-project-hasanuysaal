@@ -52,6 +52,8 @@
 		4033E1EE294DEF2200D6ED59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B9241F2946027500DE3C5F /* Assets.xcassets */; };
 		4033E1EF294DEF2600D6ED59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B924212946027500DE3C5F /* LaunchScreen.storyboard */; };
 		4033E1F1294DF66600D6ED59 /* GameDetailViewModelUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033E1F0294DF66600D6ED59 /* GameDetailViewModelUnitTest.swift */; };
+		4047080E294EDD4B0012692B /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047080D294EDD4B0012692B /* FilterButton.swift */; };
+		40470810294EDD560012692B /* SortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4047080F294EDD560012692B /* SortButton.swift */; };
 		404F72E32949A9C1005B08FC /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */; };
 		404F72E52949AB7F005B08FC /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */; };
 		404F72E72949BCD5005B08FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F72E62949BCD5005B08FC /* CoreDataManager.swift */; };
@@ -126,6 +128,8 @@
 		4033E1BA294DBC5C00D6ED59 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		4033E1BD294DEA0000D6ED59 /* GameListViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModelUnitTest.swift; sourceTree = "<group>"; };
 		4033E1F0294DF66600D6ED59 /* GameDetailViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModelUnitTest.swift; sourceTree = "<group>"; };
+		4047080D294EDD4B0012692B /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		4047080F294EDD560012692B /* SortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButton.swift; sourceTree = "<group>"; };
 		404F72E22949A9C1005B08FC /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		404F72E42949AB7F005B08FC /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
 		404F72E62949BCD5005B08FC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -244,6 +248,15 @@
 				40B9248729461E0B00DE3C5F /* GameListCollectionViewCell.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		4047080C294EDD390012692B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				4047080D294EDD4B0012692B /* FilterButton.swift */,
+				4047080F294EDD560012692B /* SortButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		404F72EA2949FD26005B08FC /* TableViewCell */ = {
@@ -405,6 +418,7 @@
 		40B924502946039F00DE3C5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4047080C294EDD390012692B /* Button */,
 				4033E1B9294DBA8000D6ED59 /* CollectionView */,
 				4008FD7F29476E210014264B /* FilterView */,
 			);
@@ -758,6 +772,7 @@
 				40B924142946027300DE3C5F /* AppDelegate.swift in Sources */,
 				4008FD8329476EED0014264B /* GameListFilterView.swift in Sources */,
 				40B9247E29460C3A00DE3C5F /* GameResponseModel.swift in Sources */,
+				4047080E294EDD4B0012692B /* FilterButton.swift in Sources */,
 				4033E1B7294DB1F200D6ED59 /* CustomError.swift in Sources */,
 				408A601029486A97001A1A71 /* GameDetailViewModel.swift in Sources */,
 				4056E1BA294B4E6A006D2E1C /* NoteListTableViewCell.swift in Sources */,
@@ -770,6 +785,7 @@
 				4056E1B4294B42AF006D2E1C /* NoteListViewModel.swift in Sources */,
 				4008FD7C294725E90014264B /* GameCellFooterView.swift in Sources */,
 				408A600E29486795001A1A71 /* GameDetailCollectionViewCell.swift in Sources */,
+				40470810294EDD560012692B /* SortButton.swift in Sources */,
 				4098BB7F2948EC2C0089EA27 /* BaseViewController.swift in Sources */,
 				401CFDAC294CC1A400B249E1 /* Bundle+Extension.swift in Sources */,
 				4056E1BE294B8D02006D2E1C /* FloatingButton.swift in Sources */,

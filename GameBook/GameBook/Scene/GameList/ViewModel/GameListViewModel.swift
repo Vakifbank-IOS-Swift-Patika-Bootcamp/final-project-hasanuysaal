@@ -26,6 +26,7 @@ protocol GameListViewModelProtocol{
     func changeLanguage()
     func getNextPageGame()
     func getPreviousPageGame()
+    func getRightBarButtonImage() -> String
 }
 
 protocol GameListViewModelDelegate: AnyObject{
@@ -102,6 +103,16 @@ final class GameListViewModel: GameListViewModelProtocol{
             }
             self.games = gameResponse?.results
             self.delegate?.gamesLoaded()
+        }
+    }
+    
+    func getRightBarButtonImage() -> String {
+        let languagePrefix = Locale.preferredLanguages[0].split(separator: "-").first
+        
+        if languagePrefix == "tr" {
+            return "🇬🇧"
+        } else {
+            return "🇹🇷"
         }
     }
     
