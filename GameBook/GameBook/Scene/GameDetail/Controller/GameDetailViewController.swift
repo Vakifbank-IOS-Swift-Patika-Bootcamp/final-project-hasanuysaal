@@ -17,6 +17,8 @@ final class GameDetailViewController: BaseViewController {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var genresLabel: UILabel!
     @IBOutlet private weak var metascoreLabel: UILabel!
+    @IBOutlet private weak var genresTitleLabel: UILabel!
+    @IBOutlet private weak var metascoreTitleLabel: UILabel!
     
     @IBOutlet private weak var gameDetailCollectionView: UICollectionView! {
         didSet {
@@ -58,6 +60,18 @@ final class GameDetailViewController: BaseViewController {
         }
         NotificationCenter.default.post(name: NSNotification.Name("favButtonNotification"), object: favorite)
     }
+    
+    func labelTextSetup(){
+        genresTitleLabel.text = NSLocalizedString("Genres", comment: "")
+        metascoreTitleLabel.text = NSLocalizedString("Metascore", comment: "")
+        nameLabel.text = viewModel.game?.name
+        platformLabel.text = viewModel.getPlatformNames()
+        descriptionLabel.text = viewModel.game?.description.trimHTMLTags()
+        playtimeLabel.text = NSLocalizedString("AVERAGE PLAYTIME : ", comment: "") + String(viewModel.getGamePlaytime())
+        releaseLabel.text = viewModel.game?.released
+        genresLabel.text = viewModel.game?.genres.genresToString
+        metascoreLabel.text = String(viewModel.getGameMetacritic())
+    }
 }
 
 extension GameDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -86,15 +100,5 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         showAlert(message: error.localizedDescription) {
             self.navigationController?.popToRootViewController(animated: true)
         }
-    }
-    
-    func labelTextSetup(){
-        nameLabel.text = viewModel.game?.name
-        platformLabel.text = viewModel.getPlatformNames()
-        descriptionLabel.text = viewModel.game?.description.trimHTMLTags()
-        playtimeLabel.text = NSLocalizedString("AVERAGE PLAYTIME : ", comment: "") + String(viewModel.getGamePlaytime())
-        releaseLabel.text = viewModel.game?.released
-        genresLabel.text = viewModel.game?.genres.genresToString
-        metascoreLabel.text = String(viewModel.getGameMetacritic())
     }
 }
