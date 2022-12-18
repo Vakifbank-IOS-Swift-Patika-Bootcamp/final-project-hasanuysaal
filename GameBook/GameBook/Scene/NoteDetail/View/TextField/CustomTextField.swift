@@ -19,7 +19,7 @@ final class CustomTextField: UITextField {
         configure()
     }
     
-    func configure() {
+    private func configure() {
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemRed.cgColor
         layer.cornerRadius = 10
@@ -30,7 +30,7 @@ final class CustomTextField: UITextField {
         setButtonToRightView()
     }
     
-    func setButtonToRightView(){
+    private func setButtonToRightView(){
         let button = UIButton()
         var configuration = UIButton.Configuration.bordered()
         configuration.image = UIImage(systemName: "magnifyingglass")
@@ -41,7 +41,7 @@ final class CustomTextField: UITextField {
         self.rightView = button
     }
     
-    @objc func searchTapped() {
+    @objc private func searchTapped() {
         NotificationCenter.default.post(name: NSNotification.Name("gameNameSearchTapped"), object: nil)
     }
 }

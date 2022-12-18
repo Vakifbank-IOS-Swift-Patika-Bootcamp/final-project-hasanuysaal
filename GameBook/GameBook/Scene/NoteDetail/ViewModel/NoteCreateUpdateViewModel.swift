@@ -12,8 +12,6 @@ protocol NoteCreateUpdateViewModelProtocol {
     var delegate: NoteCreateUpdateViewModelDelegate? { get set }
     var validationdelegate: NoteValidationDelegate? { get set }
     var noteGameNameDelegate: NoteGameNameDelegate? {get set}
-    func createNote(image: Data, gameName: String, noteText: String)
-    func updateNote(note: Note, image: Data, gameName: String, noteText: String)
     func validateNote(isUpdate: Bool, image: Data?, gameName: String?, noteText: String?, note: Note?)
     func isUpdateNote(note: Note?) -> Bool
     func setForms(note: Note, imageView: UIImageView, gameName: UITextField, noteText: UITextView)
@@ -40,9 +38,9 @@ final class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
     var validationdelegate: NoteValidationDelegate?
     var delegate: NoteCreateUpdateViewModelDelegate?
     var noteGameNameDelegate: NoteGameNameDelegate?
-    var games: [SearchedGameModel]?
+    private var games: [SearchedGameModel]?
     
-    func createNote(image: Data, gameName: String, noteText: String) {
+    private func createNote(image: Data, gameName: String, noteText: String) {
         if CoreDataManager.shared.saveNote(image: image, gameName: gameName, noteText: noteText) != nil {
             delegate?.noteSuccess()
         } else {
@@ -50,7 +48,7 @@ final class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
         }
     }
     
-    func updateNote(note: Note, image: Data, gameName: String, noteText: String) {
+    private func updateNote(note: Note, image: Data, gameName: String, noteText: String) {
         if CoreDataManager.shared.updateNote(image: image, gameName: gameName, noteText: noteText, note: note) != nil {
             delegate?.noteSuccess()
         } else {

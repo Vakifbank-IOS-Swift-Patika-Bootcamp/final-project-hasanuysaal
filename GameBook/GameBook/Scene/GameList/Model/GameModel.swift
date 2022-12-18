@@ -7,16 +7,7 @@
 
 import Foundation
 
-struct GameModel: Decodable, Equatable {
-    
-    static func == (lhs: GameModel, rhs: GameModel) -> Bool {
-        if lhs.name == rhs.name && lhs.id == rhs.id && lhs.genres == rhs.genres && lhs.image == rhs.image && lhs.rating == rhs.rating && lhs.released == rhs.released {
-            return true
-        } else {
-            return false
-        }
-    }
-    
+struct GameModel: Decodable {
     let id: Int
     let name: String
     let released: String
@@ -31,5 +22,15 @@ struct GameModel: Decodable, Equatable {
         case image = "background_image"
         case rating
         case genres
+    }
+}
+
+extension GameModel: Equatable {
+    static func == (lhs: GameModel, rhs: GameModel) -> Bool {
+        if lhs.name == rhs.name && lhs.id == rhs.id && lhs.genres == rhs.genres && lhs.image == rhs.image && lhs.rating == rhs.rating && lhs.released == rhs.released {
+            return true
+        } else {
+            return false
+        }
     }
 }

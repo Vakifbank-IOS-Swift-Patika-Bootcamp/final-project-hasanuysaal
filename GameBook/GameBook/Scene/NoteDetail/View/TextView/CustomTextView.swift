@@ -19,7 +19,7 @@ final class CustomTextView: UITextView {
         configure()
     }
     
-    func configure(){
+    private func configure(){
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemRed.cgColor
         layer.cornerRadius = 10

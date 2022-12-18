@@ -23,21 +23,21 @@ final class FavoriteListViewController: BaseViewController {
         indicator.startAnimating()
     }
     
-    func notificationCenterSetup(){
+    private func notificationCenterSetup(){
         NotificationCenter.default.addObserver(self, selector: #selector(favChanged), name: NSNotification.Name("favButtonNotification"), object: nil)
     }
     
-    func tableViewSetup(){
+    private func tableViewSetup(){
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
         tableViewRegister()
     }
     
-    func tableViewRegister(){
+    private func tableViewRegister(){
         favoriteListTableView.register(UINib(nibName: "FavoriteListTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoriteListCell")
     }
     
-    func gameNotFoundAlertShow(){
+    private func gameNotFoundAlertShow(){
         DispatchQueue.main.async {
             if self.viewModel.getIdsFromDB().isEmpty {
                 self.showAlert(message: CustomError.favoriteGameNotFound.localizedDescription) {
@@ -52,7 +52,7 @@ final class FavoriteListViewController: BaseViewController {
         gameNotFoundAlertShow()
     }
     
-    @objc func favChanged() {
+    @objc private func favChanged() {
         viewModel.getFavoriteGames()
     }
 }

@@ -30,23 +30,23 @@ final class GameListFilterView: UIView {
         customInit()
     }
     
-    func setLabelsText(){
+    private func setLabelsText(){
         upcomingGamesLabel.text = NSLocalizedString("Upcoming Games", comment: "")
         popularGamesLabel.text = NSLocalizedString("Popular Games", comment: "")
     }
     
-    func setTapGestureRecoginzers() {
+    private func setTapGestureRecoginzers() {
         setUpcomingLabelGestureRecognizer()
         setPopularLabelGestureRecognizer()
     }
     
-    func setUpcomingLabelGestureRecognizer(){
+    private func setUpcomingLabelGestureRecognizer(){
         upcomingGamesLabel.isUserInteractionEnabled = true
         let upComGameTapGr = UITapGestureRecognizer(target: self, action: #selector(upcomingGamesLabelTapped))
         upcomingGamesLabel.addGestureRecognizer(upComGameTapGr)
     }
     
-    func setPopularLabelGestureRecognizer(){
+    private func setPopularLabelGestureRecognizer(){
         popularGamesLabel.isUserInteractionEnabled = true
         let popGameTapGr = UITapGestureRecognizer(target: self, action: #selector(popularGamesLabelTapped))
         popularGamesLabel.addGestureRecognizer(popGameTapGr)
@@ -65,19 +65,19 @@ final class GameListFilterView: UIView {
         
     }
     
-    func setBorder(){
+    private func setBorder(){
         let border = CALayer()
         border.backgroundColor = UIColor.darkGray.cgColor
         border.frame = CGRect(x:0,y: 0, width:self.frame.size.width, height:1)
         self.layer.addSublayer(border)
     }
     
-    @objc func upcomingGamesLabelTapped() {
+    @objc private  func upcomingGamesLabelTapped() {
         self.delegate?.getUpcomingGames()
         self.removeFromSuperview()
     }
     
-    @objc func popularGamesLabelTapped() {
+    @objc private func popularGamesLabelTapped() {
         self.delegate?.getPopularGames()
         self.removeFromSuperview()
     }

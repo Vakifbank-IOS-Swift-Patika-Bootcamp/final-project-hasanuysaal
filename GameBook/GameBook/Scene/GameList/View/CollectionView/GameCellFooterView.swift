@@ -23,10 +23,10 @@ final class GameCellFooterView: UICollectionReusableView, GameCellFooterViewProt
     
     weak var delegate: GameCellFooterViewDelegate?
     
-    @IBAction func previousButtonPressed(_ sender: Any) {
+    @IBAction private func previousButtonPressed(_ sender: Any) {
         delegate?.previousButton()
     }
-    @IBAction func nextButtonPressed(_ sender: Any) {
+    @IBAction private func nextButtonPressed(_ sender: Any) {
         delegate?.nextButton()
     }
 }

@@ -28,9 +28,9 @@ final class GameDetailViewController: BaseViewController {
     }
     
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
+    private var favorite: Favorite?
     var id: Int?
-    var favorite: Favorite?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -40,16 +40,16 @@ final class GameDetailViewController: BaseViewController {
         favorite = viewModel.getFavoriteModel(id: id)
     }
     
-    func rightBarButtonItemSetup(name: String){
+    private func rightBarButtonItemSetup(name: String){
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: name), style: .plain, target: self, action: #selector(favoriteTapped))
     }
     
-    func navigationBarSetup(){
+    private func navigationBarSetup(){
         rightBarButtonItemSetup(name: "heart")
         setNavBarTitle(view: self, title: "Game Detail")
     }
     
-    @objc func favoriteTapped(){
+    @objc private func favoriteTapped(){
         if favorite != nil {
             CoreDataManager.shared.deleteFavoriteId(favorite: favorite!)
             rightBarButtonItemSetup(name: FavoriteButtonStyle.notFavorite.rawValue)
@@ -61,7 +61,7 @@ final class GameDetailViewController: BaseViewController {
         NotificationCenter.default.post(name: NSNotification.Name("favButtonNotification"), object: favorite)
     }
     
-    func labelTextSetup(){
+    private func labelTextSetup(){
         genresTitleLabel.text = NSLocalizedString("Genres", comment: "")
         metascoreTitleLabel.text = NSLocalizedString("Metascore", comment: "")
         nameLabel.text = viewModel.game?.name

@@ -24,15 +24,15 @@ final class NoteListViewController: BaseViewController {
         addSubviews()
     }
     
-    func addTargetToButton() {
+    private func addTargetToButton() {
         floatingButton.addTarget(self, action: #selector(floatingButtonTapped), for: .touchUpInside)
     }
     
-    func addSubviews(){
+    private func addSubviews(){
         view.addSubview(floatingButton)
     }
     
-    @objc func floatingButtonTapped(){
+    @objc private func floatingButtonTapped(){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "toNoteCreateUpdateView") as? NoteCreateUpdateViewController else {
             return
         }
@@ -40,11 +40,11 @@ final class NoteListViewController: BaseViewController {
         self.present(vc, animated: true)
     }
     
-    func tableViewCellRegister() {
+    private func tableViewCellRegister() {
         noteListTableView.register(UINib(nibName: "NoteListTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteListCell")
     }
     
-    func tableViewSetup() {
+    private func tableViewSetup() {
         noteListTableView.delegate = self
         noteListTableView.dataSource = self
         tableViewCellRegister()

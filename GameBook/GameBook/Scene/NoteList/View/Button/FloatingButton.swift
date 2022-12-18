@@ -19,7 +19,7 @@ final class FloatingButton: UIButton {
         buttonSetup()
     }
     
-    func buttonSetup(){
+    private func buttonSetup(){
         self.frame = CGRect(x: UIScreen.main.bounds.width * 0.8 , y: UIScreen.main.bounds.height * 0.7, width: 50, height: 50)
         let image = UIImage(systemName: "plus")?.withTintColor(.white, renderingMode: .alwaysOriginal)
         self.setImage(image, for: .normal)

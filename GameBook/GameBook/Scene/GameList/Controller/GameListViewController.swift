@@ -29,41 +29,41 @@ final class GameListViewController: BaseViewController {
         SDImageCache.shared.config.maxMemoryCost = 1000000 * 20 // 20 MB
     }
     
-    func navBarSetup() {
+    private func navBarSetup() {
         rightBarButtonItemSetup()
         searchBarSetup()
     }
     
-    func rightBarButtonItemSetup() {
+    private func rightBarButtonItemSetup() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.getRightBarButtonImage(), style: .done, target: self, action: #selector(langChangeButton))
     }
     
-    @objc func langChangeButton() {
+    @objc private func langChangeButton() {
         viewModel.changeLanguage()
     }
     
-    func filterViewSetup() {
+    private func filterViewSetup() {
         filterView = GameListFilterView(frame: CGRect(origin: CGPoint(x: 16, y: 30), size: CGSize(width: view.center.x - 16, height: 100)))
         filterView.delegate = self
     }
     
-    func searchBarSetup() {
+    private func searchBarSetup() {
         search.searchResultsUpdater = self
         navigationItem.searchController = search
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([.foregroundColor : UIColor.systemRed], for: .normal)
     }
     
-    func collectionViewSetup() {
+    private func collectionViewSetup() {
         gameListCollectionView.dataSource = self
         gameListCollectionView.delegate = self
     }
     
-    func scrollToTopOfCollectionView() {
+    private func scrollToTopOfCollectionView() {
         let topOffest = CGPoint(x: 0, y: -(gameListCollectionView.contentInset.top))
         gameListCollectionView.setContentOffset(topOffest, animated: true)
     }
     
-    @IBAction func filterButtonPressed(_ sender: Any) {
+    @IBAction private func filterButtonPressed(_ sender: Any) {
         if !viewModel.isFilterShow {
             filterView.alpha = 0
             UIView.animate(withDuration: 1.0) {
@@ -76,7 +76,7 @@ final class GameListViewController: BaseViewController {
         viewModel.isFilterShow.toggle()
     }
     
-    @IBAction func sortButtonPressed(_ sender: Any) {
+    @IBAction private func sortButtonPressed(_ sender: Any) {
         viewModel.sortGames()
         gameListCollectionView.reloadData()
         filterView.removeFromSuperview()

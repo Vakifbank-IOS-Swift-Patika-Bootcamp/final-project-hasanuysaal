@@ -17,8 +17,8 @@ final class NoteCreateUpdateViewController: BaseViewController {
     
     var viewModel: NoteCreateUpdateViewModelProtocol = NoteCreateUpdateViewModel()
     var note: Note?
-    var games: [SearchedGameModel]?
-    var pickerPlaceHolder = NSLocalizedString("Type and click search button.", comment: "")
+    private var games: [SearchedGameModel]?
+    private var pickerPlaceHolder = NSLocalizedString("Type and click search button.", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +27,20 @@ final class NoteCreateUpdateViewController: BaseViewController {
         viewModelDelagateSetup()
         imageViewSetup()
         addGestureRecognizerToView()
-        
+        notificationCenterSetup()
+       
+    }
+    
+    private func notificationCenterSetup() {
         NotificationCenter.default.addObserver(self, selector: #selector(searchGameName), name: NSNotification.Name("gameNameSearchTapped"), object: nil)
     }
     
-    func viewModelDelagateSetup() {
+    private func viewModelDelagateSetup() {
         viewModel.validationdelegate = self
         viewModel.noteGameNameDelegate = self
     }
     
-    func setScreenAppearance() {
+    private func setScreenAppearance() {
         if viewModel.isUpdateNote(note: note) {
             viewModel.setForms(note: note!, imageView: noteImageView, gameName: gameNameTextField, noteText: noteTextView)
             noteButton.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
@@ -46,7 +50,7 @@ final class NoteCreateUpdateViewController: BaseViewController {
         }
     }
     
-    @objc func searchGameName() {
+    @objc private func searchGameName() {
         pickerPlaceHolder = NSLocalizedString("Searching...", comment: "")
         gameNamePickerView.reloadAllComponents()
         guard let text = gameNameTextField.text else {
@@ -55,42 +59,42 @@ final class NoteCreateUpdateViewController: BaseViewController {
         games = viewModel.getGameName(name: text)
     }
     
-    func pickerViewSetup() {
+    private func pickerViewSetup() {
         gameNamePickerView.delegate = self
         gameNamePickerView.dataSource = self
         gameNameTextField.inputView = gameNamePickerView
     }
     
-    func addGestureRecognizerToView(){
+    private func addGestureRecognizerToView(){
         let gR = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(gR)
     }
     
-    @objc func closeKeyboard(){
+    @objc private func closeKeyboard(){
         view.endEditing(true)
     }
     
-    func imageViewSetup() {
+    private func imageViewSetup() {
         noteImageView.isUserInteractionEnabled = true
         addGestureRecognizerToImage()
     }
     
-    func setImageViewPlaceHolder(){
+    private func setImageViewPlaceHolder(){
         noteImageView.image = UIImage(systemName: "plus.viewfinder")
         noteImageView.tintColor = .systemRed
     }
     
-    func addGestureRecognizerToImage() {
+    private func addGestureRecognizerToImage() {
         let gR = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         noteImageView.addGestureRecognizer(gR)
     }
     
-    @objc func imageViewTapped() {
+    @objc private func imageViewTapped() {
         let pickerController = createImagePicker()
         present(pickerController, animated: true, completion: nil)
     }
     
-    func createImagePicker() -> UIImagePickerController {
+    private func createImagePicker() -> UIImagePickerController {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         pickerController.allowsEditing = true
@@ -98,7 +102,7 @@ final class NoteCreateUpdateViewController: BaseViewController {
         return pickerController
     }
     
-    @IBAction func noteButtonPressed(_ sender: Any) {
+    @IBAction private func noteButtonPressed(_ sender: Any) {
         let imageData = noteImageView.image?.jpegData(compressionQuality: 0.5)
         viewModel.validateNote(isUpdate: viewModel.isUpdateNote(note: note), image: imageData, gameName: gameNameTextField.text, noteText: noteTextView.text, note: note)
     }
