@@ -53,7 +53,7 @@
 
 ## Oyun Detayı
 
-- Oyun listesi ekranından tıklanınlan oyunun detayları yeni bir ekranda açılmaktadır. Burada oyunun bulunduğu platformlar, ortalama oyun süresi, oyun açıklaması, oyun türü ve metascore puanı kullanıcıya gösterilmektedir.
+- Oyun listesi ekranından tıklanınlan oyunun detayları yeni bir ekranda açılmaktadır. Burada yatay kaydırılabilir bir şekilde oyunun 2 adet resmi ile birlikte, bulunduğu platformlar, ortalama oyun süresi, oyun açıklaması, oyun türü ve metascore puanı kullanıcıya gösterilmektedir.
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/52783499/208312047-3358fcce-cfab-4755-b0da-040c3fd3397f.gif" alt="drawing" width="275"/></td>  
