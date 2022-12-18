@@ -22,13 +22,13 @@ final class NoteCreateUpdateViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerViewSetup()
+        pickerViewDelegateSetup()
         setScreenAppearance()
         viewModelDelagateSetup()
+        gameNameTextField.delegate = self
         imageViewSetup()
         addGestureRecognizerToView()
         notificationCenterSetup()
-       
     }
     
     private func notificationCenterSetup() {
@@ -50,7 +50,10 @@ final class NoteCreateUpdateViewController: BaseViewController {
         }
     }
     
+    
     @objc private func searchGameName() {
+        gameNameTextField.inputView = gameNamePickerView
+        view.endEditing(true)
         pickerPlaceHolder = NSLocalizedString("Searching...", comment: "")
         gameNamePickerView.reloadAllComponents()
         guard let text = gameNameTextField.text else {
@@ -59,10 +62,9 @@ final class NoteCreateUpdateViewController: BaseViewController {
         games = viewModel.getGameName(name: text)
     }
     
-    private func pickerViewSetup() {
+    private func pickerViewDelegateSetup() {
         gameNamePickerView.delegate = self
         gameNamePickerView.dataSource = self
-        gameNameTextField.inputView = gameNamePickerView
     }
     
     private func addGestureRecognizerToView(){
@@ -156,6 +158,12 @@ extension NoteCreateUpdateViewController: UIPickerViewDelegate, UIPickerViewData
         gameNameTextField.text = games?[row].name ?? ""
         gameNameTextField.resignFirstResponder()
         
+    }
+}
+
+extension NoteCreateUpdateViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+
     }
 }
 
