@@ -51,7 +51,7 @@ final class GameListCollectionViewCell: UICollectionViewCell {
     
     func layerSetup(){
         layer.borderWidth = 1.5
-        layer.borderColor = UIColor.systemRed.cgColor
+        layer.borderColor = UIColor.darkGray.cgColor
         layer.cornerRadius = 20.0
         imageView.layer.cornerRadius = 25.0
     }
