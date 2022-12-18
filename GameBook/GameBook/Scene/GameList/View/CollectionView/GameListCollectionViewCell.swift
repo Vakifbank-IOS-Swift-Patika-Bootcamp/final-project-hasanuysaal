@@ -42,7 +42,7 @@ final class GameListCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(model: GameModel){
-        imageView.sd_setImage(with: URL(string: model.image), placeholderImage: UIImage(named: "gta"))
+        imageView.sd_setImage(with: URL(string: model.image), placeholderImage: UIImage(named: "placeholderImage"))
         nameLabel.text = model.name
         releaseDateLabel.text = model.released
         genresLabel.text = model.genres.genresToString
