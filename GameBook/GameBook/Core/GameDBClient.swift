@@ -17,6 +17,7 @@ class GameDBClient {
         case popularGames
         case upcomeGames
         case gameDetail(Int)
+        case searchGame(String)
         
         var stringValue: String {
             switch self {
@@ -30,7 +31,10 @@ class GameDBClient {
                 return Endpoints.base + "/games" + Constant.API_KEY + "&dates=2023-01-01,2023-12-31&ordering=-added&page=1"
             case .gameDetail(let id):
                 return Endpoints.base + "/games/\(id)" + Constant.API_KEY
+            case .searchGame(let name):
+                return Endpoints.base + "/games" + Constant.API_KEY + "&search=name==\(name)"
             }
+            
         }
         
         var url: URL {
@@ -111,6 +115,17 @@ class GameDBClient {
     
     static func getGameDetail(id: Int,completion: @escaping (GameDetailModel?, Error?) -> Void) {
         taskForGETRequest(url: Endpoints.gameDetail(id).url, responseType: GameDetailModel.self) { response, error in
+            if let response = response {
+                completion(response, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    static func getGameName(name: String,completion: @escaping (SearchedGameBaseResponse?, Error?) -> Void) {
+        taskForGETRequest(url: Endpoints.searchGame(name).url, responseType: SearchedGameBaseResponse.self) { response, error in
+            print(Endpoints.searchGame(name).url)
             if let response = response {
                 completion(response, nil)
             } else {

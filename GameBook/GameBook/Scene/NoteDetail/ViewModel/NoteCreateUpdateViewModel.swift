@@ -11,11 +11,13 @@ import UIKit
 protocol NoteCreateUpdateViewModelProtocol {
     var delegate: NoteCreateUpdateViewModelDelegate? { get set }
     var validationdelegate: NoteValidationDelegate? { get set }
+    var noteGameNameDelegate: NoteGameNameDelegate? {get set}
     func createNote(image: Data, gameName: String, noteText: String)
     func updateNote(note: Note, image: Data, gameName: String, noteText: String)
     func validateNote(isUpdate: Bool, image: Data?, gameName: String?, noteText: String?, note: Note?)
     func isUpdateNote(note: Note?) -> Bool
     func setForms(note: Note, imageView: UIImageView, gameName: UITextField, noteText: UITextView)
+    func getGameName(name: String) -> [SearchedGameModel]?
 }
 
 protocol NoteCreateUpdateViewModelDelegate: AnyObject {
@@ -28,10 +30,17 @@ protocol NoteValidationDelegate: AnyObject {
     func noteNotValid(error: Error)
 }
 
+protocol NoteGameNameDelegate: AnyObject {
+    func gameLoaded()
+    func gameFailed()
+}
+
 final class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
     
     var validationdelegate: NoteValidationDelegate?
     var delegate: NoteCreateUpdateViewModelDelegate?
+    var noteGameNameDelegate: NoteGameNameDelegate?
+    var games: [SearchedGameModel]?
     
     func createNote(image: Data, gameName: String, noteText: String) {
         if CoreDataManager.shared.saveNote(image: image, gameName: gameName, noteText: noteText) != nil {
@@ -90,5 +99,24 @@ final class NoteCreateUpdateViewModel: NoteCreateUpdateViewModelProtocol {
         } else {
             return false
         }
+    }
+    
+    func setNameToSearchName(name: String) -> String {
+        name.lowercased().replacingOccurrences(of: " ", with: "%20")
+    }
+    
+    func getGameName(name: String) -> [SearchedGameModel]? {
+        GameDBClient.getGameName(name: setNameToSearchName(name: name)) { [weak self] gameResponse, error in
+            guard let self = self else {
+                return
+            }
+            self.games = gameResponse?.results
+            self.noteGameNameDelegate?.gameLoaded()
+            
+            if self.games == nil {
+                self.noteGameNameDelegate?.gameFailed()
+            }
+        }
+        return self.games
     }
 }

@@ -27,9 +27,21 @@ final class CustomTextField: UITextField {
         self.textColor = .white
         self.tintColor = .systemRed
         layer.masksToBounds = true
-        self.attributedPlaceholder = NSAttributedString(
-            string: "Game Name",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
-        )
+        setButtonToRightView()
+    }
+    
+    func setButtonToRightView(){
+        let button = UIButton()
+        var configuration = UIButton.Configuration.bordered()
+        configuration.image = UIImage(systemName: "magnifyingglass")
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -16 , bottom: 0, trailing: 0)
+        button.configuration = configuration
+        button.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
+        self.rightViewMode = .always
+        self.rightView = button
+    }
+    
+    @objc func searchTapped() {
+        NotificationCenter.default.post(name: NSNotification.Name("gameNameSearchTapped"), object: nil)
     }
 }

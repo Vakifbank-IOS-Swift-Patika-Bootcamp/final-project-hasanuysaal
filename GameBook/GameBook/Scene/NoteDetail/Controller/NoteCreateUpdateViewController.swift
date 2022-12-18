@@ -13,13 +13,30 @@ final class NoteCreateUpdateViewController: BaseViewController {
     @IBOutlet private weak var gameNameTextField: CustomTextField!
     @IBOutlet private weak var noteTextView: CustomTextView!
     @IBOutlet private weak var noteButton: UIButton!
+    private var gameNamePickerView = UIPickerView()
     
     var viewModel: NoteCreateUpdateViewModelProtocol = NoteCreateUpdateViewModel()
     var note: Note?
+    var games: [SearchedGameModel]?
+    var pickerPlaceHolder = NSLocalizedString("Type and click search button.", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerViewSetup()
+        setScreenAppearance()
+        viewModelDelagateSetup()
+        imageViewSetup()
+        addGestureRecognizerToView()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(searchGameName), name: NSNotification.Name("gameNameSearchTapped"), object: nil)
+    }
+    
+    func viewModelDelagateSetup() {
+        viewModel.validationdelegate = self
+        viewModel.noteGameNameDelegate = self
+    }
+    
+    func setScreenAppearance() {
         if viewModel.isUpdateNote(note: note) {
             viewModel.setForms(note: note!, imageView: noteImageView, gameName: gameNameTextField, noteText: noteTextView)
             noteButton.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
@@ -27,12 +44,23 @@ final class NoteCreateUpdateViewController: BaseViewController {
             noteButton.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
             setImageViewPlaceHolder()
         }
-        
-        viewModel.validationdelegate = self
-        imageViewSetup()
-        addGestureRecognizerToView()
     }
-
+    
+    @objc func searchGameName() {
+        pickerPlaceHolder = NSLocalizedString("Searching...", comment: "")
+        gameNamePickerView.reloadAllComponents()
+        guard let text = gameNameTextField.text else {
+            return
+        }
+        games = viewModel.getGameName(name: text)
+    }
+    
+    func pickerViewSetup() {
+        gameNamePickerView.delegate = self
+        gameNamePickerView.dataSource = self
+        gameNameTextField.inputView = gameNamePickerView
+    }
+    
     func addGestureRecognizerToView(){
         let gR = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(gR)
@@ -96,5 +124,35 @@ extension NoteCreateUpdateViewController: NoteValidationDelegate {
     }
 }
 
+extension NoteCreateUpdateViewController: NoteGameNameDelegate {
+    func gameLoaded() {
+        gameNamePickerView.reloadAllComponents()
+    }
+    
+    func gameFailed() {
+        pickerPlaceHolder = NSLocalizedString("Game not found.", comment: "")
+    }
+}
+
+extension NoteCreateUpdateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        games?.count ?? 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        games?[row].name ?? pickerPlaceHolder
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        gameNameTextField.text = games?[row].name ?? ""
+        gameNameTextField.resignFirstResponder()
+        
+    }
+}
 
 
